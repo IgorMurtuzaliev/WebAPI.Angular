@@ -1,0 +1,54 @@
+<div>
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="height:80vh">
+            <div class="col-4">
+                <h4 style="text-align:center">Register new user:</h4>
+                <div class="card">
+                    <div class="card-body">                           
+                        <form [formGroup]="service.formModel">
+                            <div class="form-group required">
+                                <label>Name</label>
+                                <input class="form-control" formControlName="Name">
+                                <label class="text-danger" *ngIf="service.formModel.get('Name').touched &&service.formModel.get('Name').errors?.required">The field is empty</label> 
+                            </div>
+                                <div class="form-group required">
+                                    <label>Last name</label>
+                                    <input class="form-control" formControlName="LastName">
+                                    <label class="text-danger" *ngIf="service.formModel.get('LastName').touched &&service.formModel.get('LastName').errors?.required">The field is empty</label> 
+                                </div>
+                                <div class="form-group required">
+                                    <label>Email</label>
+                                    <input class="form-control" formControlName="Email">
+                                    <label class="text-danger" *ngIf="service.formModel.get('Email').touched &&service.formModel.get('Email').errors?.required">The field is empty</label> 
+                                    <label class="text-danger" *ngIf="service.formModel.get('Email').touched &&service.formModel.get('Email').errors?.email">Invalid email adress</label> 
+                                </div>
+                                <div formGroupName = "Passwords">
+                                <div class="form-group required">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" formControlName="Password">
+                                    <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched &&service.formModel.get('Passwords.Password').errors?.required">The field is empty</label> 
+                                    <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched &&service.formModel.get('Passwords.Password').errors?.minlength">Too little password</label> 
+                                    
+                                </div>
+                                <div class="form-group required">
+                                    <label>Confirm password</label>
+                                    <input type="password" class="form-control" formControlName="PasswordConfirmed">
+                                    <label class="text-danger" *ngIf="service.formModel.get('Passwords.PasswordConfirmed').touched &&service.formModel.get('Passwords.PasswordConfirmed').errors?.required">The field is empty</label> 
+                                    <label class="text-danger" *ngIf="service.formModel.get('Passwords.PasswordConfirmed').touched &&service.formModel.get('Passwords.PasswordConfirmed').errors?.passwordMismatch">Input the same password</label> 
+                                </div> 
+                                <div class="form-row">
+                                    <div class="form-group col-md-8 offset-md-2">
+                                        <button type="submit" class="btn btn-lg btn-block" [disabled]="!service.formM.valid">
+                                            Sign in
+                                        </button>
+                                    </div>     
+                                </div>                                    
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>           
+        </div>
+    </div>
+</div>
+    
