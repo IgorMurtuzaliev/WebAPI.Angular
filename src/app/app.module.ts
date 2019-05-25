@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './account/register/register.component';
 
-import { RegisterService } from './shared/register.service';
+import { RegisterService } from './account//shared/register.service';
 import{HttpClientModule}from "@angular/common/http";
 import { LoginComponent } from './account/login/login.component'
 @NgModule({
