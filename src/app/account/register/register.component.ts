@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RegisterService } from 'src/app/shared/register.service';
+import { RegisterService } from 'src/app/account/shared/register.service';
 
 @Component({
   selector: 'app-register',
