@@ -5,7 +5,7 @@
                 <h4 style="text-align:center">Register new user:</h4>
                 <div class="card">
                     <div class="card-body">                           
-                        <form [formGroup]="service.formModel" autocomplete="off">
+                        <form [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit">
                             <div class="form-group required">
                                 <label>Name</label>
                                 <input class="form-control" formControlName="Name">
@@ -25,14 +25,14 @@
                                 <div formGroupName = "Passwords">
                                 <div class="form-group required">
                                     <label>Password</label>
-                                    <input type="password" class="form-control" formControlName="Password">
+                                    <input type="password" class="form-control" formControlName="Password" autocomplete="off">
                                     <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.required">The field is empty</label> 
                                     <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.minlength">Too little password</label> 
                                     
                                 </div>
                                 <div class="form-group required">
                                     <label>Confirm password</label>
-                                    <input type="password" class="form-control" formControlName="PasswordConfirm"> 
+                                    <input type="password" class="form-control" formControlName="PasswordConfirm" autocomplete="off"> 
                                     <label class="text-danger" *ngIf="service.formModel.get('Passwords.PasswordConfirm').touched && service.formModel.get('Passwords.PasswordConfirm').errors?.required">The field is empty</label> 
                                     <label class="text-danger" *ngIf="service.formModel.get('Passwords.PasswordConfirm').touched && service.formModel.get('Passwords.PasswordConfirm').errors?.passwordMismatch">Input the same password</label> 
                                 </div> 

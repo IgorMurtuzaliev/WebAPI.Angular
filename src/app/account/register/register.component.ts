@@ -13,5 +13,18 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.service.formModel.reset();
   }
-
+ onSubmit()
+ {
+   this.service.register().subscribe
+   (
+    (res:any)=>{
+      if(res.succeded){
+        this.service.formModel.reset();
+      }
+    },
+    err=>{
+      console.log(err);
+         }
+   );
+ }
 }
