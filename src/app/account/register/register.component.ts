@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RegisterServiceService } from 'src/app/shared/register-service.service';
+import { RegisterService } from 'src/app/shared/register.service';
 
 @Component({
   selector: 'app-register',
@@ -8,7 +8,7 @@ import { RegisterServiceService } from 'src/app/shared/register-service.service'
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(public service: RegisterServiceService) { }
+  constructor(public service: RegisterService) { }
 
   ngOnInit() {
     this.service.formModel.reset();

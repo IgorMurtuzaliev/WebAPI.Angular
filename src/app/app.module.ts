@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {ReactiveFormsModule} from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './account/register/register.component';
-import {ReactiveFormsModule} from "@angular/forms";
-import { RegisterServiceService } from './shared/register-service.service';
+
+import { RegisterService } from './shared/register.service';
 import{HttpClientModule}from "@angular/common/http"
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import{HttpClientModule}from "@angular/common/http"
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [RegisterServiceService],
-  bootstrap: [AppComponent]
+  providers: [RegisterService],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
