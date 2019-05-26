@@ -34,8 +34,10 @@ export class RegisterService {
       Password: this.formModel.value.Passwords.Password,
       PasswordConfirm: this.formModel.value.Passwords.PasswordConfirm,
     };
-    return this.http.post('https://localhost:44357/api/account/register', body);
+    return this.http.post('https://localhost:44334/api/account/register', body);
   }
-
+login(formData){
+  return this.http.post('https://localhost:44334/api/account/login', formData);
+}
   
 }
