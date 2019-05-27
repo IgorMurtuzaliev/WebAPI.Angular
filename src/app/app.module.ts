@@ -8,12 +8,14 @@ import { RegisterComponent } from './account/register/register.component';
 import { RegisterService } from 'src/app/account///shared/register.service';
 import{HttpClientModule}from "@angular/common/http";
 import { LoginComponent } from './account/login/login.component';
+import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component'
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
+    HeaderComponent,
     HomeComponent
   ],
   imports: [

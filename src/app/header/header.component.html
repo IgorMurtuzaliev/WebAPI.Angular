@@ -1,0 +1,4 @@
+<nav class="navbar navbar-dark bg-primary">
+  <button *ngIf='sharedService.isLogged()' class="btn btn-dark my-2 my-sm-0"(click)="onLogout()">Logout</button>
+  <button *ngIf='!sharedService.isLogged()' class="btn btn-dark my-2 my-sm-0"(click)="onLogIn()">Login</button>
+</nav>

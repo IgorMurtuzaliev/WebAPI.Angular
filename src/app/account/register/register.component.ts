@@ -1,25 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterService } from 'src/app/account/shared/register.service';
-
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styles: []
 })
 export class RegisterComponent implements OnInit {
-
-  constructor(public service: RegisterService) { }
+  formModel: FormGroup;
+  constructor(public service: RegisterService, private fb:FormBuilder) {
+      this.formModel = this.fb.group({
+      Name :['',Validators.required],
+      LastName :['',Validators.required],
+      Email :['',[Validators.required, Validators.email]],
+      Passwords:this.fb.group({
+      Password :['',[Validators.required, Validators.minLength(6)]],
+      PasswordConfirm :['',Validators.required]
+      }, {validator: this.service.comparePasswords(this.formModel)})  
+    });
+   }
 
   ngOnInit() {
-    this.service.formModel.reset();
+    this.formModel.reset();
   }
  onSubmit()
  {
-   this.service.register().subscribe
+   this.service.register(this.formModel).subscribe
    (
     (res:any)=>{
       if(res.succeded){
-        this.service.formModel.reset();
+        this.formModel.reset();
       }
     },
     err=>{
