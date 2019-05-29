@@ -11,8 +11,9 @@ export class RegisterComponent implements OnInit {
   constructor(public service: RegisterService, private fb:FormBuilder) {
       this.formModel = this.fb.group({
       Name :['',Validators.required],
-      LastName :['',Validators.required],
+      Surname :['',Validators.required],
       Email :['',[Validators.required, Validators.email]],
+      Phone :['',Validators.required],
       Passwords:this.fb.group({
       Password :['',[Validators.required, Validators.minLength(6)]],
       PasswordConfirm :['',Validators.required]

@@ -5,7 +5,7 @@ import { LoggedService } from '../account/shared/logged.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styles: []
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
   private token:boolean;

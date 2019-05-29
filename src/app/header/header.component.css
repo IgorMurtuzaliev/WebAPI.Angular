@@ -1,0 +1,9 @@
+h2 {
+    font-weight: bold;
+    color: rgb(135, 218, 233);
+    transition: all 1s;
+    }
+    h2:hover {
+      font-weight: bold;
+      color: rgb(246, 248, 248);
+      }

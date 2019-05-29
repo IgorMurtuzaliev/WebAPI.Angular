@@ -30,15 +30,16 @@ export class RegisterService {
   register(formModel){
     var body = {
       Name: formModel.value.Name,
-      LastName: formModel.value.LastName,
+      Surname: formModel.value.Surname,
       Email: formModel.value.Email,
+      Phone: formModel.value.Phone,
       Password: formModel.value.Passwords.Password,
       PasswordConfirm:formModel.value.Passwords.PasswordConfirm,
     };
-    return this.http.post('https://localhost:44334/api/account/register', body);
+    return this.http.post('https://localhost:44331/api/account/register', body);
   }
-login(formData){
-  return this.http.post('https://localhost:44334/api/account/login', formData);
-}
+  login(formData){
+    return this.http.post('https://localhost:44331/api/account/login', formData);
+  }
   
 }
