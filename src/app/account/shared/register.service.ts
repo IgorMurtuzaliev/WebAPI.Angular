@@ -6,7 +6,7 @@ import { DOCUMENT } from '@angular/common';
   providedIn: 'root'
 })
 export class RegisterService {
-
+  externalProviderWindow = null;
   constructor(private fb:FormBuilder, private http:HttpClient,@Inject(DOCUMENT) private document: Document,) { }
   // formModel = this.fb.group({
   //   Name :['',Validators.required],
@@ -42,6 +42,6 @@ export class RegisterService {
     return this.http.post('https://localhost:44331/api/account/login', formData);
   }
   signInWithGoogle() {
-    return this.http.get('https://localhost:44331/api/account/signInWithGoogle');
+  return this.http.get('https://localhost:44331/api/account/signInWithGoogle')
   }
 }

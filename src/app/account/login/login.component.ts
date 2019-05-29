@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styles: []
 })
 export class LoginComponent implements OnInit {
-
+  externalProviderWindow = null;
   formModel={
     Email:'',
     Password:''
@@ -29,14 +29,13 @@ this.service.login(form.value).subscribe(
 );
   }
 
-  callExternalLogin(){
+  callExternalLogin() {
     this.service.signInWithGoogle().subscribe(
       (res:any)=>{
         localStorage.setItem('token', res.token); 
         this.router.navigateByUrl('/home');
       },
-      err=>{console.log(err);}      
+      err=>{console.log(err);}
     );
-  }
-
+}
 }
