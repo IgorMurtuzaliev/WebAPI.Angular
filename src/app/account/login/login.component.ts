@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   constructor(private service:RegisterService, private router:Router ) { }
 
   ngOnInit() {
+    if(localStorage.getItem('token')!=null) this.router.navigateByUrl('/home')
   }
 
   onSubmit(form: NgForm){
@@ -28,14 +29,4 @@ this.service.login(form.value).subscribe(
   err=>{console.log(err);}
 );
   }
-
-  callExternalLogin() {
-    this.service.signInWithGoogle().subscribe(
-      (res:any)=>{
-        localStorage.setItem('token', res.token); 
-        this.router.navigateByUrl('/home');
-      },
-      err=>{console.log(err);}
-    );
-}
 }
