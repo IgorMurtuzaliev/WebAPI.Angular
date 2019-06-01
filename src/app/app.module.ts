@@ -9,14 +9,20 @@ import { RegisterService } from 'src/app/account///shared/register.service';
 import{HttpClientModule}from "@angular/common/http";
 import { LoginComponent } from './account/login/login.component';
 import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component'
+import { HomeComponent } from './home/home.component';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
+import { MainComponent } from './main/main.component';
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +30,10 @@ import { HomeComponent } from './home/home.component'
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    CommonModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [RegisterService],
   bootstrap: [AppComponent],
