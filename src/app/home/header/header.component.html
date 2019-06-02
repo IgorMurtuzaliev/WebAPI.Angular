@@ -1,0 +1,7 @@
+<nav class="navbar navbar-dark bg-primary">
+    <img src="assets/img/logoHome.png" style="width: 150px">
+
+  <div class="btn-group" role="group" aria-label="Basic example">
+  <button *ngIf='sharedService.isLogged()' class="btn btn-dark my-2 my-sm-0"(click)="onLogout()">Logout</button>
+  </div>
+</nav>

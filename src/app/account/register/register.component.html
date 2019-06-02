@@ -1,57 +1,58 @@
 <div>
     <div class="container">
-        <div class="row justify-content-center align-items-center" style="height:80vh">
+        <div class="row mt-5 justify-content-center align-items-center" style="height:80vh">
             <div class="col-4">
-                <h4 style="text-align:center">Register new user:</h4>
+                <h4 style="text-align:center">REGISTER NEW USER:</h4>
                 <div class="card">
                     <div class="card-body">                           
-                        <form [formGroup]="formModel" autocomplete="off" (submit)="onSubmit()">
+                        <form [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit()">
                             <div class="form-group required">
                                 <label>Name</label>
                                 <input class="form-control" formControlName="Name" placeholder="Jon">
-                                <label class="text-danger" *ngIf="formModel.get('Name').touched && formModel.get('Name').errors?.required">The field is empty</label> 
+                                <label class="text-danger" *ngIf="service.formModel.get('Name').touched && service.formModel.get('Name').errors?.required">The field is empty</label> 
                             </div>
                                 <div class="form-group required">
                                     <label>Surname</label>
                                     <input class="form-control" formControlName="Surname" placeholder="Doe">
-                                    <label class="text-danger" *ngIf="formModel.get('Surname').touched && formModel.get('Surname').errors?.required">The field is empty</label> 
+                                    <label class="text-danger" *ngIf="service.formModel.get('Surname').touched && service.formModel.get('Surname').errors?.required">The field is empty</label> 
                                 </div>
                                 <div class="form-group required">
                                     <label>Email</label>
-                                    <input class="form-control" formControlName="Email" placeholder="jondoe58@mail.runpm install ngx-toastr --save">
-                                    <label class="text-danger" *ngIf="formModel.get('Email').touched && formModel.get('Email').errors?.required">The field is empty</label> 
-                                    <label class="text-danger" *ngIf="formModel.get('Email').touched && formModel.get('Email').errors?.email">Invalid email adress</label> 
+                                    <input class="form-control" formControlName="Email" placeholder="jondoe58@mail.ru">
+                                    <label class="text-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.required">The field is empty</label> 
+                                    <label class="text-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">Invalid email adress</label> 
                                 </div>
                                 <div class="form-group required">
                                     <label>Phone number</label>
                                     <input class="form-control" formControlName="Phone" mask="(00) 000-00-00" prefix="+375" [showMaskTyped] = "false">
-                                    <label class="text-danger" *ngIf="formModel.get('Phone').touched && formModel.get('Phone').errors?.required">The field is empty</label> 
+                                    <label class="text-danger" *ngIf="service.formModel.get('Phone').touched && service.formModel.get('Phone').errors?.required">The field is empty</label> 
                                 </div>
                                 <div formGroupName = "Passwords">
                                 <div class="form-group required">
                                     <label>Password</label>
                                     <input type="password" class="form-control" formControlName="Password" autocomplete="off">
-                                    <label class="text-danger" *ngIf="formModel.get('Passwords.Password').touched && formModel.get('Passwords.Password').errors?.required">The field is empty</label> 
-                                    <label class="text-danger" *ngIf="formModel.get('Passwords.Password').touched && formModel.get('Passwords.Password').errors?.minlength">Too little password</label> 
+                                    <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.required">The field is empty</label> 
+                                    <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.minlength">Too little password</label> 
                                     
                                 </div>
                                 <div class="form-group required">
                                     <label>Confirm password</label>
                                     <input type="password" class="form-control" formControlName="PasswordConfirm" autocomplete="off"> 
-                                    <label class="text-danger" *ngIf="formModel.get('Passwords.PasswordConfirm').touched && formModel.get('Passwords.PasswordConfirm').errors?.required">The field is empty</label> 
-                                    <label class="text-danger" *ngIf="formModel.get('Passwords.PasswordConfirm').touched && formModel.get('Passwords.PasswordConfirm').errors?.passwordMismatch">Input the same password</label> 
+                                    <label class="text-danger" *ngIf="service.formModel.get('Passwords.PasswordConfirm').touched && service.formModel.get('Passwords.PasswordConfirm').errors?.required">The field is empty</label> 
+                                    <label class="text-danger" *ngIf="service.formModel.get('Passwords.PasswordConfirm').touched && service.formModel.get('Passwords.PasswordConfirm').errors?.passwordMismatch">Input the same password</label> 
                                 </div> 
                                 <div class="form-row">
                                     <div class="form-group col-md-8 offset-md-2">
-                                        <button type="submit" class="btn btn-lg btn-block" [disabled]="!formModel.valid">
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="!service.formModel.valid">
                                             Sign up
                                         </button>
                                     </div>     
                                 </div>                                    
                             </div>
                         </form>
-                    </div>
-                </div>
+                    </div> 
+                    <a href="/login" class="stretched-link" style="position: relative; text-align: center">Already have an account?</a>
+                </div>            
             </div>           
         </div>
     </div>

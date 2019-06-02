@@ -8,13 +8,13 @@ import {NgxMaskModule} from 'ngx-mask'
 import { RegisterService } from 'src/app/account///shared/register.service';
 import{HttpClientModule}from "@angular/common/http";
 import { LoginComponent } from './account/login/login.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './home/header/header.component';
 import { HomeComponent } from './home/home.component';
-import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { ToastrModule } from 'ngx-toastr';
 import { MainComponent } from './main/main.component';
+import { PanelComponent } from './home/panel/panel.component';
+import { AccountComponent } from './home/main/account/account.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +22,9 @@ import { MainComponent } from './main/main.component';
     LoginComponent,
     HeaderComponent,
     HomeComponent,
-    MainComponent
+    MainComponent,
+    PanelComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,6 @@ import { MainComponent } from './main/main.component';
     HttpClientModule,
     FormsModule,
     NgxMaskModule.forRoot(),
-    CommonModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],

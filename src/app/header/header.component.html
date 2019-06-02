@@ -1,9 +1,0 @@
-<nav class="navbar navbar-dark bg-primary">
-  <a class="navbar-brand text-white"><h2>GoodDay</h2></a>
-
-  <div class="btn-group" role="group" aria-label="Basic example">
-  <button *ngIf='!sharedService.isLogged()' class="btn btn-dark my-2 my-sm-0"(click)="onRegister()">Register</button>
-  <button *ngIf='!sharedService.isLogged()' class="btn btn-dark my-2 my-sm-0"(click)="onLogIn()">Login</button>
-  <button *ngIf='sharedService.isLogged()' class="btn btn-dark my-2 my-sm-0"(click)="onLogout()">Logout</button>
-  </div>
-</nav>

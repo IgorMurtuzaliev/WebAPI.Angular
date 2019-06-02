@@ -6,21 +6,39 @@ import { DOCUMENT } from '@angular/common';
   providedIn: 'root'
 })
 export class RegisterService {
-  externalProviderWindow = null;
   constructor(private fb:FormBuilder, private http:HttpClient,@Inject(DOCUMENT) private document: Document) { }
 
-  comparePasswords(form){
-    console.log(form)
+  formModel = this.fb.group({
+    Name :['',Validators.required],
+    Surname :['',Validators.required],
+    Email :['',[Validators.required, Validators.email]],
+    Phone :['',Validators.required],
+    Passwords:this.fb.group({
+    Password :['',[Validators.required, Validators.minLength(6)]],
+    PasswordConfirm :['',Validators.required]
+    }, {validator: this.comparePasswords})  
+  });
+
+  comparePasswords(fb:FormGroup){
+    let confirmPassword= fb.get('PasswordConfirm');
+    if (confirmPassword.errors==null ||'passwordMismatch'in confirmPassword.errors)
+    {
+      if (fb.get('Password').value!=confirmPassword.value)
+      confirmPassword.setErrors({passwordMismatch:true});
+      else
+      confirmPassword.setErrors(null);
+
+    }
   }
 
-  register(formModel){
+  register(){
     var body = {
-      Name: formModel.value.Name,
-      Surname: formModel.value.Surname,
-      Email: formModel.value.Email,
-      Phone: formModel.value.Phone,
-      Password: formModel.value.Passwords.Password,
-      PasswordConfirm:formModel.value.Passwords.PasswordConfirm,
+      Name: this.formModel.value.Name,
+      Surname: this.formModel.value.Surname,
+      Email: this.formModel.value.Email,
+      Phone: this.formModel.value.Phone,
+      Password: this.formModel.value.Passwords.Password,
+      PasswordConfirm: this.formModel.value.Passwords.PasswordConfirm,
     };
     return this.http.post('https://localhost:44331/api/account/register', body);
   }
