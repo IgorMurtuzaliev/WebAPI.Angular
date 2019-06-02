@@ -12,9 +12,10 @@ import { HeaderComponent } from './home/header/header.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { MainComponent } from './main/main.component';
-import { PanelComponent } from './home/panel/panel.component';
-import { AccountComponent } from './home/main/account/account.component';
+import { PageComponent } from './home/page/page.component';
+import { SidebarComponent } from './home/sidebar/sidebar.component';
+import { ProfileComponent } from './home/page/profile/profile.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,9 +23,9 @@ import { AccountComponent } from './home/main/account/account.component';
     LoginComponent,
     HeaderComponent,
     HomeComponent,
-    MainComponent,
-    PanelComponent,
-    AccountComponent
+    PageComponent,
+    SidebarComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

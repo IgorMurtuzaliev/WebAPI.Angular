@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
           res.errors.forEach(element => {
             switch (element.code) {
               case 'DuplicateUserName':
-               this.toastr.error('This email is already taken!');
+               this.toastr.error('This email is already taken!','Registration failed!');
                 break;
               default:
               this.toastr.error(element.description,'Error!');
