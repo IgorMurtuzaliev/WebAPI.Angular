@@ -15,6 +15,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { PageComponent } from './home/page/page.component';
 import { SidebarComponent } from './home/sidebar/sidebar.component';
 import { ProfileComponent } from './home/page/profile/profile.component';
+import { EditProfileComponent } from './home/page/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ProfileComponent } from './home/page/profile/profile.component';
     PageComponent,
     SidebarComponent,
     ProfileComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,
