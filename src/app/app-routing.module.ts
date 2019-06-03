@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { PageComponent } from './home/page/page.component';
 import { ProfileComponent } from './home/page/profile/profile.component';
 import { EditProfileComponent } from './home/page/edit-profile/edit-profile.component';
+import { SidebarComponent } from './home/sidebar/sidebar.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/register',pathMatch:'full'},
@@ -18,8 +19,7 @@ const routes: Routes = [
         children:[
           { path:'profile', component: ProfileComponent},
           { path:'editProfile', component: EditProfileComponent},
-        ]},
-      {path: 'sidebar', component: PageComponent},
+        ]},   
     ]
   }
 ];

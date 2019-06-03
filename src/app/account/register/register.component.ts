@@ -33,11 +33,14 @@ export class RegisterComponent implements OnInit {
               this.toastr.error(element.description,'Error!');
                 break;
             }
-          });
-          
+          });          
         }
       },
     err=>{
+      if(err.error == 'The phone number is already taken'){
+        this.toastr.error(err.error,'Registration failed!')
+        console.log(err);
+      }
       console.log(err);
          }
    );
