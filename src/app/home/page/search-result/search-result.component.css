@@ -1,0 +1,22 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 450px);
+    grid-row-gap: 20px;
+    grid-column-gap: 10px;
+    width: 90%;
+    margin: 0 auto;
+    list-style: none;
+  }
+  
+  .container>.item {
+    padding: 12px;
+    background-color: rgb(194, 232, 255);
+    align-content:center;
+  }
+  img {
+    object-fit: cover;
+    border-radius:50%;
+    width: 100px;
+    height: 100px;
+
+  }

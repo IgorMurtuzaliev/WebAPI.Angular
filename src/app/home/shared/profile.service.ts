@@ -7,7 +7,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 })
 export class ProfileService {
   
-  constructor(private http:HttpClient,private fb:FormBuilder,) { }
+  constructor(private http:HttpClient,private fb:FormBuilder) { }
   formModel = this.fb.group({
     Name : '',
     Surname : '',

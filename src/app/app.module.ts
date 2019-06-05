@@ -16,6 +16,7 @@ import { PageComponent } from './home/page/page.component';
 import { SidebarComponent } from './home/sidebar/sidebar.component';
 import { ProfileComponent } from './home/page/profile/profile.component';
 import { EditProfileComponent } from './home/page/edit-profile/edit-profile.component';
+import { SearchResultComponent } from './home/page/search-result/search-result.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { EditProfileComponent } from './home/page/edit-profile/edit-profile.comp
     SidebarComponent,
     ProfileComponent,
     EditProfileComponent,
+    SearchResultComponent,
   ],
   imports: [
     BrowserModule,

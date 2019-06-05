@@ -1,0 +1,18 @@
+<input class='search' [(ngModel)]="searchQuery">
+<button (click)="onSubmit(searchQuery)" type="button">Find</button>
+
+<h2>By your response found {{users?.length}} user(s)</h2>
+<div class="container">
+ <div *ngFor="let user of users" class="item" >
+   <div class="row">
+     <div class="col-sm-4">
+        <img src="https://localhost:44331{{user?.avatarPath}}"/>
+     </div>
+     <div class="col-sm-8">
+        <h2>{{user.name}} {{user.surname}}</h2>
+  <p><i class="fa fa-phone"></i> {{user.phone}}</p>
+  <p><i class="fa fa-envelope"></i> {{user.email}}</p>
+     </div>
+   </div>
+</div>
+</div>

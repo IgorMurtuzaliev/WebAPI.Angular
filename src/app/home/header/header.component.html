@@ -1,6 +1,10 @@
 <nav class="navbar navbar-dark bg-primary">
     <img src="assets/img/logoHome.png" style="width: 150px">
-
+    <form class="form-inline md-form form-sm active-pink-2">
+      <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search"
+        mdbInput>
+      <i class="fas fa-search" aria-hidden="true"></i>
+    </form>
   <div class="btn-group" role="group" aria-label="Basic example">
   <button *ngIf='sharedService.isLogged()' class="btn btn-dark my-2 my-sm-0"(click)="onLogout()">Logout</button>
   </div>
