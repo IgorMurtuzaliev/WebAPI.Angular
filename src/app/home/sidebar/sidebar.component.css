@@ -1,0 +1,14 @@
+.container {
+    display: grid;
+    align-content:center;
+  }
+  
+  .container>.img {
+    align-content:center;
+  }
+img {
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+align-self: center
+  }

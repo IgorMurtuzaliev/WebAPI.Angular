@@ -9,6 +9,7 @@ import { ProfileComponent } from './home/page/profile/profile.component';
 import { EditProfileComponent } from './home/page/edit-profile/edit-profile.component';
 import { SidebarComponent } from './home/sidebar/sidebar.component';
 import { SearchResultComponent } from './home/page/search-result/search-result.component';
+import { ContactsComponent } from './home/contacts/contacts.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/register',pathMatch:'full'},
@@ -21,8 +22,10 @@ const routes: Routes = [
           { path:'profile', component: ProfileComponent},
           { path:'editProfile', component: EditProfileComponent},
           { path:'search', component: SearchResultComponent}
-        ]},   
-    ]
+        ]},  
+        { path:'contacts', component: ContactsComponent} 
+    ],
+    
   }
 ];
 

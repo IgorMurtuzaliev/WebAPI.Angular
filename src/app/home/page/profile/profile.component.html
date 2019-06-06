@@ -1,16 +1,66 @@
-<div class="row">
-    <div class="col-sm-2">
-        <img src="https://localhost:44331{{ userDetails?.avatarPath }}" />
+<div class="container emp-profile">
+        <form method="post">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="https://localhost:44331{{ userDetails?.avatarPath }}"/>
+                    <div class="choose_file">
+                            <span>Choose File</span>
+                            <input name="Select File" type="file" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="profile-head">
+                                <h2>
+                                   {{userDetails.name}} {{userDetails.surname}}
+                                </h2>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8">
+                            <div class="tab-content profile-tab" id="myTabContent" style="margin-top: 50px">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Name</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{userDetails.name}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Surname</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{userDetails.surname}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Email</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{userDetails.email}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Phone</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{userDetails.phone}}</p>
+                                                </div>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="col-md-2">
+                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                </div>
+            </div>
+        </form>           
     </div>
-    <div class="col-sm-8">
-      <div class="card m-5" style="width: 18rem" *ngIf="userDetails">
-           <ul class="list-group">
-       <li class="list-group-item">{{userDetails.name}} {{userDetails.surname}}</li>
-       <li class="list-group-item">Software Engineer</li>
-       <li class="list-group-item">Google Inc. </li>
-       <li class="list-group-item"><i class="fa fa-phone"></i> {{userDetails.phone}}</li>
-       <li class="list-group-item"><i class="fa fa-envelope"></i> {{userDetails.email}}</li>
-    </ul>
-   </div>
-   </div>
-</div>

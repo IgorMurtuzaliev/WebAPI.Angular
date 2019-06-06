@@ -17,6 +17,7 @@ import { SidebarComponent } from './home/sidebar/sidebar.component';
 import { ProfileComponent } from './home/page/profile/profile.component';
 import { EditProfileComponent } from './home/page/edit-profile/edit-profile.component';
 import { SearchResultComponent } from './home/page/search-result/search-result.component';
+import { ContactsComponent } from './home/contacts/contacts.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { SearchResultComponent } from './home/page/search-result/search-result.c
     ProfileComponent,
     EditProfileComponent,
     SearchResultComponent,
+    ContactsComponent,
   ],
   imports: [
     BrowserModule,

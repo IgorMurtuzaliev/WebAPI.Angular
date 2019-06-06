@@ -10,6 +10,7 @@ export class PageComponent implements OnInit {
   constructor(private service:ProfileService) { }
 
   ngOnInit() {
+    
   }
 
 }
