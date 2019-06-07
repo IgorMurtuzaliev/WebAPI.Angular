@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import{ProfileService} from 'src/app/home/shared/profile.service'
+import { Router } from '@angular/router';
+import { SidebarComponent } from '../../sidebar/sidebar.component';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -7,7 +9,8 @@ import{ProfileService} from 'src/app/home/shared/profile.service'
 })
 export class ProfileComponent implements OnInit {
   userDetails;
-  constructor(private service:ProfileService) { }
+  FileToUpload : File = null;
+  constructor(private service:ProfileService, private router:Router) { }
 
 ngOnInit() {
   this.service.getProfile().subscribe(
@@ -18,5 +21,19 @@ ngOnInit() {
       console.log(err);
     },
   );
+}
+onSelected(event){
+  this.FileToUpload = event.target.files[0];
+}
+onImage(Image){
+  this.service.upload(this.FileToUpload).subscribe(
+    res=>{
+      this.ngOnInit();
+      this.router.navigateByUrl('/home/page/profile');
+    },
+    err=>{
+      console.log(err);
+    }
+  )
 }
 }

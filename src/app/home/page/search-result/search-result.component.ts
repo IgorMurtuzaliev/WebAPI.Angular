@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {SearchService} from 'src/app/home/shared/search.service'
+import { SearchService } from 'src/app/home/shared/search.service'
+import { UserprofileService } from '../../shared/userprofile.service';
 
 @Component({
   selector: 'app-search-result',
@@ -8,29 +9,33 @@ import {SearchService} from 'src/app/home/shared/search.service'
 })
 export class SearchResultComponent implements OnInit {
 
-  constructor(private service: SearchService) { }
+  constructor(private service: SearchService, private userprofile: UserprofileService) { }
   users: any[];
   ngOnInit() {
-    // this.service.getProfile().subscribe(
-    //   res=>{
-    //     this.userDetails = res;     
-    //   },
-    //   err=>{
-    //     console.log(err);
-    //   },
-    // );
+
   }
-  
-  onSubmit(query: string)
-  {
+
+  onSubmit(query: string) {
     this.service.search(query).subscribe(
-      res=>{
-        this.users = res; 
+      res => {
+        this.users = res;
         console.log(this.users);
       },
-      err=>{
+      err => {
         console.log(err);
       }
-       );
+    );
+  }
+
+  onAdd(Id: any) {
+    this.service.addToContacts(Id).subscribe(
+      res => {
+
+      },
+      err => {
+        console.log(err);
       }
+    );
+  }
+
 }

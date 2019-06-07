@@ -1,17 +1,17 @@
 <div class="container emp-profile">
         <form method="post">
             <div class="row">
-                <div class="col-md-4">
-                    <img src="https://localhost:44331{{ userDetails?.avatarPath }}"/>
-                    <div class="choose_file">
-                            <span>Choose File</span>
-                            <input name="Select File" type="file" />
-                    </div>
+                <div class="col-md-4">                
+                    <form #imageForm = ngForm (ngSubmit)="onImage(Image)"> 
+                        <img src= "https://localhost:44331{{ userDetails?.avatarPath }}">
+                        <input type="file" #Image accept="image/*" (change)="onSelected($event)">
+                        <button type="submit" class="btn-large btn-submit">Submit</button>
+                    </form>
                 </div>
                 <div class="col-md-6">
                     <div class="profile-head">
                                 <h2>
-                                   {{userDetails.name}} {{userDetails.surname}}
+                                   {{userDetails?.name}} {{userDetails?.surname}}
                                 </h2>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
@@ -27,7 +27,7 @@
                                                     <label>Name</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <p>{{userDetails.name}}</p>
+                                                    <p>{{userDetails?.name}}</p>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -35,7 +35,7 @@
                                                     <label>Surname</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <p>{{userDetails.surname}}</p>
+                                                    <p>{{userDetails?.surname}}</p>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -43,7 +43,7 @@
                                                     <label>Email</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <p>{{userDetails.email}}</p>
+                                                    <p>{{userDetails?.email}}</p>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -51,15 +51,18 @@
                                                     <label>Phone</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <p>{{userDetails.phone}}</p>
+                                                    <p>{{userDetails?.phone}}</p>
                                                 </div>
                                             </div>
                                 </div>
                             </div>
+                            
                         </div>
+                        <router-outlet></router-outlet>
                 </div>
                 <div class="col-md-2">
-                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                        <a [routerLink]="['/home/page/profile/edit']" class="btn btn-default" data-toggle="button"  role="button" >
+                            shsdhsdh</a>
                 </div>
             </div>
         </form>           

@@ -10,14 +10,14 @@ import{HttpClientModule}from "@angular/common/http";
 import { LoginComponent } from './account/login/login.component';
 import { HeaderComponent } from './home/header/header.component';
 import { HomeComponent } from './home/home.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { PageComponent } from './home/page/page.component';
 import { SidebarComponent } from './home/sidebar/sidebar.component';
 import { ProfileComponent } from './home/page/profile/profile.component';
-import { EditProfileComponent } from './home/page/edit-profile/edit-profile.component';
+import { EditProfileComponent } from './home/page/profile/edit-profile/edit-profile.component';
 import { SearchResultComponent } from './home/page/search-result/search-result.component';
 import { ContactsComponent } from './home/contacts/contacts.component';
+import { UsersprofilesComponent } from './home/page/usersprofiles/usersprofiles.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +32,7 @@ import { ContactsComponent } from './home/contacts/contacts.component';
     EditProfileComponent,
     SearchResultComponent,
     ContactsComponent,
+    UsersprofilesComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +41,6 @@ import { ContactsComponent } from './home/contacts/contacts.component';
     HttpClientModule,
     FormsModule,
     NgxMaskModule.forRoot(),
-    BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
   providers: [RegisterService],

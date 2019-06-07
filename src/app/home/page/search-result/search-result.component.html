@@ -3,10 +3,14 @@
 
 <h2>By your response found {{users?.length}} user(s)</h2>
 <div class="container">
- <div *ngFor="let user of users" class="item" >
-       <h4>{{user.name}} {{user.surname}}</h4>
-        <img src="https://localhost:44331{{user?.avatarPath}}"/>
-        <h6><i class="fa fa-phone"></i> {{user.phone}}</h6>
-         <h6><i class="fa fa-envelope"></i> {{user.email}}</h6>
-</div>
+      <div *ngFor="let user of users" class="item">
+            <a [routerLink]="['../user', user.id]" class="nav-link">
+                  <h4>{{user.name}} {{user.surname}}</h4>
+            </a>
+            <img src="https://localhost:44331{{user?.avatarPath}}" />
+            <h6><i class="fa fa-phone"></i> {{user.phone}}</h6>
+            <h6><i class="fa fa-envelope"></i> {{user.email}}</h6>
+            <i class="fa fa-plus" (click)="onAdd(user.id)"></i>
+
+      </div>
 </div>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import  {HttpClient}from "@angular/common/http";
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +18,7 @@ export class ProfileService {
     var tokenHeader = new HttpHeaders({'Authorization':'Bearer '+localStorage.getItem('token')});
     return this.http.get('https://localhost:44331/api/account',{headers : tokenHeader});
   }
+
   edit(){
     var tokenHeader = new HttpHeaders({'Authorization':'Bearer '+localStorage.getItem('token')});
     var body = {
@@ -25,4 +27,11 @@ export class ProfileService {
     };
     return this.http.put('https://localhost:44331/api/account', body,{headers : tokenHeader});
   }
+
+  upload(file: File){
+    var tokenHeader = new HttpHeaders({'Authorization':'Bearer '+localStorage.getItem('token')});
+    const formData: FormData = new FormData();
+    formData.append('Image', file);
+    return this.http.put("https://localhost:44331/api/account/editAvatar", formData, {headers : tokenHeader});
+}
 }

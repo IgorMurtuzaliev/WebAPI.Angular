@@ -20,4 +20,15 @@ export class ContactsComponent implements OnInit {
       },
     );
   }
+
+  onDelete(Id:string){
+    this.service.deleteContact(Id).subscribe(
+      res=>{ 
+        this.ngOnInit();
+      },
+      err=>{
+        console.log(err);
+      },
+    );
+  }
   }

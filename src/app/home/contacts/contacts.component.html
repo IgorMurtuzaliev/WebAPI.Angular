@@ -1,5 +1,7 @@
 <h3>MY CONTACTS:</h3>
 <div *ngFor="let contact of contacts">
-  <img src="https://localhost:44331{{contact?.contactImage}}">
+  <img src="https://localhost:44331//{{contact?.contactImage}}">
   <p>{{contact?.contactName}}</p>
+  <i class="fa fa-trash-o" (click)="onDelete(contact?.Id)"></i>
+
 </div>
