@@ -4,3 +4,10 @@ img {
     height: 270px;
 align-self: center
   }
+  .container{
+    background-color: rgb(230, 233, 235);
+    height: 80vh;
+  }
+  .row{
+    margin-top: 20px;
+  }

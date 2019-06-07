@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoggedService } from '../../account/shared/logged.service';
-
+import { ProfileService } from 'src/app/home/shared/profile.service'
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,12 +9,17 @@ import { LoggedService } from '../../account/shared/logged.service';
 })
 export class HeaderComponent implements OnInit {
   private token:boolean;
-  constructor(private router:Router, private sharedService: LoggedService) { }
-
+  constructor(private router:Router, private sharedService: LoggedService,private service: ProfileService,) { }
+  userDetails;
   ngOnInit() {
-    if(localStorage.getItem('token')){
-      this.token = true;
-    }else this.token = false
+    this.service.getProfile().subscribe(
+      res => {
+        this.userDetails = res;
+      },
+      err => {
+        console.log(err);
+      },
+    );
   }
   
   onLogout(){

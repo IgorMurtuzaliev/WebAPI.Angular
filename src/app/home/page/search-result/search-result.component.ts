@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from 'src/app/home/shared/search.service'
 import { UserprofileService } from '../../shared/userprofile.service';
+import { ContactsComponent } from '../../contacts/contacts.component';
 
 @Component({
   selector: 'app-search-result',
@@ -27,10 +28,9 @@ export class SearchResultComponent implements OnInit {
     );
   }
 
-  onAdd(Id: any) {
+  onAdd(Id) {
     this.service.addToContacts(Id).subscribe(
       res => {
-
       },
       err => {
         console.log(err);

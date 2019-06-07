@@ -1,16 +1,27 @@
-<input class='search' [(ngModel)]="searchQuery">
-<button (click)="onSubmit(searchQuery)" type="button">Find</button>
-
-<h2>By your response found {{users?.length}} user(s)</h2>
-<div class="container">
-      <div *ngFor="let user of users" class="item">
-            <a [routerLink]="['../user', user.id]" class="nav-link">
-                  <h4>{{user.name}} {{user.surname}}</h4>
-            </a>
-            <img src="https://localhost:44331{{user?.avatarPath}}" />
-            <h6><i class="fa fa-phone"></i> {{user.phone}}</h6>
-            <h6><i class="fa fa-envelope"></i> {{user.email}}</h6>
-            <i class="fa fa-plus" (click)="onAdd(user.id)"></i>
-
+<!-- <input class='search' [(ngModel)]="searchQuery">
+<button (click)="onSubmit(searchQuery)" type="button">Find</button> -->
+    <div id="custom-search-input">
+            <div class="input-group">
+                <input class="search-query form-control" placeholder="Search" [(ngModel)]="searchQuery" />
+                <span class="input-group-btn">
+                    <button type="button" (click)="onSubmit(searchQuery)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                </span>
+            </div>
       </div>
-</div>
+      <div class="result">
+            <h2>By your response found {{users?.length}} user(s)</h2>
+            <div class="container">
+                  <div *ngFor="let user of users" class="item">
+                        <a [routerLink]="['../user', user.id]" class="nav-link">
+                              <h4>{{user.name}} {{user.surname}}</h4>
+                        </a>
+                        <img src="https://localhost:44331{{user?.avatarPath}}" />
+                        <h6><i class="fa fa-phone"></i> {{user.phone}}</h6>
+                        <h6><i class="fa fa-envelope"></i> {{user.email}}</h6>
+                        <i class="fa fa-plus" (click)="onAdd(user.id)"></i>
+
+                  </div>
+            </div>
+      </div>

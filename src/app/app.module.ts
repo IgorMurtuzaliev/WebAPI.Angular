@@ -18,7 +18,7 @@ import { EditProfileComponent } from './home/page/profile/edit-profile/edit-prof
 import { SearchResultComponent } from './home/page/search-result/search-result.component';
 import { ContactsComponent } from './home/contacts/contacts.component';
 import { UsersprofilesComponent } from './home/page/usersprofiles/usersprofiles.component';
-
+import {ScrollingModule} from '@angular/cdk/scrolling'
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +41,8 @@ import { UsersprofilesComponent } from './home/page/usersprofiles/usersprofiles.
     HttpClientModule,
     FormsModule,
     NgxMaskModule.forRoot(),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ScrollingModule
   ],
   providers: [RegisterService],
   bootstrap: [AppComponent],

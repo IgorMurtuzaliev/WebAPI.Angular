@@ -8,7 +8,9 @@
   }
 img {
     object-fit: cover;
-    width: 200px;
-    height: 200px;
+    margin-top:20px;
 align-self: center
+  }
+  .btn-group-vertical{
+    margin-top:100px;
   }

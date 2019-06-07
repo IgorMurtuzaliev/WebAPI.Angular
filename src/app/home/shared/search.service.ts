@@ -16,9 +16,9 @@ export class SearchService {
     return this.http.get('https://localhost:44331/api/search?search='+ query, {headers : tokenHeader});
   }
   
-  addToContacts(id:any):Observable<any>{
+  addToContacts(id):Observable<any>{
     let tokenHeader = new HttpHeaders({'Authorization':'Bearer '+localStorage.getItem('token')});
-    return this.http.post('https://localhost:44331/api/contact/'+ id,{headers : tokenHeader});
+    return this.http.get('https://localhost:44331/api/contact/add/'+ id, {headers : tokenHeader});
   }
 
   goToProfile(id:string){

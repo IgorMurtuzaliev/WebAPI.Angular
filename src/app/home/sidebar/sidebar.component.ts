@@ -22,12 +22,4 @@ export class SidebarComponent implements OnInit {
       },
     );
   }
-  onProfile() {
-    localStorage.removeItem('token');
-    this.router.navigate(['/login']);
-  }
-  onSearch() {
-    localStorage.removeItem('token');
-    this.router.navigate(['/login']);
-  }
 }
