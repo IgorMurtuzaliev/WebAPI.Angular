@@ -36,4 +36,16 @@ onImage(Image){
     }
   )
 }
+onSubmit()
+{
+  this.service.edit().subscribe(
+    (res: any) => {
+      this.ngOnInit();
+      this.router.navigateByUrl('/home/page/profile');
+    },
+    err=>{
+      console.log(err);
+    }
+     );
+    }
 }

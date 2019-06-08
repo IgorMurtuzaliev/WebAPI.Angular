@@ -1,69 +1,97 @@
 <div class="container emp-profile">
-        <form method="post">
-            <div class="row">
-                <div class="col-md-4">                
-                    <form #imageForm = ngForm (ngSubmit)="onImage(Image)"> 
-                        <img src= "https://localhost:44331{{ userDetails?.avatarPath }}">
-                        <input type="file" #Image accept="image/*" (change)="onSelected($event)">
-                        <button type="submit" class="btn-large btn-submit">Submit</button>
-                    </form>
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <form #imageForm=ngForm (ngSubmit)="onImage(Image)">
+                    <img src="https://localhost:44331{{ userDetails?.avatarPath }}">
+                    <input type="file" #Image accept="image/*" (change)="onSelected($event)">
+                    <button type="submit" class="btn-large btn-submit">Submit</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <h2>
+                        {{userDetails?.name}} {{userDetails?.surname}}
+                    </h2>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                aria-controls="home" aria-selected="true">Prodile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="edit-tab" data-toggle="tab" href="#edit" role="tab"
+                                aria-controls="edit" aria-selected="false">Edit</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-md-6">
-                    <div class="profile-head">
-                                <h2>
-                                   {{userDetails?.name}} {{userDetails?.surname}}
-                                </h2>
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-8">
-                            <div class="tab-content profile-tab" id="myTabContent" style="margin-top: 50px">
-                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Name</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>{{userDetails?.name}}</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Surname</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>{{userDetails?.surname}}</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Email</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>{{userDetails?.email}}</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Phone</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>{{userDetails?.phone}}</p>
-                                                </div>
-                                            </div>
+                <div class="col-md-8">
+                    <div class="tab-content profile-tab" id="myTabContent" style="margin-top: 50px">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Name</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{userDetails?.name}}</p>
                                 </div>
                             </div>
-                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Surname</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{userDetails?.surname}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Email</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{userDetails?.email}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Phone</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{userDetails?.phone}}</p>
+                                </div>
+                            </div>
                         </div>
-                        <router-outlet></router-outlet>
-                </div>
-                <div class="col-md-2">
-                        <a [routerLink]="['/home/page/profile/edit']" class="btn btn-default" data-toggle="button"  role="button" >
-                            shsdhsdh</a>
+                        <div class="tab-pane fade" id="edit" role="tabpanel" aria-labelledby="edit-tab">
+                            <div class="container" style="padding-top: 60px;">
+                                <form class="form-horizontal" role="form" [formGroup]="service.formModel"
+                                    autocomplete="off" (submit)="onSubmit()">
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">First name:</label>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" formControlName="Name">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Last name:</label>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" formControlName="Surname">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label"></label>
+                                        <div class="col-md-8">
+                                            <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                                Save
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </form>           
-    </div>
+
+        </div>
+    </form>
+</div>
