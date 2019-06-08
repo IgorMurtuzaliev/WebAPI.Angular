@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import{ContactService} from '../shared/contact.service'
+import{ContactService} from '../../../home/shared/contact.service'
+import { ShoosenContactComponent } from '../shoosen-contact/shoosen-contact.component';
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
@@ -7,7 +8,7 @@ import{ContactService} from '../shared/contact.service'
 })
 export class ContactsComponent implements OnInit {
   contacts;
-  constructor(private service:ContactService) { }
+  constructor(private service:ContactService, private s:ShoosenContactComponent) { }
 
   ngOnInit() {
     this.service.getContacts().subscribe(
@@ -29,6 +30,16 @@ export class ContactsComponent implements OnInit {
       err=>{
         console.log(err);
       },
+    );
+  }
+  onGet(Id) {
+    this.service.getContact(Id).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+      }
     );
   }
   }

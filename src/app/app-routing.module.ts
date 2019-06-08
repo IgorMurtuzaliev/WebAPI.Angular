@@ -9,8 +9,10 @@ import { ProfileComponent } from './home/page/profile/profile.component';
 import { EditProfileComponent } from './home/page/profile/edit-profile/edit-profile.component';
 import { SidebarComponent } from './home/sidebar/sidebar.component';
 import { SearchResultComponent } from './home/page/search-result/search-result.component';
-import { ContactsComponent } from './home/contacts/contacts.component';
+import { ContactsComponent } from './home/contact/contacts/contacts.component';
 import { UsersprofilesComponent } from './home/page/usersprofiles/usersprofiles.component';
+import {ShoosenContactComponent} from './home/contact/shoosen-contact/shoosen-contact.component'
+import {ContactComponent} from './home/contact/contact.component'
 
 const routes: Routes = [
   {path:'',redirectTo:'/register',pathMatch:'full'},
@@ -27,7 +29,12 @@ const routes: Routes = [
           { path:'search', component: SearchResultComponent},
           { path:'user/:id', component: UsersprofilesComponent}
         ]},  
-        { path:'contacts', component: ContactsComponent} 
+        { path:'contact', component: ContactComponent,
+        children: [
+          { path:'shoosenContact', component: ShoosenContactComponent},
+          { path:'contacts', component: ContactsComponent}
+        ]
+      },
     ],
     
   }

@@ -1,0 +1,16 @@
+img {
+    object-fit: cover;
+    border-radius:50%;
+    width: 40px;
+    height: 40px;
+  }
+  h4{
+    word-wrap: break-word
+  }
+  i{ 
+    background-color: rgb(24, 22, 148); 
+    border-radius: 50%; 
+    color: aliceblue; 
+    border: 1x solid rgb(255, 255, 255); 
+    padding:10px; 
+  }    

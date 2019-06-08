@@ -16,9 +16,12 @@ import { SidebarComponent } from './home/sidebar/sidebar.component';
 import { ProfileComponent } from './home/page/profile/profile.component';
 import { EditProfileComponent } from './home/page/profile/edit-profile/edit-profile.component';
 import { SearchResultComponent } from './home/page/search-result/search-result.component';
-import { ContactsComponent } from './home/contacts/contacts.component';
+import { ContactsComponent } from './home/contact/contacts/contacts.component';
 import { UsersprofilesComponent } from './home/page/usersprofiles/usersprofiles.component';
-import {ScrollingModule} from '@angular/cdk/scrolling'
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import { ContactComponent } from './home/contact/contact.component'
+import { ShoosenContactComponent } from './home/contact/shoosen-contact/shoosen-contact.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +36,8 @@ import {ScrollingModule} from '@angular/cdk/scrolling'
     SearchResultComponent,
     ContactsComponent,
     UsersprofilesComponent,
+    ContactComponent,
+    ShoosenContactComponent
   ],
   imports: [
     BrowserModule,
@@ -42,9 +47,10 @@ import {ScrollingModule} from '@angular/cdk/scrolling'
     FormsModule,
     NgxMaskModule.forRoot(),
     ToastrModule.forRoot(),
-    ScrollingModule
+    ScrollingModule,
+    BrowserAnimationsModule
   ],
-  providers: [RegisterService],
+  providers: [RegisterService, ContactComponent,ContactsComponent,ShoosenContactComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
