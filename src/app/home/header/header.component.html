@@ -5,6 +5,16 @@
     <img src="https://localhost:44331{{ userDetails?.avatarPath }}">
     <h5>Welcome, {{userDetails?.name}}</h5>
   </div>   
+  <div id="custom-search-input">
+      <div class="input-group">
+          <input class="search-query form-control" placeholder="Search" [(ngModel)]="searchQuery" />
+          <span class="input-group-btn">
+              <button type="button" (click)="onSubmit(searchQuery)">
+                  <span class="fa fa-search"></span>
+              </button>
+          </span>
+      </div>
+</div>
   <div class="btn-group" role="group" aria-label="Basic example">
   <button *ngIf='sharedService.isLogged()' class="btn btn-outline-light"(click)="onLogout()">Logout</button>
   </div>

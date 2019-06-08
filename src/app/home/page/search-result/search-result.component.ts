@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SearchService } from 'src/app/home/shared/search.service'
 import { UserprofileService } from '../../shared/userprofile.service';
 import { ContactsComponent } from '../../contact/contacts/contacts.component';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-search-result',
   templateUrl: './search-result.component.html',
@@ -10,7 +10,7 @@ import { ContactsComponent } from '../../contact/contacts/contacts.component';
 })
 export class SearchResultComponent implements OnInit {
 
-  constructor(private service: SearchService, private userprofile: UserprofileService) { }
+  constructor(private service: SearchService, private userprofile: UserprofileService,private toastr:ToastrService) { }
   users: any[];
   ngOnInit() {
 
@@ -31,9 +31,11 @@ export class SearchResultComponent implements OnInit {
   onAdd(Id) {
     this.service.addToContacts(Id).subscribe(
       res => {
+       this.toastr.success("User added to your contacts successfully","Success");
       },
       err => {
         console.log(err);
+        this.toastr.error(err.description,"Failed");
       }
     );
   }
