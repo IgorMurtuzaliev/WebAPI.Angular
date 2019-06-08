@@ -2,15 +2,15 @@
     display: grid;
     align-content:center;
   }
-  
-  .container>.img {
-    align-content:center;
-  }
+
 img {
     object-fit: cover;
     margin-top:20px;
-align-self: center
+    max-width: 100%;
+    height: auto;
   }
   .btn-group-vertical{
     margin-top:100px;
+    max-width: 100%;
+    height: auto;
   }

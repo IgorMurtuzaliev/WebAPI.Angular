@@ -2,23 +2,24 @@ h2 {
     font-weight: bold;
     color: rgb(135, 218, 233);
     transition: all 1s;
-    }
-    h2:hover {
-      font-weight: bold;
-      color: rgb(246, 248, 248);
-      }
-      img {
-        object-fit: cover;
-        border-radius:50%;
-        width: 40px;
-        height: 40px;
+}
+h2:hover {
+    font-weight: bold;
+    color: rgb(246, 248, 248);
+}
+img {
+    object-fit: cover;
+    border-radius:50%;
+    border: 2px solid #ffffff;
+    width: 40px;
+    height: 40px;
     align-self: center
-      }
-      h5{
-        margin-left: 10px;
-        margin-top:5px;
-        color: aliceblue
-      }
-      .navbar {
-        background-color: #6d6d6d !important;
-    }
+}
+h5{
+    margin-left: 10px;
+    margin-top:5px;
+    color: aliceblue
+}
+.navbar {
+    background-color: #3d71af !important;
+}
