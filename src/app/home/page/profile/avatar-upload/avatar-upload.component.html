@@ -1,0 +1,5 @@
+<form #imageForm=ngForm (ngSubmit)="onImage(Image)">
+    <input type="file" #Image accept="image/*" (change)="onSelected($event)">
+    <button type="submit" class="btn btn-primary submit">Submit</button>
+    <button  class="btn btn-secondary back" [routerLink]="['/home/page/profile']">Back</button>
+</form>

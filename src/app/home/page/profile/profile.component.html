@@ -2,11 +2,21 @@
     <form method="post">
         <div class="row">
             <div class="col-md-4">
-                <form #imageForm=ngForm (ngSubmit)="onImage(Image)">
+                <div class='holder'>
                     <img src="https://localhost:44331{{ userDetails?.avatarPath }}">
-                    <input type="file" #Image accept="image/*" (change)="onSelected($event)">
-                    <button type="submit" class="btn-large btn-submit">Submit</button>
-                </form>
+                    <div class='block'>
+                        <div class="imageNotif">
+                            <h6>
+                                <a [routerLink]="['/home/page/profile/avatarUpload']" class="btn btn-default">
+                                    <i class="fa fa-upload"></i> Upload avatar</a>
+                            </h6>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <router-outlet></router-outlet>
             </div>
             <div class="col-md-6">
                 <div class="profile-head">
@@ -16,7 +26,7 @@
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                                aria-controls="home" aria-selected="true">Prodile</a>
+                                aria-controls="home" aria-selected="true">Profile</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="edit-tab" data-toggle="tab" href="#edit" role="tab"

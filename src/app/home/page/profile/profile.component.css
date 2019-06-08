@@ -1,7 +1,7 @@
 img {   
     object-fit: cover;
-    width: 270px;
-    height: 270px;
+    max-width: 100%;
+    height: auto;
     align-self: center
   }
 .container{
@@ -71,3 +71,21 @@ img {
   background-color: rgb(25, 21, 88);
   color: #fff
 }
+.holder{
+  position:relative;
+  }
+  .block{
+  position:absolute;
+  left:0;
+  bottom:0;
+  right:0;
+  background:rgba(255,255,255, 0.7);
+  padding:20px;
+  display:none;
+  }
+  .holder:hover .block{
+  display:block;
+  }
+  .imageNotif{
+    margin-left:25%;
+  }

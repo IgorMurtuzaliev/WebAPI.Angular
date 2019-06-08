@@ -1,13 +1,70 @@
 img {   
-    object-fit: cover;
-    width: 270px;
-    height: 270px;
-align-self: center
-  }
-  .container{
-    background-color: rgb(230, 233, 235);
-    height: 80vh;
-  }
-  .row{
-    margin-top: 20px;
-  }
+  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+  align-self: center
+}
+.container{
+background-color: rgb(230, 233, 235);
+height: 80vh;
+}
+
+.emp-profile{
+padding: 3%;
+margin-bottom: 3%;
+border-radius: 0.5rem;
+background: #fff;
+}
+
+.profile-head h5{
+color: #333;
+}
+.profile-head h6{
+color: #0062cc;
+}
+
+.profile-head .nav-tabs{
+margin-bottom:5%;
+}
+.profile-head .nav-tabs .nav-link{
+font-weight:600;
+border: none;
+}
+.profile-head .nav-tabs .nav-link.active{
+border: none;
+border-bottom:2px solid #0062cc;
+}
+.profile-work{
+padding: 14%;
+margin-top: -15%;
+}
+.profile-work p{
+font-size: 12px;
+color: #818182;
+font-weight: 600;
+margin-top: 10%;
+}
+.profile-work a{
+text-decoration: none;
+color: #495057;
+font-weight: 600;
+font-size: 14px;
+}
+.profile-work ul{
+list-style: none;
+}
+.profile-tab label{
+font-weight: 600;
+}
+.profile-tab p{
+font-weight: 600;
+color: #0062cc;
+}
+.col-sm-8{
+max-width: 80%;
+}
+
+.nav-link.active{
+background-color: rgb(25, 21, 88);
+color: #fff
+}
