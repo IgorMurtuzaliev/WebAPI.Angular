@@ -7,22 +7,26 @@ import { ContactService } from '../../shared/contact.service'
   styleUrls: ['./shoosen-contact.component.css']
 })
 export class ShoosenContactComponent implements OnInit {
-  id:string;
-  contact;
+  id:number;
+  contact:any;
   constructor(activeRoute: ActivatedRoute, private service: ContactService) { 
-    this.id = activeRoute.snapshot.params["id"];
+    this.id = Number.parseInt(activeRoute.snapshot.params["id"]);
   }
   
 
   ngOnInit() {
-    this.service.getContact(this.id).subscribe(
+    if(this.id){
+       this.service.getContact(this.id).subscribe(
       res=>{
         this.contact = res;
+        console.log(res);
       },
       err=>{
         console.log(err);
       }
     )
+    }
+   
   }
 
 }

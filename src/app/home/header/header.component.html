@@ -4,9 +4,8 @@
     </div>
     <img src="https://localhost:44331{{ userDetails?.avatarPath }}">
     <h5>Welcome, {{userDetails?.name}}</h5>
-  </div>
-    
+  </div>   
   <div class="btn-group" role="group" aria-label="Basic example">
-  <button *ngIf='sharedService.isLogged()' class="btn btn-dark my-2 my-sm-0"(click)="onLogout()">Logout</button>
+  <button *ngIf='sharedService.isLogged()' class="btn btn-outline-light"(click)="onLogout()">Logout</button>
   </div>
 </nav>

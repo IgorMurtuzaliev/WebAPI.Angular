@@ -2,13 +2,12 @@ img {
     object-fit: cover;
     width: 270px;
     height: 270px;
-align-self: center
+    align-self: center
   }
 .container{
   background-color: rgb(230, 233, 235);
   height: 80vh;
 }
-
 
 .emp-profile{
   padding: 3%;
@@ -60,4 +59,15 @@ align-self: center
 .profile-tab p{
   font-weight: 600;
   color: #0062cc;
+}
+.col-sm-8{
+  max-width: 80%;
+}
+.nav-link{
+  background-color: rgb(44, 99, 180);
+  color: #fff
+}
+.nav-link.active{
+  background-color: rgb(25, 21, 88);
+  color: #fff
 }

@@ -32,7 +32,7 @@ export class ContactsComponent implements OnInit {
       },
     );
   }
-  onGet(Id) {
+  onGet(Id:number) {
     this.service.getContact(Id).subscribe(
       res => {
         console.log(res);
