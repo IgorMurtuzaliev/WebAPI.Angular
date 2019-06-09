@@ -13,9 +13,11 @@ import { UsersprofilesComponent } from './home/page/usersprofiles/usersprofiles.
 import {ShoosenContactComponent} from './home/contact/shoosen-contact/shoosen-contact.component'
 import {ContactComponent} from './home/contact/contact.component'
 import {AvatarUploadComponent} from './home/page/profile/avatar-upload/avatar-upload.component' 
+import { ChatComponent } from './chat/chat.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/register',pathMatch:'full'},
+  { path:'chat', component: ChatComponent},
   { path:'register', component: RegisterComponent},
   { path:'login', component: LoginComponent},
   {path:'home', component: HomeComponent,

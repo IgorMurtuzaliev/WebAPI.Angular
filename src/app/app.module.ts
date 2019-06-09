@@ -25,6 +25,7 @@ import { AvatarUploadComponent } from './home/page/profile/avatar-upload/avatar-
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { ChatComponent } from './chat/chat.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
     UsersprofilesComponent,
     ContactComponent,
     ShoosenContactComponent,
-    AvatarUploadComponent
+    AvatarUploadComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
