@@ -16,7 +16,7 @@ export class SearchResultComponent implements OnInit {
 
   }
 
-  onSubmit(query: string) {
+  onSubmit(query: string)  {
     this.service.search(query).subscribe(
       res => {
         this.users = res;
