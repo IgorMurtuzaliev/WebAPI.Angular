@@ -1,6 +1,6 @@
 import { Component, OnInit,Input  } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ContactService } from '../../../shared/contact.service'
+import { ContactService } from '../../shared/contact.service'
 @Component({
   selector: 'app-shoosen-contact',
   templateUrl: './shoosen-contact.component.html',
@@ -11,8 +11,8 @@ export class ShoosenContactComponent implements OnInit {
   id:number;
   constructor(activeRoute: ActivatedRoute, private service: ContactService) { 
   }
-  ngOnInit() {
   
+  ngOnInit() {
   }
 
 }

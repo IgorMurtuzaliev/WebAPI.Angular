@@ -15,11 +15,10 @@ import { PageComponent } from './home/page/page.component';
 import { SidebarComponent } from './home/sidebar/sidebar.component';
 import { ProfileComponent } from './home/page/profile/profile.component';
 import { SearchResultComponent } from './home/page/search-result/search-result.component';
-import { ContactsComponent } from './home/contact/contacts/contacts.component';
+import { ContactsComponent } from './home/contacts/contacts.component';
 import { UsersprofilesComponent } from './home/page/usersprofiles/usersprofiles.component';
 import {ScrollingModule, ScrollDispatcher,} from '@angular/cdk/scrolling';
-import { ContactComponent } from './home/contact/contact.component'
-import { ShoosenContactComponent } from './home/contact/contacts/shoosen-contact/shoosen-contact.component';
+import { ShoosenContactComponent } from './home/contacts/shoosen-contact/shoosen-contact.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AvatarUploadComponent } from './home/page/profile/avatar-upload/avatar-upload.component';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
@@ -37,7 +36,6 @@ import { ChatComponent } from './chat/chat.component';
     SearchResultComponent,
     ContactsComponent,
     UsersprofilesComponent,
-    ContactComponent,
     ShoosenContactComponent,
     AvatarUploadComponent,
     ChatComponent
@@ -53,7 +51,7 @@ import { ChatComponent } from './chat/chat.component';
     BrowserAnimationsModule,
     ScrollDispatchModule
   ],
-  providers: [RegisterService, ContactComponent, ContactsComponent, ShoosenContactComponent],
+  providers: [RegisterService, ContactsComponent, ShoosenContactComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from 'src/app/home/shared/search.service'
 import { UserprofileService } from '../../shared/userprofile.service';
-import { ContactsComponent } from '../../contact/contacts/contacts.component';
+import { ContactsComponent } from '../../contacts/contacts.component';
 import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-search-result',

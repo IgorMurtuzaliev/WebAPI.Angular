@@ -8,10 +8,9 @@ import { PageComponent } from './home/page/page.component';
 import { ProfileComponent } from './home/page/profile/profile.component';
 import { SidebarComponent } from './home/sidebar/sidebar.component';
 import { SearchResultComponent } from './home/page/search-result/search-result.component';
-import { ContactsComponent } from './home/contact/contacts/contacts.component';
+import { ContactsComponent } from './home/contacts/contacts.component';
 import { UsersprofilesComponent } from './home/page/usersprofiles/usersprofiles.component';
-import {ShoosenContactComponent} from './home/contact/contacts/shoosen-contact/shoosen-contact.component'
-import {ContactComponent} from './home/contact/contact.component'
+import {ShoosenContactComponent} from './home/contacts/shoosen-contact/shoosen-contact.component'
 import {AvatarUploadComponent} from './home/page/profile/avatar-upload/avatar-upload.component' 
 import { ChatComponent } from './chat/chat.component';
 
@@ -31,10 +30,9 @@ const routes: Routes = [
           { path:'search', component: SearchResultComponent},
           { path:'user/:id', component: UsersprofilesComponent}
         ]},  
-        { path:'contact', component: ContactComponent,
+        { path:'contacts', component: ContactsComponent,
         children: [
-          { path:'shoosenContact/:id', component: ShoosenContactComponent},
-          { path:'contacts', component: ContactsComponent}
+          { path:'shoosenContact', component: ShoosenContactComponent}
         ]
       },
     ],

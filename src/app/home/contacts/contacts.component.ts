@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import{ContactService} from '../../../home/shared/contact.service'
+import{ContactService} from '../shared/contact.service'
 import { ShoosenContactComponent } from './shoosen-contact/shoosen-contact.component';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
@@ -11,7 +11,8 @@ import { Observable } from 'rxjs';
 export class ContactsComponent implements OnInit {
   contacts;
   constructor(private service:ContactService, private s:ShoosenContactComponent,private toastr:ToastrService) { }
-
+   cont:any;
+   private contact: any;
   ngOnInit() {
     this.service.getContacts().subscribe(
       res=>{
@@ -36,14 +37,7 @@ export class ContactsComponent implements OnInit {
       },
     );
   }
-  onGet(Id:number) {
-    this.service.getContact(Id).subscribe(
-      res => {
-        console.log(res);
-      },
-      err => {
-        console.log(err);
-      }
-    );
-  }
+ log(cont){
+    this.contact = cont
+ }
   }
