@@ -9,10 +9,13 @@ import { ContactService } from '../../shared/contact.service'
 export class ShoosenContactComponent implements OnInit {
   @Input() contact:any;
   id:number;
+  _contact:any;
   constructor(activeRoute: ActivatedRoute, private service: ContactService) { 
   }
   
   ngOnInit() {
   }
-
+  editForm(_contact){
+    this.contact = _contact;
+  }
 }

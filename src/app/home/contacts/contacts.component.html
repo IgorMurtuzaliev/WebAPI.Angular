@@ -2,7 +2,7 @@
   <cdk-virtual-scroll-viewport orientation="vertical" itemSize="100" minBufferPx="400" maxBufferPx="420"
     class="example-viewport">
     <div *cdkVirtualFor="let contact of contacts" class="example-item">
-      <button type="button" class="list-group-item list-group-item-action" (click)="log(contact)">
+      <button type="button" class="list-group-item list-group-item-action" (click)="showContact(contact)">
         <div class="row">
           <div class="col-sm-8">
             <img *ngIf="contact" src="https://localhost:44331//{{contact?.contactImage}}">

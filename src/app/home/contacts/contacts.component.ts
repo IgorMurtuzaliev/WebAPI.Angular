@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class ContactsComponent implements OnInit {
   contacts;
   constructor(private service:ContactService, private s:ShoosenContactComponent,private toastr:ToastrService) { }
-   cont:any;
+  _contact:any;
    private contact: any;
   ngOnInit() {
     this.service.getContacts().subscribe(
@@ -37,7 +37,7 @@ export class ContactsComponent implements OnInit {
       },
     );
   }
- log(cont){
-    this.contact = cont
- }
+  showContact(_contact){
+      this.contact = _contact
+  }
   }
