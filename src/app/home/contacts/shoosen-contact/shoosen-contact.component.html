@@ -5,8 +5,8 @@
   <img *ngIf="contact" src="https://localhost:44331{{contact.contactImage}}" />
   <h6><i class="fa fa-phone"></i> {{contact?.friendPhone}}</h6>
   <h6><i class="fa fa-envelope"></i> {{contact?.friendEmail}}</h6>
-  <button type="button" class="btn-dark" (click)="editForm(contact)"></button>
-  <app-edit-contact *ngIf="contact" [contact]="contact"></app-edit-contact>
+  <!-- <button type="button" class="btn-dark" (click)="editForm(contact)"></button>
+  <app-edit-contact *ngIf="contact" [contact]="contact"></app-edit-contact> -->
 </div>
 
 
