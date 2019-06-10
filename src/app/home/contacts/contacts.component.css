@@ -1,3 +1,10 @@
+.container{
+  display: flex;
+  flex-direction: column-reverse;
+  height: 100%;
+  justify-content: space-between;
+  padding: 0%
+}
 img {
     object-fit: cover;
     border-radius:50%;
@@ -15,13 +22,16 @@ img {
     padding:10px; 
   }    
   .example-viewport {
-    margin-top:200px;
-    width:90%;
+    width:100%;
     height: 500px;
-    border: 1px solid black;
+    border: 1px solid rgb(83, 83, 88);
+
   }
   
   .example-item {
     width:100%;
     height: 95px;
+  }
+  .list-group-item{
+    padding: 3%
   }

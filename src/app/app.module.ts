@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AvatarUploadComponent } from './home/page/profile/avatar-upload/avatar-upload.component';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { ChatComponent } from './chat/chat.component';
+import { EditContactComponent } from './home/contacts/shoosen-contact/edit-contact/edit-contact.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import { ChatComponent } from './chat/chat.component';
     UsersprofilesComponent,
     ShoosenContactComponent,
     AvatarUploadComponent,
-    ChatComponent
+    ChatComponent,
+    EditContactComponent
   ],
   imports: [
     BrowserModule,

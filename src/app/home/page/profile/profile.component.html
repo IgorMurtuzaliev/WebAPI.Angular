@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-4" style="border-right: 1px solid #afafb7;">
                 <div class='holder'>
-                    <img class="rounded" src="https://localhost:44331{{ userDetails?.avatarPath }}">
+                    <img *ngIf="userDetails" class="rounded" src="https://localhost:44331{{ userDetails.avatarPath }}">
                     <div class='block'>
                         <div class="imageNotif">
                             <h6>

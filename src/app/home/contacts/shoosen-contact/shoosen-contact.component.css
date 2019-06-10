@@ -1,12 +1,14 @@
 .contact{
     max-width: 100%;
     background-color: rgb(127, 219, 255);
-    word-break: break-all
+    word-break: break-all;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 img {
     object-fit: cover;
     border-radius:50%;
     width: 100px;
     height: 100px;
-   align-self: center
+   align-self: center;
+   box-shadow: 0 0 10px rgba(0,0,0,0.5);
   }

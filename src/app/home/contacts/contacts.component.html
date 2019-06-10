@@ -1,10 +1,11 @@
-<app-shoosen-contact *ngIf ="contact" [contact] = "contact"></app-shoosen-contact>
-<cdk-virtual-scroll-viewport orientation="vertical" itemSize="100" minBufferPx="400" maxBufferPx="420" class="example-viewport">
-  <div *cdkVirtualFor="let contact of contacts"  class="example-item">
-    <button type="button" class="list-group-item list-group-item-action"(click)="log(contact)">
+<div class="container">
+  <cdk-virtual-scroll-viewport orientation="vertical" itemSize="100" minBufferPx="400" maxBufferPx="420"
+    class="example-viewport">
+    <div *cdkVirtualFor="let contact of contacts" class="example-item">
+      <button type="button" class="list-group-item list-group-item-action" (click)="log(contact)">
         <div class="row">
           <div class="col-sm-8">
-            <img src="https://localhost:44331//{{contact?.contactImage}}">
+            <img *ngIf="contact" src="https://localhost:44331//{{contact?.contactImage}}">
           </div>
           <div class="col sm-4">
             <i class="fa fa-trash-o" (click)="onDelete(contact.id)"></i>
@@ -12,6 +13,7 @@
         </div>
         <h6>{{contact?.contactName}}</h6>
       </button>
-  </div>
-</cdk-virtual-scroll-viewport>
-
+    </div>
+  </cdk-virtual-scroll-viewport>
+  <app-shoosen-contact *ngIf="contact" [contact]="contact"></app-shoosen-contact>
+</div>

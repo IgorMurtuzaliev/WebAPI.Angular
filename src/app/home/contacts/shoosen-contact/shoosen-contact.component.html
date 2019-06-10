@@ -1,6 +1,9 @@
 <div class="contact">
-   <p>{{contact?.contactName}}</p>
-  <img src="https://localhost:44331{{contact?.contactImage}}" />
+  <a [routerLink]="['/home/page/user', contact.friendId]" class="nav-link">
+    <h4>{{contact.contactName}}</h4>
+</a>
+  <img *ngIf="contact" src="https://localhost:44331{{contact.contactImage}}" />
   <h6><i class="fa fa-phone"></i> {{contact?.friendPhone}}</h6>
   <h6><i class="fa fa-envelope"></i> {{contact?.friendEmail}}</h6>
 </div>
+

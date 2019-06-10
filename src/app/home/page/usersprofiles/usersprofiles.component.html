@@ -2,7 +2,7 @@
         <form method="post">
             <div class="row">
                 <div class="col-md-4" style="border-right: 1px solid #afafb7;">
-                    <img class ="rounded" src="https://localhost:44331{{ user?.avatarPath }}">
+                    <img *ngIf="user" class ="rounded" src="https://localhost:44331{{ user.avatarPath }}">
                 </div>
                 <div class="col-md-6">
                     <div class="profile-head">

@@ -32,7 +32,10 @@ const routes: Routes = [
         ]},  
         { path:'contacts', component: ContactsComponent,
         children: [
-          { path:'shoosenContact', component: ShoosenContactComponent}
+          { path:'shoosenContact', component: ShoosenContactComponent,
+        children:[
+          { path:'editContact', component: UsersprofilesComponent}
+        ]}
         ]
       },
     ],

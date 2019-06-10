@@ -15,7 +15,7 @@
                         <a [routerLink]="['../user', user.id]" class="nav-link">
                               <h4>{{user.name}} {{user.surname}}</h4>
                         </a>
-                        <img src="https://localhost:44331{{user?.avatarPath}}" />
+                        <img *ngIf ="user" src="https://localhost:44331{{user.avatarPath}}" />
                         <h6><i class="fa fa-phone"></i> {{user.phone}}</h6>
                         <h6><i class="fa fa-envelope"></i> {{user.email}}</h6>
                         <i class="fa fa-plus" (click)="onAdd(user.id)"></i>
