@@ -13,12 +13,15 @@ export class ProfileService {
     Name : '',
     Surname : '',
   });
-
+ userinfo;
   getProfile(){
     var tokenHeader = new HttpHeaders({'Authorization':'Bearer '+localStorage.getItem('token')});
-    return this.http.get('https://localhost:44331/api/account',{headers : tokenHeader});
+    this.userinfo =this.http.get('https://localhost:44331/api/account',{headers : tokenHeader});
+    return this.userinfo;
   }
-
+  updateInfo(){
+    return this.userinfo()
+  }
   edit(){
     var tokenHeader = new HttpHeaders({'Authorization':'Bearer '+localStorage.getItem('token')});
     var body = {

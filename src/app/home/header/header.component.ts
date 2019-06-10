@@ -21,7 +21,15 @@ export class HeaderComponent implements OnInit {
       },
     );
   }
-  
+  onUpdate(info){
+    this.service.updateInfo().subscribe(
+      res => {
+      },
+      err => {
+        console.log(err);
+      },
+    );
+  }
   onLogout(){
     localStorage.removeItem('token');
     this.router.navigate(['/login']);

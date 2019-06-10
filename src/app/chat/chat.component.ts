@@ -13,7 +13,7 @@ export class ChatComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.hubConnection = new HubConnectionBuilder().withUrl("https://localhost:44331/echo").build();
+    this.hubConnection = new HubConnectionBuilder().withUrl("https://localhost:44331/echo",{ accessTokenFactory: () => localStorage.getItem("token") } ).build();
     this.hubConnection.on("Send", (msg) => {
       this.messages.push(msg);
     });

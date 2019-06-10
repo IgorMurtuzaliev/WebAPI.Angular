@@ -4,16 +4,12 @@ img {
   height: auto;
   align-self: center
 }
-.container{
-background-color: rgb(230, 233, 235);
-height: 80vh;
-}
 
 .emp-profile{
 padding: 3%;
 margin-bottom: 3%;
 border-radius: 0.5rem;
-background: #fff;
+background-color: #e5ebff;
 }
 
 .profile-head h5{
