@@ -19,12 +19,10 @@ import { ContactsComponent } from './home/contact/contacts/contacts.component';
 import { UsersprofilesComponent } from './home/page/usersprofiles/usersprofiles.component';
 import {ScrollingModule, ScrollDispatcher,} from '@angular/cdk/scrolling';
 import { ContactComponent } from './home/contact/contact.component'
-import { ShoosenContactComponent } from './home/contact/shoosen-contact/shoosen-contact.component';
+import { ShoosenContactComponent } from './home/contact/contacts/shoosen-contact/shoosen-contact.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AvatarUploadComponent } from './home/page/profile/avatar-upload/avatar-upload.component';
-import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
-import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { ChatComponent } from './chat/chat.component';
 @NgModule({
   declarations: [
@@ -53,7 +51,7 @@ import { ChatComponent } from './chat/chat.component';
     NgxMaskModule.forRoot(),
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    ScrollingModule,
+    ScrollDispatchModule
   ],
   providers: [RegisterService, ContactComponent, ContactsComponent, ShoosenContactComponent],
   bootstrap: [AppComponent],

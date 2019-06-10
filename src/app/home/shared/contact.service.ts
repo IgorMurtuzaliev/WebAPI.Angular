@@ -21,4 +21,5 @@ export class ContactService {
     var tokenHeader = new HttpHeaders({'Authorization':'Bearer '+localStorage.getItem('token')});
     return this.http.delete('https://localhost:44331/api/contact/' + id,{headers : tokenHeader});
   }
+  
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import{ContactService} from '../../../home/shared/contact.service'
-import { ShoosenContactComponent } from '../shoosen-contact/shoosen-contact.component';
+import { ShoosenContactComponent } from './shoosen-contact/shoosen-contact.component';
 import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',

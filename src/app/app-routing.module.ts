@@ -10,7 +10,7 @@ import { SidebarComponent } from './home/sidebar/sidebar.component';
 import { SearchResultComponent } from './home/page/search-result/search-result.component';
 import { ContactsComponent } from './home/contact/contacts/contacts.component';
 import { UsersprofilesComponent } from './home/page/usersprofiles/usersprofiles.component';
-import {ShoosenContactComponent} from './home/contact/shoosen-contact/shoosen-contact.component'
+import {ShoosenContactComponent} from './home/contact/contacts/shoosen-contact/shoosen-contact.component'
 import {ContactComponent} from './home/contact/contact.component'
 import {AvatarUploadComponent} from './home/page/profile/avatar-upload/avatar-upload.component' 
 import { ChatComponent } from './chat/chat.component';

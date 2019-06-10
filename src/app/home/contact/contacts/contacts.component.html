@@ -1,8 +1,7 @@
-<div style="margin-top: 30vh">
-  <h3>MY CONTACTS:</h3>
-  <div class="list-group">
-    <div *ngFor="let contact of contacts">
-      <button type="button" class="list-group-item list-group-item-action"(click)="onGet(contact.id)">
+
+<cdk-virtual-scroll-viewport orientation="vertical" itemSize="100" minBufferPx="400" maxBufferPx="420" class="example-viewport">
+  <div *cdkVirtualFor="let contact of contacts"  class="example-item">
+    <button type="button" class="list-group-item list-group-item-action"(click)="onGet(contact.id)">
         <div class="row">
           <div class="col-sm-8">
             <img src="https://localhost:44331//{{contact?.contactImage}}">
@@ -13,6 +12,6 @@
         </div>
         <h6>{{contact?.contactName}}</h6>
       </button>
-    </div>
   </div>
-</div>
+</cdk-virtual-scroll-viewport>
+<app-shoosen-contact></app-shoosen-contact>

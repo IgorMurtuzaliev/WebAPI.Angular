@@ -14,3 +14,14 @@ img {
     border: 1x solid rgb(255, 255, 255); 
     padding:10px; 
   }    
+  .example-viewport {
+    margin-top:250px;
+    width:90%;
+    height: 500px;
+    border: 1px solid black;
+  }
+  
+  .example-item {
+    width:100%;
+    height: 95px;
+  }
