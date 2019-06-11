@@ -3,81 +3,85 @@
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
         <a class="nav-link" id="contacts-tab" data-toggle="tab" href="#contacts" role="tab" aria-controls="contacts"
-          aria-selected="false"><i class="fa fa-user"></i></a>
+          aria-selected="false"><i class="fa fa-user nav-i"></i></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" id="lock-tab" data-toggle="tab" href="#lock" role="tab" aria-controls="lock"
-          aria-selected="false"><i class="fa fa-lock"></i> </a>
+          aria-selected="false"><i class="fa fa-lock nav-i"></i> </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" id="confirm-tab" data-toggle="tab" href="#confirm" role="tab" aria-controls="confirm"
-          aria-selected="false"><i class="fa fa-arrow-down"></i></a>
+          aria-selected="false"><i class="fa fa-arrow-down nav-i"></i></a>
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="contacts" role="tabpanel" aria-labelledby="contacts-tab">
         <cdk-virtual-scroll-viewport orientation="vertical" itemSize="100" minBufferPx="400" maxBufferPx="420"
           class="example-viewport">
-          <div *cdkVirtualFor="let contact of contacts" class="example-item">
-            <div *ngIf = "!contact.blocked && contact.confirmed"  >
-               <button type="button" class="list-group-item list-group-item-action"(click)="showContact(contact)">
-              <div class="row">
-                <div class="col-sm-5">
-                  <img *ngIf="contact" src="https://localhost:44331//{{contact?.contactImage}}">
+          <ng-container *cdkVirtualFor="let contact of contacts" class="example-item">
+            <ng-template [ngIf]="!contact.blocked && contact.confirmed">
+              <button type="button" class="list-group-item list-group-item-action" (click)="showContact(contact)">
+                <div class="row">
+                  <div class="col-sm-5">
+                    <img *ngIf="contact" src="https://localhost:44331//{{contact?.contactImage}}">
+                  </div>
+                  <div class="col sm-7">
+                    <i class="fa fa-trash-o contact" (click)="onDelete(contact.id)"></i>
+                    <i class="fa fa-lock contact" (click)="onBlock(contact.id)"></i>
+                  </div>
                 </div>
-                <div class="col sm-7">
-                  <i class="fa fa-trash-o" (click)="onDelete(contact.id)"></i>
-                  <i class="fa fa-lock" (click)="onBlock(contact.id)"></i>
-                </div>
-              </div>
-              <h6>{{contact?.contactName}}</h6>
-            </button>
-            </div>
-           
-          </div>
+                <h6>{{contact?.contactName}}</h6>
+              </button>
+            </ng-template>
+
+          </ng-container>
         </cdk-virtual-scroll-viewport>
       </div>
       <div class="tab-pane fade" id="lock" role="tabpanel" aria-labelledby="lock-tab">
         <cdk-virtual-scroll-viewport orientation="vertical" itemSize="100" minBufferPx="400" maxBufferPx="420"
           class="example-viewport">
-          <div *cdkVirtualFor="let contact of contacts" class="example-item">
-            <button type="button" class="list-group-item list-group-item-action" *ngIf = "contact.blocked" (click)="showContact(contact)">
-              <div class="row">
-                <div class="col-sm-5">
-                  <img *ngIf="contact" src="https://localhost:44331//{{contact?.contactImage}}">
+          <ng-container *cdkVirtualFor="let contact of contacts" class="example-item">
+            <ng-template [ngIf]="contact.blocked">
+              <button type="button" class="list-group-item list-group-item-action" (click)="showContact(contact)">
+                <div class="row">
+                  <div class="col-sm-5">
+                    <img *ngIf="contact" src="https://localhost:44331//{{contact?.contactImage}}">
+                  </div>
+                  <div class="col sm-7">
+                    <i class="fa fa-trash-o contact" (click)="onDelete(contact.id)"></i>
+                    <i class="fa fa-unlock-alt contact" (click)="onUnlock(contact.id)"></i>
+
+                  </div>
                 </div>
-                <div class="col sm-7">
-                  <i class="fa fa-trash-o" (click)="onDelete(contact.id)"></i>
-                  <i class="fa fa-unlock-alt" (click)="onUnlock(contact.id)"></i>
-                  
-                </div>
-              </div>
-              <h6>{{contact?.contactName}}</h6>
-            </button>
-          </div>
+                <h6>{{contact?.contactName}}</h6>
+              </button>
+            </ng-template>
+          </ng-container>
         </cdk-virtual-scroll-viewport>
       </div>
       <div class="tab-pane fade" id="confirm" role="tabpanel" aria-labelledby="confirm-tab">
         <cdk-virtual-scroll-viewport orientation="vertical" itemSize="100" minBufferPx="400" maxBufferPx="420"
           class="example-viewport">
-          <div *cdkVirtualFor="let contact of contacts" class="example-item">
-            <button type="button" class="list-group-item list-group-item-action" *ngIf ="!contact.confirmed"  (click)="showContact(contact)">
-              <div class="row">
-                <div class="col-sm-5">
-                  <img *ngIf="contact" src="https://localhost:44331//{{contact?.contactImage}}">
+          <ng-container *cdkVirtualFor="let contact of contacts" class="example-item">
+            <ng-template [ngIf]="!contact.confirmed">
+              <button type="button" class="list-group-item list-group-item-action" (click)="showContact(contact)">
+                <div class="row">
+                  <div class="col-sm-5">
+                    <img *ngIf="contact" src="https://localhost:44331//{{contact?.contactImage}}">
+                  </div>
+                  <div class="col sm-7">
+                    <i class="fa fa-trash-o contact" (click)="onDelete(contact.id)"></i>
+                    <i class="fa fa-plus contact" (click)="onConfirm(contact.id)"></i>
+                  </div>
                 </div>
-                <div class="col sm-7">
-                  <i class="fa fa-trash-o" (click)="onDelete(contact.id)"></i>
-                  <i class="fa fa-plus" (click)="onConfirm(contact.id)"></i>
-                </div>
-              </div>
-              <h6>{{contact?.contactName}}</h6>
-            </button>
-          </div>
+                <h6>{{contact?.contactName}}</h6>
+              </button>
+            </ng-template>
+
+          </ng-container>
         </cdk-virtual-scroll-viewport>
       </div>
     </div>
   </div>
-
   <app-shoosen-contact *ngIf="contact" [contact]="contact"></app-shoosen-contact>
 </div>

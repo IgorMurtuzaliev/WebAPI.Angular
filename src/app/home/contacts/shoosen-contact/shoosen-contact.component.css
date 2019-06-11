@@ -1,6 +1,6 @@
 .contact{
     max-width: 100%;
-    background-color: rgb(127, 219, 255);
+    background-color: rgb(61, 91, 156);
     word-break: break-all;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
@@ -11,4 +11,11 @@ img {
     height: 100px;
    align-self: center;
    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+   border: 2px solid #ffffff;
   }
+  h4{
+      color: white;
+  }
+  h6{
+    color: white;
+}
