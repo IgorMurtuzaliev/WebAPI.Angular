@@ -35,3 +35,11 @@ img {
   .list-group-item{
     padding: 3%
   }
+  .nav-link{
+    background-color: rgb(44, 99, 180);
+    color: #fff
+  }
+  .nav-link.active{
+    background-color: rgb(25, 21, 88);
+    color: #fff
+  }
