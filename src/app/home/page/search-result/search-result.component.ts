@@ -3,6 +3,7 @@ import { SearchService } from 'src/app/home/shared/search.service'
 import { UserprofileService } from '../../shared/userprofile.service';
 import { ContactsComponent } from '../../contacts/contacts.component';
 import { ToastrService } from 'ngx-toastr';
+import { ContactService } from '../../shared/contact.service';
 @Component({
   selector: 'app-search-result',
   templateUrl: './search-result.component.html',
@@ -10,13 +11,14 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class SearchResultComponent implements OnInit {
 
-  constructor(private service: SearchService, private userprofile: UserprofileService,private toastr:ToastrService) { }
+  constructor(private service: SearchService, private toastr: ToastrService, private contactsService: ContactService, private contacts: ContactsComponent) { }
+
   users: any[];
   ngOnInit() {
 
   }
 
-  onSubmit(query: string)  {
+  onSubmit(query: string) {
     this.service.search(query).subscribe(
       res => {
         this.users = res;
@@ -29,13 +31,14 @@ export class SearchResultComponent implements OnInit {
   }
 
   onAdd(Id) {
-    this.service.addToContacts(Id).subscribe(
+    this.contactsService.addToContacts(Id).subscribe(
       res => {
-       this.toastr.success("User added to your contacts successfully","Success");
+        this.contacts.ngOnInit();
+        this.toastr.success("User added to your contacts successfully", "Success");
       },
       err => {
         console.log(err);
-        this.toastr.error(err.description,"Failed");
+        this.toastr.error(err.description, "Failed");
       }
     );
   }

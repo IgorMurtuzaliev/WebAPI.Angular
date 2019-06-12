@@ -6,10 +6,6 @@
           aria-selected="false"><i class="fa fa-user nav-i"></i></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="lock-tab" data-toggle="tab" href="#lock" role="tab" aria-controls="lock"
-          aria-selected="false"><i class="fa fa-lock nav-i"></i> </a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" id="confirm-tab" data-toggle="tab" href="#confirm" role="tab" aria-controls="confirm"
           aria-selected="false"><i class="fa fa-arrow-down nav-i"></i></a>
       </li>
@@ -27,35 +23,12 @@
                   </div>
                   <div class="col sm-7">
                     <i class="fa fa-trash-o contact" (click)="onDelete(contact.id)"></i>
-                    <i class="fa fa-lock contact" (click)="onBlock(contact.id)"></i>
                   </div>
                 </div>
                 <h6>{{contact?.contactName}}</h6>
               </button>
             </ng-template>
 
-          </ng-container>
-        </cdk-virtual-scroll-viewport>
-      </div>
-      <div class="tab-pane fade" id="lock" role="tabpanel" aria-labelledby="lock-tab">
-        <cdk-virtual-scroll-viewport orientation="vertical" itemSize="100" minBufferPx="400" maxBufferPx="420"
-          class="example-viewport">
-          <ng-container *cdkVirtualFor="let contact of contacts" class="example-item">
-            <ng-template [ngIf]="contact.blocked">
-              <button type="button" class="list-group-item list-group-item-action" (click)="showContact(contact)">
-                <div class="row">
-                  <div class="col-sm-5">
-                    <img *ngIf="contact" src="https://localhost:44331//{{contact?.contactImage}}">
-                  </div>
-                  <div class="col sm-7">
-                    <i class="fa fa-trash-o contact" (click)="onDelete(contact.id)"></i>
-                    <i class="fa fa-unlock-alt contact" (click)="onUnlock(contact.id)"></i>
-
-                  </div>
-                </div>
-                <h6>{{contact?.contactName}}</h6>
-              </button>
-            </ng-template>
           </ng-container>
         </cdk-virtual-scroll-viewport>
       </div>
@@ -64,7 +37,7 @@
           class="example-viewport">
           <ng-container *cdkVirtualFor="let contact of contacts" class="example-item">
             <ng-template [ngIf]="!contact.confirmed">
-              <button type="button" class="list-group-item list-group-item-action" (click)="showContact(contact)">
+              <button type="button" class="list-group-item list-group-item-action">
                 <div class="row">
                   <div class="col-sm-5">
                     <img *ngIf="contact" src="https://localhost:44331//{{contact?.contactImage}}">
@@ -74,7 +47,7 @@
                     <i class="fa fa-plus contact" (click)="onConfirm(contact.id)"></i>
                   </div>
                 </div>
-                <h6>{{contact?.contactName}}</h6>
+                <h6>{{contact?.friendName}} {{contact?.friendSurname}} added you to contacts. You can add him too.</h6>
               </button>
             </ng-template>
 

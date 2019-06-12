@@ -14,6 +14,10 @@ export class ContactService {
     ContactName: ''
   })
 
+  addToContacts(id):Observable<any>{
+    let tokenHeader = new HttpHeaders({'Authorization':'Bearer '+localStorage.getItem('token')});
+    return this.http.get('https://localhost:44331/api/contact/add/'+ id, {headers : tokenHeader});
+  }
   getContacts(): Observable<any> {
     var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token') });
     return this.http.get('https://localhost:44331/api/contact/contacts', { headers: tokenHeader });
