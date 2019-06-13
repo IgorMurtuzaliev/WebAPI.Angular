@@ -5,16 +5,10 @@
     <img *ngIf = "userDetails" src="https://localhost:44331{{ userDetails?.avatarPath }}">
     <h5>Welcome, {{userDetails?.name}}</h5>
   </div>   
-  <div id="custom-search-input">
-      <div class="input-group">
-          <input class="search-query form-control" placeholder="Search" [(ngModel)]="searchQuery" />
-          <span class="input-group-btn">
-              <button type="button" (click)="onSubmit(searchQuery)">
-                  <span class="fa fa-search"></span>
-              </button>
-          </span>
-      </div>
-</div>
+<form class="example" action="action_page.php">
+  <input type="text" placeholder="Search.." name="search"[(ngModel)]="searchQuery" >
+  <button type="submit" (click)="onSearch(searchQuery)"><i class="fa fa-search"></i></button>
+</form>
   <div class="btn-group" role="group" aria-label="Basic example">
   <button *ngIf='sharedService.isLogged()' class="btn btn-outline-light"(click)="onLogout()">Logout</button>
   </div>

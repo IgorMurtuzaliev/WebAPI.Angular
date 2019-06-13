@@ -4,22 +4,21 @@ import { UserprofileService } from '../../shared/userprofile.service';
 import { ContactsComponent } from '../../contacts/contacts.component';
 import { ToastrService } from 'ngx-toastr';
 import { ContactService } from '../../shared/contact.service';
+import { ActivatedRoute } from "@angular/router";
 @Component({
   selector: 'app-search-result',
   templateUrl: './search-result.component.html',
   styleUrls: ['./search-result.component.css']
 })
 export class SearchResultComponent implements OnInit {
-
-  constructor(private service: SearchService, private toastr: ToastrService, private contactsService: ContactService, private contacts: ContactsComponent) { }
-
+  searchQuery: any;
+  constructor(private userProfile: UserprofileService,private service: SearchService, private toastr: ToastrService, private contactsService: ContactService, private contacts: ContactsComponent, private activeRoute: ActivatedRoute) {
+  this.searchQuery = activeRoute.snapshot.params["searchQuery"];
+  }
+  user;
   users: any[];
   ngOnInit() {
-
-  }
-
-  onSubmit(query: string) {
-    this.service.search(query).subscribe(
+    this.service.search(this.searchQuery).subscribe(
       res => {
         this.users = res;
         console.log(this.users);
@@ -30,16 +29,56 @@ export class SearchResultComponent implements OnInit {
     );
   }
 
-  onAdd(Id) {
+  onSubmit(query: string) {
+
+  }
+
+  onBlock(Id) {
+    this.userProfile.blockUser(Id).subscribe(
+      res=>{
+        this.user = res;
+        this.ngOnInit();
+        
+      },
+      err=>{
+        console.log(err);
+      }
+    )
+   }
+
+   onUnlock(Id) {
+    this.userProfile.unlockUser(Id).subscribe(
+      res=>{
+        this.user = res;
+        this.ngOnInit();        
+      },
+      err=>{
+        console.log(err);
+      }
+    )
+   }
+   onAdd(Id) {
     this.contactsService.addToContacts(Id).subscribe(
       res => {
-        this.contacts.ngOnInit();
-        this.toastr.success("User added to your contacts successfully", "Success");
+        this.ngOnInit();
+       this.toastr.success("User added to your contacts successfully","Success");
       },
       err => {
         console.log(err);
-        this.toastr.error(err.description, "Failed");
+        this.toastr.error(err.description,"Failed");
       }
+    );
+  }
+  onDelete(Id:string){
+    this.contactsService.deleteContact(Id).subscribe(
+      res=>{ 
+        this.ngOnInit();
+        this.toastr.success("Contact was deleted succesfully", "Deleting")
+      },
+      err=>{
+        console.log(err);
+        this.toastr.error(err.description, "Failed")
+      },
     );
   }
 

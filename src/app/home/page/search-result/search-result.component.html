@@ -1,4 +1,4 @@
-      <div id="custom-search-input">
+<!-- <div id="custom-search-input">
             <div class="input-group">
                 <input class="search-query form-control" placeholder="Search" [(ngModel)]="searchQuery" />
                 <span class="input-group-btn">
@@ -7,19 +7,41 @@
                     </button>
                 </span>
             </div>
-      </div>
-      <div class="result">
-            <h2>By your response found {{users?.length}} user(s)</h2>
-            <div class="container">
-                  <div *ngFor="let user of users" class="item">
-                        <a [routerLink]="['../user', user.id]" class="nav-link">
-                              <h4>{{user.name}} {{user.surname}}</h4>
-                        </a>
-                        <img *ngIf ="user" src="https://localhost:44331{{user.avatarPath}}" />
-                        <h6><i class="fa fa-phone"></i> {{user.phone}}</h6>
-                        <h6><i class="fa fa-envelope"></i> {{user.email}}</h6>
-                        <i class="fa fa-plus" (click)="onAdd(user.id)"></i>
+      </div> -->
+<div class="result">
+      <h2>By your response found {{users?.length}} user(s)</h2>
+      <div class="container">
+            <div *ngFor="let user of users" class="item">
+                  <a [routerLink]="['/home/page/user', user.id]" class="nav-link">
+                        <h4>{{user.name}} {{user.surname}}</h4>
+                  </a>
+                  <div class="row">
+                        <div class="col-sm-5">
+                              <img *ngIf="user" src="https://localhost:44331{{user.avatarPath}}" />
+                        </div>
+                        <div class="col-sm-7">
+                              <button type="button" class="btn btn-primary block" *ngIf="!user?.isBlocked"
+                                    (click)="onBlock(user.id)">
+                                    <i class="fa fa-lock contact"> </i>
+                              </button>
+                              <button type="button" class="btn btn-primary unlock" *ngIf="user?.isBlocked"
+                                    (click)="onUnlock(user.id)">
+                                    <i class="fa fa-unlock contact"> </i>
+                              </button>
+                              <button type="button" class="btn btn-primary delete-add" *ngIf="user?.isInContacts"
+                                    (click)="onDelete(user.contactWithUserId)">
+                                    <i class="fa fa-minus contact"> </i>
+                              </button>
+                              <button type="button" class="btn btn-primary delete-add" *ngIf="!user?.isInContacts"
+                                    (click)="onAdd(user.id)">
+                                    <i class="fa fa-plus contact"> </i> 
+                              </button>
 
+                        </div>
                   </div>
+
+                  <h6><i class="fa fa-phone"></i> {{user.phone}}</h6>
+                  <h6><i class="fa fa-envelope"></i> {{user.email}}</h6>
             </div>
       </div>
+</div>

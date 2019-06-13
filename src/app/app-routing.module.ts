@@ -27,7 +27,7 @@ const routes: Routes = [
           children:[
              { path:'avatarUpload', component:AvatarUploadComponent }
           ]},                  
-          { path:'search', component: SearchResultComponent},
+          { path:'search/:searchQuery', component: SearchResultComponent},
           { path:'user/:id', component: UsersprofilesComponent}
         ]},  
         { path:'contacts', component: ContactsComponent,

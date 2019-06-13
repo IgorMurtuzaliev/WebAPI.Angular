@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoggedService } from '../../account/shared/logged.service';
 import { ProfileService } from 'src/app/home/shared/profile.service'
+import { SearchResultComponent } from '../page/search-result/search-result.component';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,8 +10,10 @@ import { ProfileService } from 'src/app/home/shared/profile.service'
 })
 export class HeaderComponent implements OnInit {
   private token:boolean;
-  constructor(private router:Router, private sharedService: LoggedService,private service: ProfileService,) { }
+  constructor(private router:Router, private sharedService: LoggedService,private service: ProfileService) { }
   userDetails;
+  searchQuery:any;
+  private search:SearchResultComponent
   ngOnInit() {
     this.service.getProfile().subscribe(
       res => {
@@ -33,5 +36,9 @@ export class HeaderComponent implements OnInit {
   onLogout(){
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
+  }
+  onSearch(){
+    this.router.navigate(['/home/page/search', this.searchQuery]);
+    this.searchQuery = '';
   }
 }
