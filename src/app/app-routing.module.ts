@@ -13,6 +13,8 @@ import { UsersprofilesComponent } from './home/page/usersprofiles/usersprofiles.
 import {ShoosenContactComponent} from './home/contacts/shoosen-contact/shoosen-contact.component'
 import {AvatarUploadComponent} from './home/page/profile/avatar-upload/avatar-upload.component' 
 import { ChatComponent } from './chat/chat.component';
+import { UsersContactsComponent } from './home/page/users-contacts/users-contacts.component';
+import { BlackListComponent } from './home/page/users-contacts/black-list/black-list.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/register',pathMatch:'full'},
@@ -28,6 +30,10 @@ const routes: Routes = [
              { path:'avatarUpload', component:AvatarUploadComponent }
           ]},                  
           { path:'search/:searchQuery', component: SearchResultComponent},
+          { path:'contacts', component: UsersContactsComponent,
+        children:[
+          { path:'blackList', component: BlackListComponent},
+        ]},
           { path:'user/:id', component: UsersprofilesComponent}
         ]},  
         { path:'contacts', component: ContactsComponent,

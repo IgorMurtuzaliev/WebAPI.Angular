@@ -1,0 +1,54 @@
+<div class="container">
+      <nav>
+        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-contacts-tab" data-toggle="tab" href="#nav-contacts" role="tab"
+            aria-controls="nav-contacts" aria-selected="true">Contacts</a>
+          <a class="nav-item nav-link" id="nav-invite-tab" data-toggle="tab" href="#nav-invite" role="tab"
+            aria-controls="nav-invite" aria-selected="false">Invitations</a>
+          <a class="nav-item nav-link" id="nav-blackList-tab" data-toggle="tab" href="#nav-blackList" role="tab"
+            aria-controls="nav-blackList" aria-selected="false">Black list</a>
+        </div>
+      </nav>
+      <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-contacts" role="tabpanel" aria-labelledby="nav-contacts-tab">
+          <ng-container *ngFor="let contact of contacts" class="example-item">
+            <ng-template [ngIf]="!contact.blocked && contact.confirmed">
+                <div class="row contact">
+                  <div class="col-sm-2">
+                    <img *ngIf="contact" src="https://localhost:44331//{{contact?.contactImage}}">
+                  </div>
+                  <div class="col sm-7">
+                    <h6>{{contact?.contactName}}</h6>
+                  </div>
+                  <div class="col-sm-3">
+                      <i class="fa fa-trash-o" (click)="onDelete(contact.id)"></i>
+                  </div>
+                </div>
+            </ng-template>
+
+          </ng-container>
+        </div>
+        <div class="tab-pane fade" id="nav-invite" role="tabpanel" aria-labelledby="nav-invite-tab">
+          <ng-container *ngFor="let contact of contacts" class="example-item">
+            <ng-template [ngIf]="!contact.blocked && !contact.confirmed">
+                <div class="row contact">
+                  <div class="col-sm-2">
+                    <img *ngIf="contact" src="https://localhost:44331//{{contact?.contactImage}}">
+                  </div>
+                  <div class="col sm-7">
+                    <h6>{{contact?.contactName}}</h6>
+                  </div>
+                  <div class="col-sm-3">
+                    <i class="fa fa-trash-o" (click)="onDelete(contact.id)"></i>
+                    <i class="fa fa-plus" (click)="onConfirm(contact.id)"></i>
+                  </div>
+                </div>
+            </ng-template>
+
+          </ng-container>
+        </div>
+        <div class="tab-pane fade" id="nav-blackList" role="tabpanel" aria-labelledby="nav-blackList-tab">
+          <app-black-list></app-black-list>
+        </div>
+      </div>
+</div>

@@ -24,6 +24,9 @@ import { AvatarUploadComponent } from './home/page/profile/avatar-upload/avatar-
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { ChatComponent } from './chat/chat.component';
 import { EditContactComponent } from './home/contacts/shoosen-contact/edit-contact/edit-contact.component';
+import { UsersContactsComponent } from './home/page/users-contacts/users-contacts.component';
+import { BlackListComponent } from './home/page/users-contacts/black-list/black-list.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +43,9 @@ import { EditContactComponent } from './home/contacts/shoosen-contact/edit-conta
     ShoosenContactComponent,
     AvatarUploadComponent,
     ChatComponent,
-    EditContactComponent
+    EditContactComponent,
+    UsersContactsComponent,
+    BlackListComponent,
   ],
   imports: [
     BrowserModule,

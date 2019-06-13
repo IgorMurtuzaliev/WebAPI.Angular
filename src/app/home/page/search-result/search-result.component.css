@@ -1,14 +1,14 @@
 .container {
     display: grid;
-    grid-template-columns: repeat(4, 25%);
+    grid-template-columns: repeat(auto-fit,minmax(250px, 250px));
     grid-row-gap: 20px;
     grid-column-gap: 10px;
-    width: 90%;
     margin: 0 auto;
     list-style: none;
-    align-content:center;
+    padding-top: 50px;
+    justify-content: center
+    
   }
-  
   .container>.item {
     background-color: #e5ebff;
     word-wrap:break-word;
@@ -17,15 +17,9 @@
   }
   img {
     object-fit: cover;
-    border-radius:50%;
-    width: 100px;
-    height: 100px;
-
+    height: 235px;
+    width: 235px;
   }
-  .container{
-    padding-top: 50px;
-    padding-left: 0;
-}
 #custom-search-input {
     margin:0;
     margin-top: 10px;
@@ -46,12 +40,10 @@
 #custom-search-input button {
     border: 0;
     background: none;
-    /** belows styles are working good */
     padding: 2px 5px;
     margin-top: 2px;
     position: absolute;
     right:0;
-    /* IE7-8 doesn't have border-radius, so don't indent the padding */
     margin-bottom: 0;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -63,21 +55,57 @@
  .result{
    margin-bottom: 20px;
  }
- button{
-  margin-left: 5px;
-  margin-right:5px;
-   border-radius: 50%; 
-  color: aliceblue; 
-  border: 1x solid rgb(255, 255, 255); 
-  padding:10px; 
+
+.under{
+  max-width: 100%;
+  max-height: 30%;
 }
-.block{
-  background-color:#bd000b;
-  
+.image{
+  width: 100%;
+  height: 50%;
+  position: relative;
 }
-.unlock{
-  background-color:#0c6800;
+.image .btn-lock {
+  position: absolute;
+  top: 90%;
+  left: 85%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.267);
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
 }
-.delete-add{
-  background-color:#083e6b;
+.image .delete-add {
+  position: absolute;
+  top: 90%;
+  left: 15%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.267);
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.image .block:hover  {
+  background-color: rgb(206, 18, 18);
+}
+.image .unlock:hover  {
+  background-color: rgb(6, 209, 40);
+}
+.image .delete-add:hover  {
+  background-color: rgb(6, 118, 209);
+}
+.nav-link{
+  padding: 0;
+  color: rgba(8, 123, 255, 0.801)
 }
