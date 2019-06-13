@@ -1,16 +1,18 @@
 img {   
   object-fit: cover;
   max-width: 100%;
+  width: 100%;
   height: auto;
-  align-self: center
+  align-self: center;
+  border:1px solid #0e2d4e;
 }
 
 .emp-profile{
 padding: 3%;
-margin-bottom: 3%;
 border-radius: 0.5rem;
 background-color: #e5ebff;
-box-shadow: 0 0 10px rgba(0,0,0,0.5)
+box-shadow: 0 0 10px rgba(0,0,0,0.5);
+height: 80%;
 }
 
 .profile-head h5{
@@ -68,3 +70,19 @@ color: #fff
 hr{
   margin: 0%;
   }
+button{
+  margin-left: 5px;
+  margin-right:5px;
+  width: 120px;
+  
+}
+.block{
+  background-color:#bd000b;
+  
+}
+.unlock{
+  background-color:#0c6800;
+}
+.delete-add{
+  background-color:#083e6b;
+}

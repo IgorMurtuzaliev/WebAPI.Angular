@@ -54,6 +54,7 @@ user;
    onAdd(Id) {
     this.contactsService.addToContacts(Id).subscribe(
       res => {
+        this.ngOnInit();
        this.toastr.success("User added to your contacts successfully","Success");
       },
       err => {

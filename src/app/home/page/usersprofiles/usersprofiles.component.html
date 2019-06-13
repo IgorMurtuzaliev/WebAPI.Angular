@@ -4,31 +4,31 @@
             <div class="col-md-4" style="border-right: 1px solid #afafb7;">
                 <img *ngIf="user" class="rounded" src="https://localhost:44331{{ user.avatarPath }}">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class="profile-head">
                     <div class="row">
-                        <div class="col-sm-10">
+                        <div class="col-sm-9">
                             <h2>
                                 {{user?.name}} {{user?.surname}}
                             </h2>
                         </div>
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <div class="row">
-                                <button type="button" class="btn btn-primary" *ngIf="!user?.isBlocked"
+                                <button type="button" class="btn btn-primary block" *ngIf="!user?.isBlocked"
                                     (click)="onBlock(user?.id)">
-                                    <i class="fa fa-lock contact"></i>
+                                    <i class="fa fa-lock contact"></i> Block
                                 </button>
-                                <button type="button" class="btn btn-primary" *ngIf="user?.isBlocked"
+                                <button type="button" class="btn btn-primary unlock" *ngIf="user?.isBlocked"
                                     (click)="onUnlock(user?.id)">
-                                    <i class="fa fa-unlock contact"></i>
+                                    <i class="fa fa-unlock contact"></i> Unlock
                                 </button>
-                                <button type="button" class="btn btn-primary" *ngIf="user?.isInContacts"
+                                <button type="button" class="btn btn-primary delete-add" *ngIf="user?.isInContacts"
                                     (click)="onDelete(user?.contactWithUserId)">
-                                    <i class="fa fa-minus contact"></i>
+                                    <i class="fa fa-minus contact"></i> Uncontact
                                 </button>
-                                <button type="button" class="btn btn-primary" *ngIf="!user?.isInContacts"
+                                <button type="button" class="btn btn-primary delete-add" *ngIf="!user?.isInContacts"
                                     (click)="onAdd(user?.id)">
-                                    <i class="fa fa-plus contact"></i>
+                                    <i class="fa fa-plus contact"></i> Contact
                                 </button>
 
 
