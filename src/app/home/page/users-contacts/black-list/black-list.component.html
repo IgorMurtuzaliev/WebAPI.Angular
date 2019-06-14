@@ -1,6 +1,3 @@
-<p>
-  black-list works!
-</p>
 <ng-container *ngFor="let blockedUser of blockedUsers" class="example-item">
     <div class="row contact">
         <div class="col-sm-2">
@@ -8,9 +5,11 @@
         </div>
         <div class="col sm-7">
           <h6>{{blockedUser?.friendName}} {{blockedUser?.friendSurname}}</h6>
+          <h6> <small><i class="fa fa-phone"></i> {{blockedUser?.friendPhone}}</small> </h6>
+          <h6> <small><i class="fa fa-envelope"></i> {{blockedUser?.friendEmail}}</small> </h6>
         </div>
-        <div class="col-sm-3">
-          <i class="fa fa-unlock" (click)="onUnblock(blockedUser.friendId)"></i>
-        </div>
+          <button type="button" class="btn btn-success" (click)="onUnblock(blockedUser.friendId)">
+            <i class="fa fa-unlock"> </i>
+          </button>
       </div>
   </ng-container>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import{ContactService} from '../../shared/contact.service'
 import { ToastrService } from 'ngx-toastr';
+import { UserprofileService } from '../../shared/userprofile.service';
 @Component({
   selector: 'app-users-contacts',
   templateUrl: './users-contacts.component.html',
@@ -8,8 +9,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class UsersContactsComponent implements OnInit {
   contacts;
-  constructor(private service:ContactService,private toastr:ToastrService) { }
+  constructor(private service:ContactService,private toastr:ToastrService, private userProfile: UserprofileService) { }
   _contact:any;
+  user
    private contact: any;
   ngOnInit() {
     this.service.getContacts().subscribe(
@@ -49,20 +51,22 @@ export class UsersContactsComponent implements OnInit {
     );
   }
 
-  onBlock(Id:string){
-    this.service.blockContact(Id).subscribe(
-      res=>{ 
-        this.ngOnInit();
-        this.toastr.success("This contact was blocked", "Block")
+  onBlock(Id) {
+    this.userProfile.blockUser(Id).subscribe(
+      res=>{
+        this.user = res;
+        this.ngOnInit();       
       },
       err=>{
         console.log(err);
-        this.toastr.error(err.description, "Failed")
-      },
-    );
-  }
+      }
+    )
+   }
 
   showContact(_contact){
       this.contact = _contact
+  }
+  editForm(_contact){
+    this.contact = _contact;
   }
   }

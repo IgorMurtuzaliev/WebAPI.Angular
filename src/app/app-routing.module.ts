@@ -15,6 +15,7 @@ import {AvatarUploadComponent} from './home/page/profile/avatar-upload/avatar-up
 import { ChatComponent } from './chat/chat.component';
 import { UsersContactsComponent } from './home/page/users-contacts/users-contacts.component';
 import { BlackListComponent } from './home/page/users-contacts/black-list/black-list.component';
+import { EditContactComponent } from './home/page/users-contacts/edit-contact/edit-contact.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/register',pathMatch:'full'},
@@ -33,6 +34,7 @@ const routes: Routes = [
           { path:'contacts', component: UsersContactsComponent,
         children:[
           { path:'blackList', component: BlackListComponent},
+          { path:'editContact', component: EditContactComponent}
         ]},
           { path:'user/:id', component: UsersprofilesComponent}
         ]},  

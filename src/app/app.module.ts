@@ -23,10 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AvatarUploadComponent } from './home/page/profile/avatar-upload/avatar-upload.component';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { ChatComponent } from './chat/chat.component';
-import { EditContactComponent } from './home/contacts/shoosen-contact/edit-contact/edit-contact.component';
 import { UsersContactsComponent } from './home/page/users-contacts/users-contacts.component';
 import { BlackListComponent } from './home/page/users-contacts/black-list/black-list.component';
-
+import {EditContactComponent} from './home/page/users-contacts/edit-contact/edit-contact.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,9 +42,9 @@ import { BlackListComponent } from './home/page/users-contacts/black-list/black-
     ShoosenContactComponent,
     AvatarUploadComponent,
     ChatComponent,
-    EditContactComponent,
     UsersContactsComponent,
     BlackListComponent,
+    EditContactComponent,
   ],
   imports: [
     BrowserModule,

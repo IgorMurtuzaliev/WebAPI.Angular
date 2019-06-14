@@ -4,6 +4,7 @@ img {
     width: 80px;
     height: 80px;
     border: 2px solid #000000;
+    margin-top: 10px;
   }
   #tabs{
 	background: #404d97;
@@ -29,9 +30,6 @@ img {
     font-size: 20px;
     
 }
-.col-xs-12{
-    width: 100%;
-}
 .container{
 background-color: #6487c9;
 box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -42,14 +40,19 @@ box-shadow: 0 0 10px rgba(0,0,0,0.5);
     margin-left: auto;
     margin-right: auto;
     width: 80%;
+    border-radius: 10px;
+    height: 100px;
 }
-i{ 
-    background-color: rgb(24, 22, 148); 
-    border-radius: 50%; 
-    color: aliceblue; 
-    border: 1x solid rgb(0, 0, 0); 
-    padding:10px; 
-  }    
+  button{
+      height: 40%;
+      width: 7%;
+      margin: auto;
+      margin-right: 8px;
+  }  
+
 a{
     color: rgb(255, 255, 255)
+}
+.col-sm-2{
+    text-align: center;
 }

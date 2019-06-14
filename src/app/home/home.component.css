@@ -6,6 +6,7 @@
 }
 .row-page{
     margin-left: 0%;
+    width: 100%
 }
 .contacts{
     height: 94vh;
@@ -14,4 +15,8 @@
 }
 .main{
     padding: 0px;
+}
+.screen{
+    margin-left: 0;
+    width:100%;
 }
