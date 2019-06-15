@@ -3,7 +3,6 @@ img {
     border-radius:50%;
     width: 80px;
     height: 80px;
-    border: 2px solid #000000;
     margin-top: 10px;
   }
   #tabs{
@@ -32,18 +31,17 @@ img {
 }
 
 .container{
-background-color: #6487c9;
+background-color: #255688;
 box-shadow: 0 0 10px rgba(0,0,0,0.5);
 width: 70%
 }
 .contact{
-    background-color: rgb(202, 237, 240);
+    background-color: rgb(211, 229, 255);
     margin-top: 5px;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
-    border-radius: 10px;
     height: 100px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
   button{
       height: 40%;
@@ -57,4 +55,7 @@ width: 70%
   }
 a{
     color: rgb(255, 255, 255)
+}
+.to-profile{
+    color: #255688
 }

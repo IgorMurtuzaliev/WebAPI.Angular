@@ -12,13 +12,15 @@ img {
 }
 .btn-primary{
 margin-left:50%;
+background-color: #255688;
+border: none
+}
+.btn-primary:hover{
+  background-color: #1a436b;
 }
 .profile-container{
   padding: 3%;
   border-radius: 0.5rem;
-  background-color: #e5ebff;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  height: 80%;
 }
 
 .profile-head h5{
@@ -28,18 +30,11 @@ margin-left:50%;
   color: #0062cc;
 }
 
-.profile-head .nav-tabs{
-  margin-bottom:5%;
-}
 .profile-head .nav-tabs .nav-link{
   font-weight:600;
   border: none;
 }
 
-.profile-head .nav-tabs .nav-link.active{
-  border: none;
-  border-bottom:2px solid #0062cc;
-}
 .profile-work{
   padding: 14%;
   margin-top: -15%;
@@ -74,7 +69,7 @@ margin-left:50%;
   color: #fff
 }
 .nav-link.active{
-  background-color: rgb(25, 21, 88);
+  background-color: rgb(5, 42, 80);;
   color: #fff
 }
 .holder{
@@ -98,3 +93,7 @@ margin-left:50%;
   hr{
     margin: 0%;
     }
+  .col-md-8{
+    border: 2px solid #6e96f330;
+  background-color: #d3e5ff;
+  }

@@ -1,12 +1,24 @@
 <div class="contact">
+  <div class="row">
+    <div class="col-sm-8">
+      <img *ngIf="contact" src="https://localhost:44331{{contact.contactImage}}" />
+    </div>
+    <div class="col-sm-4">
+        <button type="button" class="btn btn-danger" (click)="onBlock(contact.friendId)">
+            <i class="fa fa-ban"> </i>
+          </button>
+          <button type="button" class="btn btn-primary" (click)="onDelete(contact.id)">
+            <i class="fa fa-minus"> </i>
+          </button>
+          <button type="button" class="btn btn-warning">
+              <i class="fa fa-envelope"> </i>
+            </button>
+    </div>
+  </div>
   <a [routerLink]="['/home/page/user', contact.friendId]" class="nav-link">
-    <h4>{{contact.contactName}}</h4>
-</a>
-  <img *ngIf="contact" src="https://localhost:44331{{contact.contactImage}}" />
-  <h6><i class="fa fa-phone"></i> {{contact?.friendPhone}}</h6>
-  <h6><i class="fa fa-envelope"></i> {{contact?.friendEmail}}</h6>
-  <!-- <button type="button" class="btn-dark" (click)="editForm(contact)"></button>
-  <app-edit-contact *ngIf="contact" [contact]="contact"></app-edit-contact> -->
+    <h5>{{contact.contactName}}</h5>
+  </a>
+
+  <h6><small><i class="fa fa-phone"></i> {{contact?.friendPhone}}</small></h6>
+  <h6><small><i class="fa fa-envelope"></i> {{contact?.friendEmail}}</small></h6>
 </div>
-
-

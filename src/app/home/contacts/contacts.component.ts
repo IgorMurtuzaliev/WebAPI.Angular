@@ -51,32 +51,6 @@ export class ContactsComponent implements OnInit {
     );
   }
 
-  onBlock(Id:string){
-    this.service.blockContact(Id).subscribe(
-      res=>{ 
-        this.ngOnInit();
-        this.toastr.success("This contact was blocked", "Block")
-      },
-      err=>{
-        console.log(err);
-        this.toastr.error(err.description, "Failed")
-      },
-    );
-  }
-
-  onUnlock(Id:string){
-    this.service.unlockContact(Id).subscribe(
-      res=>{ 
-        this.ngOnInit();
-        this.toastr.success("This contact was unlocked", "Unlock")
-      },
-      err=>{
-        console.log(err);
-        this.toastr.error(err.description, "Failed")
-      },
-    );
-  }
-
   showContact(_contact){
       this.contact = _contact
   }

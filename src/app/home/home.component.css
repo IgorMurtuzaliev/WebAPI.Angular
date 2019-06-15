@@ -10,8 +10,9 @@
 }
 .contacts{
     height: 94vh;
-    background-color: #b0d4f7;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    background-color: #35679a;
+    padding-left: 0;
+    padding-right: 0;
 }
 .main{
     padding: 0px;
@@ -19,4 +20,8 @@
 .screen{
     margin-left: 0;
     width:100%;
+}
+.sidebar{
+    background: #052a50;
+    padding: 10px
 }

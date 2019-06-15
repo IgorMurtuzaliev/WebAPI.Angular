@@ -1,13 +1,13 @@
 <div class="container">
-  <div>
+  <div class="contacts-list">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
         <a class="nav-link" id="contacts-tab" data-toggle="tab" href="#contacts" role="tab" aria-controls="contacts"
-          aria-selected="false"><i class="fa fa-user nav-i"></i></a>
+          aria-selected="false"><i class="fa fa-user fa-2x nav-i"></i></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" id="confirm-tab" data-toggle="tab" href="#confirm" role="tab" aria-controls="confirm"
-          aria-selected="false"><i class="fa fa-arrow-down nav-i"></i></a>
+          aria-selected="false"><i class="fa fa-arrow-down fa-2x nav-i"></i></a>
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
@@ -18,14 +18,13 @@
             <ng-template [ngIf]="!contact.blocked && contact.confirmed">
               <button type="button" class="list-group-item list-group-item-action" (click)="showContact(contact)">
                 <div class="row">
-                  <div class="col-sm-5">
+                  <div class="col col-sm-5">
                     <img *ngIf="contact" src="https://localhost:44331//{{contact?.contactImage}}">
                   </div>
-                  <div class="col sm-7">
-                    <i class="fa fa-trash-o contact" (click)="onDelete(contact.id)"></i>
+                  <div class="col col-sm-7">
+                     <h6>{{contact?.contactName}}</h6>
                   </div>
-                </div>
-                <h6>{{contact?.contactName}}</h6>
+                </div>              
               </button>
             </ng-template>
 

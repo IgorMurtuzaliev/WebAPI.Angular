@@ -15,8 +15,6 @@ export class SearchService {
     let tokenHeader = new HttpHeaders({'Authorization':'Bearer '+localStorage.getItem('token')});
     return this.http.get('https://localhost:44331/api/search?search='+ query, {headers : tokenHeader});
   }
-  
-
   goToProfile(id:string){
     let tokenHeader = new HttpHeaders({'Authorization':'Bearer '+localStorage.getItem('token')});
     return this.http.get('https://localhost:44331/api/users/'+ id,{headers : tokenHeader});

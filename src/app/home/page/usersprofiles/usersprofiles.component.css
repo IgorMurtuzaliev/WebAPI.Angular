@@ -4,15 +4,11 @@ img {
   width: 100%;
   height: auto;
   align-self: center;
-  border:1px solid #0e2d4e;
 }
 
 .emp-profile{
 padding: 3%;
 border-radius: 0.5rem;
-background-color: #e5ebff;
-box-shadow: 0 0 10px rgba(0,0,0,0.5);
-height: 80%;
 }
 
 .profile-head h5{
@@ -29,10 +25,7 @@ margin-bottom:5%;
 font-weight:600;
 border: none;
 }
-.profile-head .nav-tabs .nav-link.active{
-border: none;
-border-bottom:2px solid #0062cc;
-}
+
 .profile-work{
 padding: 14%;
 margin-top: -15%;
@@ -76,13 +69,10 @@ button{
   width: 120px;
   
 }
-.block{
-  background-color:#bd000b;
-  
+.col-md-8{
+  border: 2px solid #6e96f330;
+background-color: #d3e5ff;
 }
-.unlock{
-  background-color:#0c6800;
-}
-.delete-add{
-  background-color:#083e6b;
+button{
+  margin-top: 5px
 }

@@ -14,24 +14,22 @@
                         </div>
                         <div class="col-sm-3">
                             <div class="row">
-                                <button type="button" class="btn btn-primary block" *ngIf="!user?.isBlocked"
+                                <button type="button" class="btn btn-danger" *ngIf="!user?.isBlocked"
                                     (click)="onBlock(user?.id)">
                                     <i class="fa fa-lock contact"></i> Block
                                 </button>
-                                <button type="button" class="btn btn-primary unlock" *ngIf="user?.isBlocked"
+                                <button type="button" class="btn btn-success" *ngIf="user?.isBlocked"
                                     (click)="onUnlock(user?.id)">
                                     <i class="fa fa-unlock contact"></i> Unlock
                                 </button>
-                                <button type="button" class="btn btn-primary delete-add" *ngIf="user?.isInContacts"
+                                <button type="button" class="btn btn-primary" *ngIf="user?.isInContacts"
                                     (click)="onDelete(user?.contactWithUserId)">
                                     <i class="fa fa-minus contact"></i> Uncontact
                                 </button>
-                                <button type="button" class="btn btn-primary delete-add" *ngIf="!user?.isInContacts"
+                                <button type="button" class="btn btn-primary" *ngIf="!user?.isInContacts"
                                     (click)="onAdd(user?.id)">
                                     <i class="fa fa-plus contact"></i> Contact
                                 </button>
-
-
                             </div>
 
                         </div>
@@ -44,7 +42,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-8" style="max-width: 100%">
+                <div>
                     <div class="tab-content profile-tab" id="myTabContent" style="margin-top: 50px">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="row">

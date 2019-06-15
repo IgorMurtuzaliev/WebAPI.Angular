@@ -2,7 +2,6 @@
     display: grid;
     align-content:center;
   }
-
 img {
     object-fit: cover;
     margin-top:20px;
@@ -14,3 +13,30 @@ img {
     max-width: 100%;
     height: auto;
   }
+
+#sidebar-container {   
+    padding: 0;
+    width: 100%;
+}
+.sidebar-expanded {
+    width: 230px;
+}
+.sidebar-collapsed {
+    width: 60px;
+}
+
+#sidebar-container .list-group a {
+    height: 50px;
+    color: white;
+}
+.list-group{
+  margin-top:100px;
+}
+.list-group-item{
+  background-color: #255688;
+  margin-top: 5px
+}
+a:hover{
+  background-color: #163553;
+}
+

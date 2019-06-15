@@ -11,7 +11,7 @@
   </nav>
   <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-contacts" role="tabpanel" aria-labelledby="nav-contacts-tab">
-        <app-edit-contact *ngIf="contact" [contact]="contact"></app-edit-contact>
+      <app-edit-contact *ngIf="contact" [contact]="contact"></app-edit-contact>
       <ng-container *ngFor="let contact of contacts" class="example-item">
         <ng-template [ngIf]="!contact.blocked && contact.confirmed">
           <div class="row contact">
@@ -19,17 +19,16 @@
               <img *ngIf="contact" src="https://localhost:44331//{{contact?.contactImage}}">
             </div>
             <div class="col sm-7">
-              <h6>{{contact?.contactName}}</h6>
+              <h5><a [routerLink]="['/home/page/user', contact.friendId]" class="to-profile">{{contact.contactName}} </a> <i class="fa fa-edit" (click)="editForm(contact)"> </i></h5>
               <h6> <small><i class="fa fa-phone"></i> {{contact.friendPhone}}</small> </h6>
               <h6> <small><i class="fa fa-envelope"></i> {{contact.friendEmail}}</small> </h6>
             </div>
             <button type="button" class="btn btn-danger" (click)="onBlock(contact.friendId)">
-              <i class="fa fa-lock"> </i>
+              <i class="fa fa-ban"> </i>
             </button>
             <button type="button" class="btn btn-primary" (click)="onDelete(contact.id)">
               <i class="fa fa-minus"> </i>
             </button>
-            <button type="button" class="btn-primary" (click)="editForm(contact)"></button>
           </div>
         </ng-template>
 
@@ -43,23 +42,22 @@
               <img *ngIf="contact" src="https://localhost:44331//{{contact?.contactImage}}">
             </div>
             <div class="col sm-7">
-              <h6>{{contact?.contactName}}</h6>
+              <h6><a [routerLink]="['/home/page/user', contact.friendId]" class="to-profile">{{contact.friendName}} {{contact.friendSurname}} added you to contacts. You can add this user too!</a> </h6>
               <h6> <small><i class="fa fa-phone"></i> {{contact.friendPhone}}</small> </h6>
               <h6> <small><i class="fa fa-envelope"></i> {{contact.friendEmail}}</small> </h6>
             </div>
-              <button type="button" class="btn btn-primary" (click)="onDelete(contact.id)">
-                <i class="fa fa-minus"> </i>
-              </button>
-              <button type="button" class="btn btn-danger" (click)="onBlock(contact.friendId)">
-                <i class="fa fa-lock"> </i>
-              </button>
-              <button type="button" class="btn btn-primary" (click)="onConfirm(contact.id)">
-                <i class="fa fa-plus"> </i>
-              </button>
+            <button type="button" class="btn btn-primary" (click)="onDelete(contact.id)">
+              <i class="fa fa-minus"> </i>
+            </button>
+            <button type="button" class="btn btn-danger" (click)="onBlock(contact.friendId)">
+              <i class="fa fa-ban"> </i>
+            </button>
+            <button type="button" class="btn btn-primary" (click)="onConfirm(contact.id)">
+              <i class="fa fa-plus"> </i>
+            </button>
 
           </div>
         </ng-template>
-
       </ng-container>
     </div>
     <div class="tab-pane fade" id="nav-blackList" role="tabpanel" aria-labelledby="nav-blackList-tab">

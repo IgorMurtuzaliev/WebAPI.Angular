@@ -1,6 +1,9 @@
 import { Component, OnInit,Input  } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { UserprofileService } from '../../shared/userprofile.service';
 import { ContactService } from '../../shared/contact.service'
+import { ContactsComponent } from '../contacts.component';
 @Component({
   selector: 'app-shoosen-contact',
   templateUrl: './shoosen-contact.component.html',
@@ -9,13 +12,36 @@ import { ContactService } from '../../shared/contact.service'
 export class ShoosenContactComponent implements OnInit {
   @Input() contact:any;
   id:number;
-  _contact:any;
-  constructor(activeRoute: ActivatedRoute, private service: ContactService) { 
+  user;
+  constructor(private service: ContactService,private userProfile:UserprofileService, private toastr:ToastrService) { 
   }
-  
+  contacts: ContactsComponent
   ngOnInit() {
   }
-  editForm(_contact){
-    this.contact = _contact;
+  onDelete(Id:string){
+    this.service.deleteContact(Id).subscribe(
+      res=>{ 
+        
+        this.toastr.success("Contact was deleted succesfully", "Deleting")
+        this.contacts.ngOnInit();
+      },
+      err=>{
+        console.log(err);
+        this.toastr.error(err.description, "Failed")
+      },
+    );
   }
+
+  onBlock(Id) {
+    this.userProfile.blockUser(Id).subscribe(
+      res=>{
+        this.user = res;
+        this.contacts.ngOnInit();     
+      },
+      err=>{
+        console.log(err);
+      }
+    )
+   }
+
 }

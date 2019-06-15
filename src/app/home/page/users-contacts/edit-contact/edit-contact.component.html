@@ -1,18 +1,23 @@
+<form class="form-horizontal" *ngIf="contact" role="form" [formGroup]="service.formModel" autocomplete="off"
+    (submit)="onEdit(contact?.id)">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="form-group">
+                <input class="form-control" formControlName="ContactName" placeholder="Input new contact name">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="col-md-3 control-label"></label>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-check"> </i>
+                </button>
+                <button type="button" class="btn btn-primary" (click)="onClose()">
+                        <i class="fa fa-times"> </i>
+                      </button>
+            </div>
+        </div>
+    </div>
 
-<form class="form-horizontal" *ngIf = "contact" role="form" [formGroup]="service.formModel"
-autocomplete="off" (submit)="onEdit(contact?.id)">
-<div class="form-group">
-    <label class="col-lg-3 control-label">Contact name:</label>
-    <div class="col-lg-8">
-        <input class="form-control" formControlName="ContactName">
-    </div>
-</div>
-<div class="form-group">
-    <label class="col-md-3 control-label"></label>
-    <div class="col-md-8">
-        <button type="submit" class="btn btn-primary btn-lg btn-block">
-            Save
-        </button>
-    </div>
-</div>
+
 </form>

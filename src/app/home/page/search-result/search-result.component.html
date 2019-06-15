@@ -7,7 +7,7 @@
                         <img *ngIf="user" src="https://localhost:44331{{user.avatarPath}}" />
                         <button type="button" class="btn btn-lock block" *ngIf="!user?.isBlocked"
                               (click)="onBlock(user.id)">
-                              <i class="fa fa-lock contact"> </i>
+                              <i class="fa fa-ban contact"> </i>
                         </button>
                         <button type="button" class="btn btn-lock unlock" *ngIf="user?.isBlocked"
                               (click)="onUnlock(user.id)">

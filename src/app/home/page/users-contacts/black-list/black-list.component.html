@@ -4,7 +4,7 @@
           <img *ngIf="blockedUser" src="https://localhost:44331//{{blockedUser?.userAvatar}}">
         </div>
         <div class="col sm-7">
-          <h6>{{blockedUser?.friendName}} {{blockedUser?.friendSurname}}</h6>
+          <h5><a [routerLink]="['/home/page/user', blockedUser.friendId]" class="to-profile">{{blockedUser?.friendName}} {{blockedUser?.friendSurname}} </a> </h5>
           <h6> <small><i class="fa fa-phone"></i> {{blockedUser?.friendPhone}}</small> </h6>
           <h6> <small><i class="fa fa-envelope"></i> {{blockedUser?.friendEmail}}</small> </h6>
         </div>
