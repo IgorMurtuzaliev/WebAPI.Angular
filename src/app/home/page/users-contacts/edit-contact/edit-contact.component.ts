@@ -2,6 +2,7 @@ import { Component, OnInit,Input } from '@angular/core';
 import { ContactService } from '../../../shared/contact.service'
 import { UsersContactsComponent } from '../users-contacts.component';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-edit-contact',
   templateUrl: './edit-contact.component.html',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class EditContactComponent implements OnInit {
   @Input() contact:any;
-  constructor(private service: ContactService ,private contacts:UsersContactsComponent,private router:Router) { }
+  constructor(private service: ContactService ,private contacts:UsersContactsComponent,private router:Router, private toastr: ToastrService) { }
 
   ngOnInit() {
   }
@@ -18,9 +19,11 @@ export class EditContactComponent implements OnInit {
       res => {
      this.contacts.ngOnInit();
      this.router.navigateByUrl('/home/page/contacts')
+     this.toastr.success("You unlocked this user!","Success");
       },
       err => {
         console.log(err);
+        this.toastr.error(err.error,"Failed")
       }
     )
   }

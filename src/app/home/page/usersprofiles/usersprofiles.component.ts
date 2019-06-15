@@ -33,9 +33,11 @@ user;
       res=>{
         this.ngOnInit();
         this.user = res;
+        this.toastr.success("You blocked this user!","Success");
       },
       err=>{
         console.log(err);
+        this.toastr.error(err.error,"Failed");
       }
     )
    }
@@ -45,9 +47,11 @@ user;
       res=>{
         this.ngOnInit();
         this.user = res;
+        this.toastr.success("You unlocked this user!","Success");
       },
       err=>{
         console.log(err);
+        this.toastr.error(err.error,"Failed");
       }
     )
    }
@@ -59,7 +63,7 @@ user;
       },
       err => {
         console.log(err);
-        this.toastr.error(err.description,"Failed");
+        this.toastr.error(err.error,"Failed");
       }
     );
   }

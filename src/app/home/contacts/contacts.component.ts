@@ -33,7 +33,7 @@ export class ContactsComponent implements OnInit {
       },
       err=>{
         console.log(err);
-        this.toastr.error(err.description, "Failed")
+        this.toastr.error(err.error, "Failed")
       },
     );
   }
@@ -46,7 +46,7 @@ export class ContactsComponent implements OnInit {
       },
       err=>{
         console.log(err);
-        this.toastr.error(err.description, "Failed")
+        this.toastr.error(err.error, "Failed")
       },
     );
   }

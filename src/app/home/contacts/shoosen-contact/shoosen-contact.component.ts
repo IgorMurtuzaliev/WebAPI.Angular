@@ -27,7 +27,7 @@ export class ShoosenContactComponent implements OnInit {
       },
       err=>{
         console.log(err);
-        this.toastr.error(err.description, "Failed")
+        this.toastr.error(err.error, "Failed")
       },
     );
   }
@@ -36,10 +36,12 @@ export class ShoosenContactComponent implements OnInit {
     this.userProfile.blockUser(Id).subscribe(
       res=>{
         this.user = res;
-        this.contacts.ngOnInit();     
+        this.contacts.ngOnInit();
+        this.toastr.success("Contact was blocked", "Blocked")     
       },
       err=>{
         console.log(err);
+        this.toastr.error(err.error, "Failed")
       }
     )
    }

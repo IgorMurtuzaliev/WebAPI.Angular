@@ -33,7 +33,7 @@ export class UsersContactsComponent implements OnInit {
       },
       err=>{
         console.log(err);
-        this.toastr.error(err.description, "Failed")
+        this.toastr.error(err.error, "Failed")
       },
     );
   }
@@ -46,7 +46,7 @@ export class UsersContactsComponent implements OnInit {
       },
       err=>{
         console.log(err);
-        this.toastr.error(err.description, "Failed")
+        this.toastr.error(err.error, "Failed")
       },
     );
   }
@@ -55,10 +55,12 @@ export class UsersContactsComponent implements OnInit {
     this.userProfile.blockUser(Id).subscribe(
       res=>{
         this.user = res;
-        this.ngOnInit();       
+        this.ngOnInit();   
+        this.toastr.success("You blocked this user!","Success");    
       },
       err=>{
         console.log(err);
+        this.toastr.error(err.error, "Failed")
       }
     )
    }

@@ -3,6 +3,7 @@ import{ProfileService} from 'src/app/home/shared/profile.service'
 import { Router } from '@angular/router';
 import { SidebarComponent } from '../../sidebar/sidebar.component';
 import { HeaderComponent } from '../../header/header.component';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -11,7 +12,7 @@ import { HeaderComponent } from '../../header/header.component';
 export class ProfileComponent implements OnInit {
   userDetails;
   FileToUpload : File = null;
-  constructor(private service:ProfileService, private router:Router) { }
+  constructor(private service:ProfileService, private router:Router, private toastr: ToastrService) { }
   private header:HeaderComponent;
 ngOnInit() {
   this.service.getProfile().subscribe(
@@ -44,9 +45,11 @@ onSubmit()
       
       this.ngOnInit();
       this.router.navigateByUrl('/home/page/profile');
+      this.toastr.success("Profile information was edited", "Deleting")
     },
     err=>{
       console.log(err);
+      this.toastr.error(err.error, "Deleting")
     }
      );
     }

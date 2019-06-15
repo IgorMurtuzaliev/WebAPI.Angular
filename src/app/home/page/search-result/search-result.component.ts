@@ -38,10 +38,11 @@ export class SearchResultComponent implements OnInit {
       res=>{
         this.user = res;
         this.ngOnInit();
-        
+        this.toastr.success("You blocked this user","Success");  
       },
       err=>{
         console.log(err);
+        this.toastr.error(err.error,"Failed");
       }
     )
    }
@@ -50,9 +51,11 @@ export class SearchResultComponent implements OnInit {
     this.userProfile.unlockUser(Id).subscribe(
       res=>{
         this.user = res;
-        this.ngOnInit();        
+        this.ngOnInit();    
+        this.toastr.success("You unlocked this user","Success");    
       },
       err=>{
+        this.toastr.error(err.error,"Failed");
         console.log(err);
       }
     )
@@ -65,7 +68,7 @@ export class SearchResultComponent implements OnInit {
       },
       err => {
         console.log(err);
-        this.toastr.error(err.description,"Failed");
+        this.toastr.error(err.error,"Failed");
       }
     );
   }
@@ -77,7 +80,7 @@ export class SearchResultComponent implements OnInit {
       },
       err=>{
         console.log(err);
-        this.toastr.error(err.description, "Failed")
+        this.toastr.error(err.error, "Failed")
       },
     );
   }
