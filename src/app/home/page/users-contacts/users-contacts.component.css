@@ -31,7 +31,8 @@ img {
 }
 
 .container{
-background-color: #255688;
+background-color: #4c81b7;
+/* #255688 */
 box-shadow: 0 0 10px rgba(0,0,0,0.5);
 width: 70%
 }

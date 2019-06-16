@@ -18,7 +18,7 @@ import { BlackListComponent } from './home/page/users-contacts/black-list/black-
 import { EditContactComponent } from './home/page/users-contacts/edit-contact/edit-contact.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'/register',pathMatch:'full'},
+  {path:'',redirectTo:'/home/',pathMatch:'full'},
   { path:'chat', component: ChatComponent},
   { path:'register', component: RegisterComponent},
   { path:'login', component: LoginComponent},

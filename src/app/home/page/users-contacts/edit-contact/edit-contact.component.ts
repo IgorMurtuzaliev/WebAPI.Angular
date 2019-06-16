@@ -19,7 +19,7 @@ export class EditContactComponent implements OnInit {
       res => {
      this.contacts.ngOnInit();
      this.router.navigateByUrl('/home/page/contacts')
-     this.toastr.success("You unlocked this user!","Success");
+     this.toastr.success("You changed contact name!","Success");
       },
       err => {
         console.log(err);

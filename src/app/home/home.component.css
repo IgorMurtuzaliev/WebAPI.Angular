@@ -2,17 +2,22 @@
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 30px;
-    background-color: #dcedf5;
+    background-color: #dcedf5bf;
+    /* #dcedf5 */
 }
 .row-page{
     margin-left: 0%;
     width: 100%
 }
 .contacts{
-    height: 94vh;
-    background-color: #35679a;
+    height: 100vh;
+    background-color:#4994e0a6;
+     /* #35679a */
     padding-left: 0;
     padding-right: 0;
+    position:sticky;
+    top:0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.72);
 }
 .main{
     padding: 0px;
@@ -22,6 +27,8 @@
     width:100%;
 }
 .sidebar{
-    background: #052a50;
-    padding: 10px
+    background: #052a50;   
+    padding: 0;
+    position:sticky;
+    top:0
 }

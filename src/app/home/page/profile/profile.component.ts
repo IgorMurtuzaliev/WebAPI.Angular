@@ -5,6 +5,7 @@ import { SidebarComponent } from '../../sidebar/sidebar.component';
 import { HeaderComponent } from '../../header/header.component';
 import { ToastrService } from 'ngx-toastr';
 @Component({
+  providers: [HeaderComponent],
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
@@ -12,8 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ProfileComponent implements OnInit {
   userDetails;
   FileToUpload : File = null;
-  constructor(private service:ProfileService, private router:Router, private toastr: ToastrService) { }
-  private header:HeaderComponent;
+  constructor(private service:ProfileService, private router:Router, private toastr: ToastrService,private header:HeaderComponent) { }
 ngOnInit() {
   this.service.getProfile().subscribe(
     res=>{
@@ -41,10 +41,10 @@ onImage(Image){
 onSubmit()
 {
   this.service.edit().subscribe(
-    (res: any) => {
-      
+    (res: any) => {     
       this.ngOnInit();
       this.router.navigateByUrl('/home/page/profile');
+      this.header.ngOnInit();
       this.toastr.success("Profile information was edited", "Deleting")
     },
     err=>{

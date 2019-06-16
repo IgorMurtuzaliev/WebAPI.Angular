@@ -10,7 +10,7 @@ export class RegisterService {
 
   formModel = this.fb.group({
     Name :['',Validators.required],
-    Surname :['',Validators.required],
+    Surname :[''],
     Email :['',[Validators.required, Validators.email]],
     Phone :['',Validators.required],
     Passwords:this.fb.group({

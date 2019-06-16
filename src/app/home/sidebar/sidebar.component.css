@@ -20,6 +20,10 @@ img {
 }
 .sidebar-expanded {
     width: 230px;
+    position:sticky;
+    top:0;
+    height: 100vh;
+    background-image: url(../../../assets/img/blue-violet-motion-background-free-download-undesigns.jpg);
 }
 .sidebar-collapsed {
     width: 60px;
@@ -28,15 +32,19 @@ img {
 #sidebar-container .list-group a {
     height: 50px;
     color: white;
+    
 }
 .list-group{
   margin-top:100px;
 }
 .list-group-item{
-  background-color: #255688;
-  margin-top: 5px
+  /* background-color: #255688; */
+  background-color: #253b88;
+  margin-top: 5px;
+  width: 80%;
+    margin: auto;
 }
 a:hover{
-  background-color: #163553;
+  background-color: #3d7ebe;
 }
 

@@ -10,8 +10,8 @@ export class ProfileService {
   
   constructor(private http:HttpClient,private fb:FormBuilder) { }
   formModel = this.fb.group({
-    Name : '',
-    Surname : '',
+    Name : ['',Validators.required],
+    Surname : ['',Validators.required],
   });
  userinfo;
   getProfile(){

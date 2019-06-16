@@ -2,16 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import{ContactService} from '../../shared/contact.service'
 import { ToastrService } from 'ngx-toastr';
 import { UserprofileService } from '../../shared/userprofile.service';
+import { BlackListService } from '../../shared/black-list.service';
+import { BlackListComponent } from './black-list/black-list.component';
 @Component({
+  providers:[BlackListComponent],
   selector: 'app-users-contacts',
   templateUrl: './users-contacts.component.html',
   styleUrls: ['./users-contacts.component.css']
 })
 export class UsersContactsComponent implements OnInit {
   contacts;
-  constructor(private service:ContactService,private toastr:ToastrService, private userProfile: UserprofileService) { }
+  constructor(private service:ContactService,private toastr:ToastrService, private userProfile: UserprofileService,private blackList:BlackListComponent) { }
   _contact:any;
-  user
+  user 
    private contact: any;
   ngOnInit() {
     this.service.getContacts().subscribe(
@@ -56,6 +59,7 @@ export class UsersContactsComponent implements OnInit {
       res=>{
         this.user = res;
         this.ngOnInit();   
+        this.blackList.ngOnInit();
         this.toastr.success("You blocked this user!","Success");    
       },
       err=>{

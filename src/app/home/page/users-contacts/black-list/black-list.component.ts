@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class BlackListComponent implements OnInit {
 blocklist;
-  constructor(private service: BlackListService, private userProfile:UserprofileService,private contacts:UsersContactsComponent, private toastr: ToastrService) { }
+  constructor(private service: BlackListService, private userProfile:UserprofileService, private toastr: ToastrService) { }
   blockedUsers;
   ngOnInit() {
     this.service.getBlackList().subscribe(
@@ -27,7 +27,6 @@ blocklist;
   onUnblock(Id) {
     this.userProfile.unlockUser(Id).subscribe(
       res=>{
-this.contacts.ngOnInit();
         this.blocklist = res;
         this.ngOnInit();   
         this.toastr.success("You unlocked this user!","Success");     
