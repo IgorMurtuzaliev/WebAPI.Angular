@@ -34,7 +34,8 @@ img {
 background-color: #4c81b7;
 /* #255688 */
 box-shadow: 0 0 10px rgba(0,0,0,0.5);
-width: 70%
+width: 70%;
+border-radius: 10px;
 }
 .contact{
     background-color: rgb(211, 229, 255);
@@ -43,6 +44,7 @@ width: 70%
     margin-right: auto;
     height: 100px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-radius: 6px;
 }
   button{
       height: 40%;

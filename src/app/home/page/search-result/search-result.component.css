@@ -13,24 +13,27 @@
     background-color: #e5ebff;
     word-wrap:break-word;
     padding: 3%;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    border-radius: 5px;
   }
   img {
     object-fit: cover;
     height: 235px;
     width: 235px;
+    border-radius: 5px;
   }
 #custom-search-input {
     margin:0;
     margin-top: 10px;
     padding: 0;
 }
- 
+ .result{
+   background-color: white;
+ }
 #custom-search-input .search-query {
     width:100%;
     padding-right: 3px;
     padding-left: 15px;
-        /* IE7-8 doesn't have border-radius, so don't indent the padding */
     margin-bottom: 0;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -108,4 +111,7 @@
 .nav-link{
   padding: 0;
   color: rgba(8, 123, 255, 0.801)
+}
+h2{
+  margin-left: 10px;
 }

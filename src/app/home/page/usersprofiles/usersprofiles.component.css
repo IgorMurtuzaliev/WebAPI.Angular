@@ -9,6 +9,7 @@ img {
 .emp-profile{
 padding: 3%;
 border-radius: 0.5rem;
+background-color: #dadbdc;
 }
 
 .profile-head h5{
@@ -70,8 +71,13 @@ button{
   
 }
 .col-md-8{
-  border: 2px solid #6e96f330;
-background-color: #d3e5ff;
+  /* border: 2px solid #6e96f330;
+background-color: #d3e5ff; */
+background-color: #f7f7f7;
+border-radius: 10px;
+}
+h2{
+  margin-bottom: 1.5rem;
 }
 button{
   margin-top: 5px

@@ -4,6 +4,7 @@
   }
 img {
     object-fit: cover;
+    margin: auto;
     margin-top:20px;
     max-width: 100%;
     height: auto;
@@ -38,13 +39,17 @@ img {
   margin-top:100px;
 }
 .list-group-item{
-  /* background-color: #255688; */
-  background-color: #253b88;
+  /* background-color: #255688; #253b88*/
+  background-color: #3b509a;
   margin-top: 5px;
   width: 80%;
-    margin: auto;
+  margin: auto;
+  border-radius: 6px;
 }
 a:hover{
   background-color: #3d7ebe;
+}
+.sidebar-header{
+  justify-content: center;
 }
 

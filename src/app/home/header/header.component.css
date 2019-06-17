@@ -33,25 +33,31 @@ form{
     float: left;
     width: 90%;
     background: #f1f1f1;
+    height: 40px;
+    border-radius: 10px 0px 0px 10px
   }
 
   form.example button {
     float: left;
-    padding: 10px;
     background: #338fb3;
     color: white;
     font-size: 17px;
     border: 1px solid grey;
     border-left: none; 
     cursor: pointer;
+    height: 40px;
+    border-radius: 0px 10px 10px 0px
   }
   
   form.example button:hover {
-    background: #0b7dda;
+    background: #59a7c5;
   }
   
   form.example::after {
     content: "";
     clear: both;
     display: table;
+  }
+  .row{
+    margin-left: 10px
   }

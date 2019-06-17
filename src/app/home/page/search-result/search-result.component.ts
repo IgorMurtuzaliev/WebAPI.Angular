@@ -13,11 +13,13 @@ import { ActivatedRoute } from "@angular/router";
 export class SearchResultComponent implements OnInit {
   searchQuery: any;
   constructor(private userProfile: UserprofileService,private service: SearchService, private toastr: ToastrService, private contactsService: ContactService, private contacts: ContactsComponent, private activeRoute: ActivatedRoute) {
-  this.searchQuery = activeRoute.snapshot.params["searchQuery"];
+  
   }
   user;
   users: any[];
   ngOnInit() {
+    console.log('rendered')
+    this.searchQuery = this.activeRoute.snapshot.params["searchQuery"];
     this.service.search(this.searchQuery).subscribe(
       res => {
         this.users = res;

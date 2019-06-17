@@ -20,8 +20,7 @@ export class ShoosenContactComponent implements OnInit {
   }
   onDelete(Id:string){
     this.service.deleteContact(Id).subscribe(
-      res=>{ 
-        
+      res=>{         
         this.toastr.success("Contact was deleted succesfully", "Deleting")
         this.contacts.ngOnInit();
       },
@@ -36,7 +35,6 @@ export class ShoosenContactComponent implements OnInit {
     this.userProfile.blockUser(Id).subscribe(
       res=>{
         this.user = res;
-        this.contacts.ngOnInit();
         this.toastr.success("Contact was blocked", "Blocked")     
       },
       err=>{

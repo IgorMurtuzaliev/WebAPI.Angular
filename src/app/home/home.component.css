@@ -2,8 +2,8 @@
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 30px;
-    background-color: #dcedf5bf;
-    /* #dcedf5 */
+    background-color:#dededea8 ;
+    /* #dcedf5 #dcedf5bf #e6ebec*/
 }
 .row-page{
     margin-left: 0%;
@@ -11,13 +11,13 @@
 }
 .contacts{
     height: 100vh;
-    background-color:#4994e0a6;
-     /* #35679a */
+    background-color:#bddcea;
+     /* #35679a #4994e0a6*/
     padding-left: 0;
     padding-right: 0;
     position:sticky;
     top:0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.72);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.72);
 }
 .main{
     padding: 0px;

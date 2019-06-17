@@ -26,7 +26,7 @@ img {
   .example-viewport {
     width:100%;
     height: 500px;
-    border: 2px solid #e8efff9c;
+    background-color: #255688;
   }
   
   .example-item {
@@ -42,7 +42,6 @@ img {
     border: none;
     margin-right: 2px;
     padding: 0;
-    border: 2px solid #ffffff6b;
 
   }
   .nav-link.active{

@@ -1,12 +1,10 @@
 <nav class="navbar navbar-dark">
   <div class="row">
-    <div class="col">      
-    </div>
-    <img *ngIf = "userDetails" src="https://localhost:44331{{ userDetails?.avatarPath }}">
+    <a [routerLink]="['/home/page/profile']"> <img *ngIf = "userDetails" src="https://localhost:44331{{ userDetails?.avatarPath }}"></a>
     <h5>Welcome, {{userDetails?.name}}</h5>
   </div>   
-<form class="example" action="action_page.php">
-  <input type="text" placeholder="Search.." name="search"[(ngModel)]="searchQuery" >
+<form class="example">
+  <input type="text"  placeholder="Search.." name="search"[(ngModel)]="searchQuery" >
   <button type="submit" (click)="onSearch(searchQuery)"><i class="fa fa-search"></i></button>
 </form>
   <div class="btn-group" role="group" aria-label="Basic example">

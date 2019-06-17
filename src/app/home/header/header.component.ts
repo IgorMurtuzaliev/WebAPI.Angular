@@ -28,7 +28,9 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
-  onSearch(){
+  onSearch(searchQuery){
+    console.log(searchQuery)
+    this.searchQuery = searchQuery;
     this.router.navigate(['/home/page/search', this.searchQuery]);
     this.searchQuery = '';
   }
