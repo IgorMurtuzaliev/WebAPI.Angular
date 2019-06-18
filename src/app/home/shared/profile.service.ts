@@ -13,7 +13,25 @@ export class ProfileService {
     Name : ['',Validators.required],
     Surname : ['',Validators.required],
   });
+  formModelPassword = this.fb.group({
+    CurrentPassword : ['',Validators.required],
+    Passwords:this.fb.group({
+      NewPassword :['',[Validators.required, Validators.minLength(6)]],
+      NewPasswordConfirm :['',Validators.required]
+      }, {validator: this.comparePasswords}) 
+  });
  userinfo;
+ comparePasswords(fb:FormGroup){
+  let confirmPassword= fb.get('NewPasswordConfirm');
+  if (confirmPassword.errors==null ||'passwordMismatch'in confirmPassword.errors)
+  {
+    if (fb.get('NewPassword').value!=confirmPassword.value)
+    confirmPassword.setErrors({passwordMismatch:true});
+    else
+    confirmPassword.setErrors(null);
+
+  }
+}
   getProfile(){
     var tokenHeader = new HttpHeaders({'Authorization':'Bearer '+localStorage.getItem('token')});
     this.userinfo =this.http.get('https://localhost:44331/api/account',{headers : tokenHeader});
@@ -29,6 +47,14 @@ export class ProfileService {
       Surname: this.formModel.value.Surname,
     };
     return this.http.put('https://localhost:44331/api/account', body,{headers : tokenHeader});
+  }
+  editPassword(){
+    var tokenHeader = new HttpHeaders({'Authorization':'Bearer '+localStorage.getItem('token')});
+    var body = {
+      CurrentPassword: this.formModelPassword.value.CurrentPassword,
+      NewPassword: this.formModelPassword.value.Passwords.NewPassword,
+      NewPasswordConfirm:this.formModelPassword.value.Passwords.NewPasswordConfirm};
+    return this.http.put('https://localhost:44331/api/account/editPassword', body,{headers : tokenHeader});
   }
 
   upload(file: File){

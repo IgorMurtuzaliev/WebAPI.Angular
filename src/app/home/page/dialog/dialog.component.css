@@ -1,0 +1,33 @@
+.container{
+    background-color: #4c81b7;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    width: 80%;
+    height: 90%;
+    border-radius: 10px;
+    margin: auto;
+    padding-top: 60px;
+}
+.dialog{
+    overflow: auto;
+    background-color: #e0eaea;
+    width: 100%;
+    margin: auto;
+    margin-top: 2;
+    border-radius: 10px;
+    height: 650px;
+}
+.messages-box{
+    word-break: break-all;
+}
+.message-input{
+    margin-top: 30px;
+
+}
+textarea{
+    width: 100%
+}
+.row{
+    margin: 0;
+    padding:0;
+
+}

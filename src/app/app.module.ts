@@ -25,7 +25,10 @@ import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { ChatComponent } from './chat/chat.component';
 import { UsersContactsComponent } from './home/page/users-contacts/users-contacts.component';
 import { BlackListComponent } from './home/page/users-contacts/black-list/black-list.component';
-import {EditContactComponent} from './home/page/users-contacts/edit-contact/edit-contact.component'
+import {EditContactComponent} from './home/page/users-contacts/edit-contact/edit-contact.component';
+import { PasswordChangeComponent } from './home/page/profile/password-change/password-change.component';
+import { DialogsComponent } from './home/page/dialogs/dialogs.component';
+import { DialogComponent } from './home/page/dialog/dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +48,9 @@ import {EditContactComponent} from './home/page/users-contacts/edit-contact/edit
     UsersContactsComponent,
     BlackListComponent,
     EditContactComponent,
+    PasswordChangeComponent,
+    DialogsComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,

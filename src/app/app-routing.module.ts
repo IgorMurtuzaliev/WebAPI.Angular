@@ -16,6 +16,8 @@ import { ChatComponent } from './chat/chat.component';
 import { UsersContactsComponent } from './home/page/users-contacts/users-contacts.component';
 import { BlackListComponent } from './home/page/users-contacts/black-list/black-list.component';
 import { EditContactComponent } from './home/page/users-contacts/edit-contact/edit-contact.component';
+import { PasswordChangeComponent } from './home/page/profile/password-change/password-change.component';
+import { DialogComponent } from './home/page/dialog/dialog.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/home/',pathMatch:'full'},
@@ -28,7 +30,8 @@ const routes: Routes = [
         children:[
           { path:'profile', component: ProfileComponent,
           children:[
-             { path:'avatarUpload', component:AvatarUploadComponent }
+             { path:'avatarUpload', component:AvatarUploadComponent },
+             { path:'passwordChange', component:PasswordChangeComponent }
           ]},                  
           { path:'search/:searchQuery', component: SearchResultComponent},
           { path:'contacts', component: UsersContactsComponent,
@@ -36,7 +39,8 @@ const routes: Routes = [
           { path:'blackList', component: BlackListComponent},
           { path:'editContact', component: EditContactComponent}
         ]},
-          { path:'user/:id', component: UsersprofilesComponent}
+          { path:'user/:id', component: UsersprofilesComponent},
+          { path:'dialog', component: DialogComponent}
         ]},  
         { path:'contacts', component: ContactsComponent,
         children: [
