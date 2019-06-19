@@ -1,6 +1,10 @@
 <div class="container">
   <div class="dialog">
     <div class="messages-box">
+      <div>
+        <p *ngFor="let message of dialog?.messages">{{message?.messageText}}</p>
+      </div>
+        <hr>
       <p *ngFor="let m of messages">{{m}}</p>
     </div>
   </div>

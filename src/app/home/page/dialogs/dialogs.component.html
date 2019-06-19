@@ -1,0 +1,42 @@
+<div class="container">
+    <nav>
+        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-contacts-tab" data-toggle="tab" href="#nav-contacts" role="tab"
+                aria-controls="nav-contacts" aria-selected="true">Dialogs</a>
+        </div>
+    </nav>
+    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-contacts" role="tabpanel" aria-labelledby="nav-contacts-tab">
+            <div *ngFor="let dialog of dialogs" class="example-item">
+
+                    <div class="row contact" [routerLink]="['/home/page/dialog/user?', dialog.friendId]">
+                        <div class="col-sm-2">
+                            <img *ngIf="dialog" src="https://localhost:44331//{{dialog?.friendImage}}">
+                        </div>
+                        <div class="col sm-7">
+                            <h6><a [routerLink]="['/home/page/user', dialog.friendId]"
+                                    class="to-profile">{{dialog.friendName}}
+                                    {{dialog.friendSurname}}</a> </h6>
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <h6>{{dialog.lastMessage}} </h6>
+                                </div>
+                                <div class="col-sm-3">
+                                    <img class="last-sender" *ngIf="dialog"
+                                        src="https://localhost:44331//{{dialog?.lastMessageSenderImage}}">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <button type="button" class="btn btn-danger" (click)="onBlock(contact.friendId)">
+                            <i class="fa fa-ban"> </i>
+                        </button>
+                        <button type="button" class="btn btn-primary" (click)="onDelete(contact.id)">
+                            <i class="fa fa-minus"> </i>
+                        </button> -->
+                    </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

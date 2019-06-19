@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChatService } from '../../shared/chat.service';
 
 @Component({
   selector: 'app-dialogs',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dialogs.component.css']
 })
 export class DialogsComponent implements OnInit {
-
-  constructor() { }
+dialogs;
+  constructor(private service:ChatService) { }
 
   ngOnInit() {
+    this.service.getDialogs().subscribe(
+      res=>{
+        this.dialogs = res;     
+        console.log(this.dialogs);
+      },
+      err=>{
+        console.log(err);
+      },
+    );
   }
 
 }
