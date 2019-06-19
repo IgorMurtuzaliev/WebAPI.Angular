@@ -20,7 +20,7 @@ import { PasswordChangeComponent } from './home/page/profile/password-change/pas
 import { DialogComponent } from './home/page/dialog/dialog.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'/home/',pathMatch:'full'},
+  {path:'',redirectTo:'/home',pathMatch:'full'},
   { path:'chat', component: ChatComponent},
   { path:'register', component: RegisterComponent},
   { path:'login', component: LoginComponent},
@@ -40,7 +40,7 @@ const routes: Routes = [
           { path:'editContact', component: EditContactComponent}
         ]},
           { path:'user/:id', component: UsersprofilesComponent},
-          { path:'dialog', component: DialogComponent}
+          { path:'dialog/user?/:id', component: DialogComponent}
         ]},  
         { path:'contacts', component: ContactsComponent,
         children: [

@@ -22,6 +22,6 @@ export class ChatComponent implements OnInit {
     .catch(err => { console.error(err); });
   }
   echo() {
-    this.hubConnection.invoke("Echo", this.message);
+    this.hubConnection.invoke("Send", this.message);
   }
 }

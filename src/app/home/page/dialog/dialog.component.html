@@ -1,15 +1,17 @@
 <div class="container">
   <div class="dialog">
     <div class="messages-box">
+      <p *ngFor="let m of messages">{{m}}</p>
     </div>
   </div>
   <div class="message-input">
     <div class="wrap row">
       <div class="col-sm-1"><a class="attachment"><i class="fa fa-paperclip  fa-2x" aria-hidden="true"></i></a></div>
       <div class="col-sm-10">
-        <textarea name="text"></textarea>
+        <textarea name="message" [(ngModel)]="message"></textarea>
       </div>
-      <div class="col-sm-1"><button class="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button></div>
+      <div class="col-sm-1"><button class="submit"><i class="fa fa-paper-plane" aria-hidden="true" (click)="echo()"></i></button></div>
     </div>
   </div>
 </div>
+
