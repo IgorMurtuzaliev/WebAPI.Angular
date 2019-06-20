@@ -2,10 +2,28 @@
   <div class="dialog">
     <div class="messages-box">
       <div>
-        <p *ngFor="let message of dialog?.messages">{{message?.messageText}}</p>
+        <div *ngFor="let message of dialog?.messages">
+          <div class="col">
+            <div class="left " *ngIf = "message.senderId == dialog.friendId">{{message?.messageText}}</div>
+          </div>
+            <div class="col">
+              <div class="right" *ngIf = "message.senderId != dialog.friendId">{{message?.messageText}} </div>
+            </div>
+
+        </div>
       </div>
         <hr>
-      <p *ngFor="let m of messages">{{m}}</p>
+        <div>
+            <div *ngFor="let messageNow of messages">
+              <div class="col">
+                <div class="left " *ngIf = "messageNow.user === 'user'">{{messageNow.mess}}</div>
+              </div>
+                <div class="col">
+                  <div class="right" *ngIf = "messageNow.user === 'you'">{{messageNow.mess}}</div>
+                </div>
+    
+            </div>
+          </div>
     </div>
   </div>
   <div class="message-input">
