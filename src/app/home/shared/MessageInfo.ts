@@ -1,4 +1,5 @@
 export class MessageInfo{
-    mess:string;
+   mess:string;
    user:string;
+   date:Date;
 }

@@ -3,6 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 import { HubConnection, HubConnectionBuilder, HttpTransportType } from '@aspnet/signalr';
 import { ChatService } from '../../shared/chat.service';
 import { MessageInfo } from '../../shared/MessageInfo';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-dialog',
@@ -32,7 +33,8 @@ export class DialogComponent implements OnInit {
     this.hubConnection.on("Send", (msg) => {
       var messageInfo = new MessageInfo();
       messageInfo.mess = msg;
-      messageInfo.user = 'user';
+      messageInfo.user = 'user'; 
+      messageInfo.date = new Date();
       this.messages.push(messageInfo);
     });
 
