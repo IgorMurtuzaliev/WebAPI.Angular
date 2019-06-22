@@ -29,7 +29,7 @@
                   <span class="time_date">User in {{messageNow.date}}</span></div>
                 </div>
               </div>
-            <div class="outgoing_msg" *ngIf="message.senderId != dialog.friendId">
+            <div class="outgoing_msg" *ngIf="messageNow.user === 'you'">
                 <div class="sent_msg">
                 <p>{{messageNow.mess}}</p>
                 <span class="time_date">You in {{messageNow.date}}</span> </div>
@@ -40,7 +40,7 @@
   </div>
   <div class="message-input">
     <div class="wrap row">
-      <div class="col-sm-1"><a class="attachment"><i class="fa fa-paperclip  fa-2x" aria-hidden="true"></i></a></div>
+      <div class="col-sm-1"><input type="file" #Image accept="image/*" (change)="onSelected($event)"></div>
       <div class="col-sm-10">
         <textarea name="message" [(ngModel)]="message"></textarea>
       </div>

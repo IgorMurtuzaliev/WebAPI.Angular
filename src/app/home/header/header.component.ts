@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { LoggedService } from '../../account/shared/logged.service';
 import { ProfileService } from 'src/app/home/shared/profile.service'
 import { SearchResultComponent } from '../page/search-result/search-result.component';
+import { HeaderService } from '../shared/header.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -10,7 +11,7 @@ import { SearchResultComponent } from '../page/search-result/search-result.compo
 })
 export class HeaderComponent implements OnInit {
   private token:boolean;
-  constructor(private router:Router, private sharedService: LoggedService,private service: ProfileService) { }
+  constructor(private router:Router, private service: ProfileService, private headerService: HeaderService) { }
   userDetails;
   searchQuery:any;
   private search:SearchResultComponent
@@ -25,6 +26,14 @@ export class HeaderComponent implements OnInit {
     );
   }
   onLogout(){
+    this.headerService.disconnect().subscribe(
+      res => {
+        console.log("wewewegwe");
+      },
+      err => {
+        console.log(err);
+      },
+    );
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }

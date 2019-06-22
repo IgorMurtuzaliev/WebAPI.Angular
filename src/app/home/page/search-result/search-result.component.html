@@ -13,6 +13,14 @@
                               (click)="onUnlock(user.id)">
                               <i class="fa fa-unlock contact"> </i>
                         </button>
+                        <button type="button" *ngIf="!user?.isBlocked"
+                              [routerLink]="['/home/page/dialog/user?', user?.id]" class="btn btn-send send">
+                              <i class="fa fa-envelope"> </i>
+                        </button>
+                        <button type="button" *ngIf="user?.isBlocked"
+                        data-tooltip="First unlock this user" [routerLink]="['/home/page/dialog/user?', user?.id]" class="btn btn-send send dis" disabled>
+                              <i class="fa fa-envelope"> </i>
+                        </button>
                         <button type="button" class="btn btn-primary delete-add" *ngIf="user?.isInContacts"
                               (click)="onDelete(user.contactWithUserId)">
                               <i class="fa fa-minus contact"> </i>
@@ -21,12 +29,14 @@
                               (click)="onAdd(user.id)">
                               <i class="fa fa-plus contact"> </i>
                         </button>
+                        <i class="fa fa-circle online" *ngIf="user.isOnline"></i>
 
                   </div>
                   <div class="under">
                         <a [routerLink]="['/home/page/user', user.id]" class="nav-link">
                               <h5>{{user.name}} {{user.surname}}</h5>
                         </a>
+                        <!-- <p *ngIf = "user.isOnline">Online</p> -->
                         <h6> <small><i class="fa fa-phone"></i> {{user.phone}}</small> </h6>
                         <h6> <small><i class="fa fa-envelope"></i> {{user.email}}</small> </h6>
                   </div>

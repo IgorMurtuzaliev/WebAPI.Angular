@@ -3,7 +3,6 @@ import { ActivatedRoute } from "@angular/router";
 import { HubConnection, HubConnectionBuilder, HttpTransportType } from '@aspnet/signalr';
 import { ChatService } from '../../shared/chat.service';
 import { MessageInfo } from '../../shared/MessageInfo';
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-dialog',
@@ -21,8 +20,12 @@ export class DialogComponent implements OnInit {
   constructor(private activeRoute: ActivatedRoute, private service: ChatService) { this.id = activeRoute.snapshot.params["id"]; }
   message: string = '';
   messages: any[] = [];
-
+  // FileToUpload: File = null;
+  // onSelected(event) {
+  //   this.FileToUpload = event.target.files[0];
+  // }
   ngOnInit() {
+    
     this.onGetList(this.id);
 
     this.hubConnection = new HubConnectionBuilder().withUrl("https://localhost:44331/echo", {
@@ -34,7 +37,7 @@ export class DialogComponent implements OnInit {
       var messageInfo = new MessageInfo();
       messageInfo.mess = msg;
       messageInfo.user = 'user'; 
-      messageInfo.date = new Date();
+      messageInfo.date = new Date().toString();
       this.messages.push(messageInfo);
     });
 
@@ -42,6 +45,7 @@ export class DialogComponent implements OnInit {
       var messageInfo = new MessageInfo();
       messageInfo.mess = msg;
       messageInfo.user = 'you';
+      messageInfo.date = new Date().toTimeString();
       this.messages.push(messageInfo);
     });
 
@@ -51,6 +55,8 @@ export class DialogComponent implements OnInit {
   }
 
   echo() {
+    // var formData = new FormData();
+    // formData.append('message','')
     this.hubConnection.invoke("SendFaraway", this.message, this.id);
   }
 
