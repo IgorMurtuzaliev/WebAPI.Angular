@@ -10,8 +10,18 @@
               <div class="received_withd_msg">
                   <div class="received_message">
                       <p>{{message?.messageText}}</p>
-                      <ng-container *ngFor="let img of message.filePaths">
-                        <img class="img-message" src="https://localhost:44331//{{img}}">
+                      <ng-container *ngFor="let file of message.filePaths">
+                          <div [ngSwitch]="file.extension">
+                              <div *ngSwitchCase= "'.jpg'">
+                                <img class="img-message" src="https://localhost:44331//{{file.filesPath}}">
+                              </div>
+                              <div *ngSwitchCase="'.mp3'">
+                                <audio src="https://localhost:44331//{{file.filesPath}}"></audio>
+                              </div>
+                              <div *ngSwitchCase="'.mp4'">
+                                <video src="https://localhost:44331//{{file.filesPath}}"></video>
+                               </div>
+                          </div> 
                       </ng-container>
                     </div>
                 <span class="time_date">User in {{message?.timeOfSending}}</span>
@@ -22,8 +32,18 @@
             <div class="sent_msg">
                 <div class="outgoing_message">
                     <p>{{message?.messageText}}</p>
-                    <ng-container *ngFor="let img of message.filePaths">
-                      <img class="img-message" src="https://localhost:44331//{{img}}">
+                    <ng-container *ngFor="let file of message.filePaths">
+                        <div [ngSwitch]="file.extension">
+                            <div *ngSwitchCase= "'.jpg'">
+                              <img class="img-message" src="https://localhost:44331//{{file.filesPath}}">
+                            </div>
+                            <div *ngSwitchCase="'.mp3'">
+                              <audio src="https://localhost:44331//{{file.filesPath}}"></audio>
+                            </div>
+                            <div *ngSwitchCase="'.mp4'">
+                              <video src="https://localhost:44331//{{file.filesPath}}"></video>
+                             </div>
+                        </div> 
                     </ng-container>
                   </div>
 
@@ -77,3 +97,20 @@
       (filesRejected)="onFilesRejected($event)"></ngx-dropzone>
   </div>
 </div>
+
+
+
+<!-- 
+<ng-container *ngFor="let img of messageNow?.imagePath">
+    <ng-container [ngSwitch]="img.extensions">
+        <div *ngSwitchCase= ".jpg">
+          <img class="img-message" src="https://localhost:44331//{{img}}">
+        </div>
+        <div *ngSwitchCase=".mp3">
+          <audio src="https://localhost:44331//{{img}}"></audio>
+        </div>
+        <div *ngSwitchCase=".mp4">
+          <video src="https://localhost:44331//{{img}}"></video>
+         </div>
+    </ng-container>    
+</ng-container> -->
