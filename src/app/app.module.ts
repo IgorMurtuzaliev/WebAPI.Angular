@@ -29,6 +29,7 @@ import {EditContactComponent} from './home/page/users-contacts/edit-contact/edit
 import { PasswordChangeComponent } from './home/page/profile/password-change/password-change.component';
 import { DialogsComponent } from './home/page/dialogs/dialogs.component';
 import { DialogComponent } from './home/page/dialog/dialog.component';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +62,8 @@ import { DialogComponent } from './home/page/dialog/dialog.component';
     NgxMaskModule.forRoot(),
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    ScrollDispatchModule
+    ScrollDispatchModule,
+    NgxDropzoneModule
   ],
   providers: [RegisterService, ContactsComponent, ShoosenContactComponent],
   bootstrap: [AppComponent],

@@ -5,16 +5,22 @@
       <div>
         <div *ngFor="let message of dialog?.messages">
             <div class="incoming_msg" *ngIf="message.senderId == dialog.friendId">
-                <div class="incoming_msg_img"> <img src="https://localhost:44331//{{message?.userImage}}" alt="sunil"> </div>
+                <div class="incoming_msg_img"> <img src="https://localhost:44331//{{message?.userImage}}"> </div>
                 <div class="received_msg">
                 <div class="received_withd_msg">
-                  <p>{{message?.messageText}}</p>
+                  <p>{{message?.messageText}}
+                    <img class="img-message" *ngIf="message.filePath" src="https://localhost:44331//{{message.filePath}}">
+                  </p>
+                  
                   <span class="time_date">User in {{message?.timeOfSending}}</span></div>
                 </div>
               </div>
               <div class="outgoing_msg" *ngIf="message.senderId != dialog.friendId">
                   <div class="sent_msg">
-                  <p>{{message?.messageText}}</p>
+                  <p>{{message?.messageText}}
+                    <img class="img-message" *ngIf="message.filePath" src="https://localhost:44331//{{message?.filePath}}">
+                  </p>
+                  
                   <span class="time_date">You in {{message?.timeOfSending}}</span> </div>
                 </div>
         </div>
@@ -25,13 +31,19 @@
             <div class="incoming_msg"  *ngIf="messageNow.user === 'user'">
                 <div class="received_msg">
                 <div class="received_withd_msg">
-                  <p>{{messageNow.mess}}</p>
+                  <p>{{messageNow.mess}}
+                    <img class="img-message"  src="https://localhost:44331//{{messageNow?.imagePath}}">
+                  </p>
+                  
                   <span class="time_date">User in {{messageNow.date}}</span></div>
                 </div>
               </div>
             <div class="outgoing_msg" *ngIf="messageNow.user === 'you'">
                 <div class="sent_msg">
-                <p>{{messageNow.mess}}</p>
+                <p>{{messageNow.mess}}
+                  <img class="img-message"  src="https://localhost:44331//{{messageNow?.imagePath}}">
+                </p>
+                
                 <span class="time_date">You in {{messageNow.date}}</span> </div>
               </div>
         </div>
@@ -47,5 +59,6 @@
       <div class="col-sm-1"><button class="submit"><i class="fa fa-paper-plane" aria-hidden="true"
             (click)="echo()"></i></button></div>
     </div>
+    <ngx-dropzone class="custom-dropzone" [showPreviews]="true"></ngx-dropzone>
   </div>
 </div>
