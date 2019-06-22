@@ -14,20 +14,27 @@ import { MessageModel } from '../../shared/MessageModel';
 export class DialogComponent implements OnInit {
   dialog;
   id: string;
-  image: File;
+  
   token = localStorage.getItem("token");
   private hubConnection: HubConnection;
-
+images: File[] = [];
   constructor(private activeRoute: ActivatedRoute, private service: ChatService) { this.id = activeRoute.snapshot.params["id"]; }
   message: string = '';
   messages: any[] = [];
-
-  // FileToUpload: File = null;
+  
   // onSelected(event) {
-  //   this.FileToUpload = event.target.files[0];
+  //   this.image = event.target.files[0];
   // }
-  onSelected(event) {
-    this.image = event.target.files[0];
+  onFilesAdded(files:File[]) {
+    files.forEach(file => {
+      const reader = new FileReader(); 
+      reader.onload = (e: ProgressEvent) => {
+        const content = (e.target as FileReader).result;
+        console.log(content);
+      };
+      reader.readAsDataURL(file);
+    });
+    this.images = files;
   }
   ngOnInit() {
 
@@ -68,7 +75,7 @@ export class DialogComponent implements OnInit {
     var form = new MessageModel();
     form.receiverId = this.id;
     form.text = this.message;
-    form.attachment = this.image;
+    form.attachment = this.images;
     this.service.sendMessage(form).subscribe(
       res => {
       },

@@ -21,7 +21,10 @@ export class ChatService {
     var formData = new FormData();
     formData.append('Text', form.text);
     formData.append('ReceiverId', form.receiverId);
-    formData.append('Attachment', form.attachment);
+    form.attachment.forEach(element => {
+      formData.append('Attachment', element);
+    });
+    // formData.append('Attachment', form.attachment);
     var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token') });
     return this.http.post('https://localhost:44331/api/chat/sendMessage', formData, { headers: tokenHeader });
   }

@@ -80,7 +80,7 @@ textarea{
     margin: 26px 0 0;
 }
 
-.received_withd_msg p {
+.received_message{
 	background: #89c8e5 none repeat scroll 0 0;
 	border-radius: 0 15px 15px 15px;
 	color: #646464;
@@ -107,7 +107,7 @@ textarea{
 	width:70%;
 }
 
-.sent_msg p {
+.outgoing_message{
 	background:#0465ac;
 	border-radius: 12px 15px 15px 0;
 	font-size: 14px;
