@@ -1,5 +1,5 @@
 <div class="container">
-  <div *ngIf ="dialog" class="row">
+  <div *ngIf="dialog" class="row">
     <div class="col col-sm-1">
     </div>
     <div class="col col-sm-1 text-center">
@@ -132,9 +132,13 @@
     <div class="wrap row">
       <div class="col col-sm-11">
         <textarea name="message" [(ngModel)]="message" #textarea></textarea>
-      </div> 
-      <div class="col col-sm-1"><button class="btn btn-primary" (click)="echo()"><i class="fa fa-paper-plane fa-2x"
-            aria-hidden="true"></i></button></div>
+      </div>
+      <div class="col col-sm-1">
+        <button class="btn btn-primary" (click)="echo()"><i class="fa fa-paper-plane fa-2x"
+            aria-hidden="true"></i></button>
+            <button class="btn btn-primary" (click)="share()">share</button>
+      </div>
+
     </div>
     <ngx-dropzone class="custom-dropzone" [showPreviews]="true" (filesAdded)="onFilesAdded($event)"
       (filesRejected)="onFilesRejected($event)" #dropzone></ngx-dropzone>

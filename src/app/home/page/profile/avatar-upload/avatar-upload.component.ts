@@ -3,6 +3,7 @@ import { ProfileService } from 'src/app/home/shared/profile.service'
 import { Router } from '@angular/router';
 import {ProfileComponent} from '../../profile/profile.component'
 import { ToastrService } from 'ngx-toastr';
+import { HeaderService } from 'src/app/home/shared/header.service';
 @Component({
   selector: 'app-avatar-upload',
   templateUrl: './avatar-upload.component.html',
@@ -10,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AvatarUploadComponent implements OnInit {
   FileToUpload: File = null;
-  constructor(private service: ProfileService, private router: Router, private profile: ProfileComponent, private toastr:ToastrService) { }
+  constructor(private service: ProfileService, private router: Router, private profile: ProfileComponent, private toastr:ToastrService, private ds:HeaderService) { }
 
   ngOnInit() {
   }

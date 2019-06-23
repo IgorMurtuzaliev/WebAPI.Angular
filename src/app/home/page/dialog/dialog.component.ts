@@ -21,7 +21,7 @@ export class DialogComponent implements OnInit {
   id: string;
   dropzone:any;
   token = localStorage.getItem("token");
-
+link:string;
   onFilesAdded(files: File[]) {
     files.forEach(file => {
         const reader = new FileReader();
@@ -35,6 +35,7 @@ export class DialogComponent implements OnInit {
 
   ngOnInit() {
     this.onGetList(this.id);
+    this.service.currentLink.subscribe(link=>this.link = link);
     this.hubConnection = new HubConnectionBuilder().withUrl("https://localhost:44331/echo", {
       skipNegotiation: true,
       transport: HttpTransportType.WebSockets, accessTokenFactory: () => this.token
@@ -50,6 +51,20 @@ export class DialogComponent implements OnInit {
     var form = new MessageModel();
     form.receiverId = this.id;
     form.text = this.message;
+    form.attachment = this.images;
+    this.service.sendMessage(form).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+      },
+    );
+  }
+  share() {
+    var form = new MessageModel();
+    form.receiverId = this.id;
+    form.text = this.link;
     form.attachment = this.images;
     this.service.sendMessage(form).subscribe(
       res => {

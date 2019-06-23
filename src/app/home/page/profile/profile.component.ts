@@ -31,6 +31,7 @@ onImage(Image){
   this.service.upload(this.FileToUpload).subscribe(
     res=>{
       this.ngOnInit();
+      
       this.router.navigateByUrl('/home/page/profile');
     },
     err=>{

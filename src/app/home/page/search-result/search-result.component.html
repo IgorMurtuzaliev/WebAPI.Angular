@@ -29,14 +29,18 @@
                               (click)="onAdd(user.id)">
                               <i class="fa fa-plus contact"> </i>
                         </button>
-                        <i class="fa fa-circle online" *ngIf="user.isOnline"></i>
+                        <!-- <i class="fa fa-circle online" *ngIf="user.isOnline"></i> -->
 
                   </div>
                   <div class="under">
                         <a [routerLink]="['/home/page/user', user.id]" class="nav-link">
                               <h5>{{user.name}} {{user.surname}}</h5>
                         </a>
-                        <!-- <p *ngIf = "user.isOnline">Online</p> -->
+                        <button type="button" class="btn btn-primary" 
+                              (click)="onShare(user.email)">
+                        </button>
+                        <span class="time_online" *ngIf = "!user.isOnline">Was online {{user.lastTimeOnline}}</span>
+                        <span class="time_online" *ngIf = "user.isOnline">Online</span>
                         <h6> <small><i class="fa fa-phone"></i> {{user.phone}}</small> </h6>
                         <h6> <small><i class="fa fa-envelope"></i> {{user.email}}</small> </h6>
                   </div>

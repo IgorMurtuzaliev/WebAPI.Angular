@@ -5,6 +5,7 @@ import { ContactsComponent } from '../../contacts/contacts.component';
 import { ToastrService } from 'ngx-toastr';
 import { ContactService } from '../../shared/contact.service';
 import { ActivatedRoute } from "@angular/router";
+import { ChatService } from '../../shared/chat.service';
 @Component({
   selector: 'app-search-result',
   templateUrl: './search-result.component.html',
@@ -12,7 +13,7 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class SearchResultComponent implements OnInit {
   searchQuery: any;
-  constructor(private userProfile: UserprofileService,private service: SearchService, private toastr: ToastrService, private contactsService: ContactService, private contacts: ContactsComponent, private activeRoute: ActivatedRoute) {
+  constructor(private userProfile: UserprofileService,private service: SearchService, private toastr: ToastrService, private contactsService: ContactService, private contacts: ContactsComponent, private activeRoute: ActivatedRoute, private chatService: ChatService) {
   
   }
   user;
@@ -85,6 +86,9 @@ export class SearchResultComponent implements OnInit {
         this.toastr.error(err.error, "Failed")
       },
     );
+  }
+  onShare(userLink:string){
+ this.chatService.shareLink(userLink);
   }
 
 }

@@ -166,6 +166,12 @@ h2{
     transition: 1s; 
 }
 [data-tooltip]:hover::after {
-  opacity: 1; /* Показываем подсказку */
-  top: 2em; /* Положение подсказки */
+  opacity: 1; 
+  top: 2em; 
  }
+ .time_online{
+	color: #747474;
+	display: block;
+	font-size: 12px;
+	margin: 8px 0 0;
+}

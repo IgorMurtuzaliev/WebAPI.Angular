@@ -3,11 +3,14 @@ import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from "@angular/common/http";
 import { MessageModel } from './MessageModel';
+import { BehaviorSubject, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class ChatService {
 
+  private linkSource = new BehaviorSubject<string>("")
+  currentLink = this.linkSource.asObservable(); 
   constructor(private http: HttpClient) { }
   getDialogs(): Observable<any> {
     var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token') });
@@ -30,5 +33,8 @@ export class ChatService {
   deleteDialog(dialogId){
     var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token') });
     return this.http.get('https://localhost:44331/api/chat/delete/'+ dialogId, { headers: tokenHeader });
+  }
+  shareLink(link:string){
+    this.linkSource.next(link);
   }
 }
