@@ -11,8 +11,6 @@ export class ChatService {
 
   private linkSource = new BehaviorSubject<string>("")
   currentLink = this.linkSource.asObservable(); 
-  private messageSource = new BehaviorSubject<string>("")
-  currentMessage = this.messageSource.asObservable(); 
   constructor(private http: HttpClient) { }
   getDialogs(): Observable<any> {
     var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token') });
@@ -40,6 +38,14 @@ export class ChatService {
     var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token') });
     return this.http.post('https://localhost:44331/api/chat/shareUserLink', formData, { headers: tokenHeader });
   }
+  resend(form:MessageModel){
+    debugger
+    var formData = new FormData();
+    formData.append('ReceiverId', form.receiverId);
+    formData.append('MessageId', form.messId);
+    var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token') });
+    return this.http.post('https://localhost:44331/api/chat/resendMessage', formData, { headers: tokenHeader });
+  }
   deleteDialog(dialogId){
     var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token') });
     return this.http.get('https://localhost:44331/api/chat/delete/'+ dialogId, { headers: tokenHeader });
@@ -48,6 +54,6 @@ export class ChatService {
     this.linkSource.next(link);
   }
   resendMessage(message:string){
-    this.messageSource.next(message);
+    this.linkSource.next(message);
   }
 }

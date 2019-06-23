@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { HubConnection, HubConnectionBuilder, HttpTransportType } from '@aspnet/signalr';
 import { ChatService } from '../../shared/chat.service';
 import { MessageInfo } from '../../shared/MessageInfo';
@@ -13,29 +13,29 @@ import { ToastrService } from 'ngx-toastr';
 
 export class DialogComponent implements OnInit {
   private hubConnection: HubConnection;
-  constructor(private activeRoute: ActivatedRoute, private service: ChatService, private toastr: ToastrService) { this.id = activeRoute.snapshot.params["id"]; }
+  constructor(private activeRoute: ActivatedRoute, private service: ChatService, private toastr: ToastrService, private router:Router) { this.id = activeRoute.snapshot.params["id"]; }
   message: string = '';
   messages: any[] = [];
   images: File[] = [];
   dialog;
   id: string;
-  dropzone:any;
+  dropzone: any;
   token = localStorage.getItem("token");
-link:string;
+  link: string;
   onFilesAdded(files: File[]) {
     files.forEach(file => {
-        const reader = new FileReader();
-        reader.onload = (e: ProgressEvent) => {
-          const content = (e.target as FileReader).result;
-        };
-        reader.readAsDataURL(file);
+      const reader = new FileReader();
+      reader.onload = (e: ProgressEvent) => {
+        const content = (e.target as FileReader).result;
+      };
+      reader.readAsDataURL(file);
     });
     this.images = files;
   }
 
   ngOnInit() {
     this.onGetList(this.id);
-    this.service.currentLink.subscribe(link=>this.link = link);
+    this.service.currentLink.subscribe(link => this.link = link);
     this.hubConnection = new HubConnectionBuilder().withUrl("https://localhost:44331/echo", {
       skipNegotiation: true,
       transport: HttpTransportType.WebSockets, accessTokenFactory: () => this.token
@@ -64,7 +64,7 @@ link:string;
   share() {
     var form = new MessageModel();
     form.receiverId = this.id;
-    form.userLink =this.link;
+    form.userLink = this.link;
     this.service.share(form).subscribe(
       res => {
         console.log(res);
@@ -75,8 +75,24 @@ link:string;
       },
     );
   }
-  
-
+  resend() {
+    var form = new MessageModel();
+    form.receiverId = this.id;
+    form.messId = this.link;
+    this.service.resend(form).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+        this.toastr.error(err.error, "Failed")
+      },
+    );
+  }
+  onResend(msgId: string) {
+    this.service.resendMessage(msgId);
+    this.router.navigateByUrl('/home/page/dialogs');
+  }
   onGetList(Id) {
     this.service.getDialog(Id).subscribe(
       res => {
