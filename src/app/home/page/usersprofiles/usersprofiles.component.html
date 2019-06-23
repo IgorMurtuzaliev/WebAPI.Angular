@@ -1,6 +1,5 @@
 <div class="container emp-profile">
-    <form method="post">
-        <div class="row">
+        <div class="row" *ngIf="user">
             <div class="col-md-4">
                 <img *ngIf="user" class="rounded" src="https://localhost:44331{{ user.avatarPath }}">
             </div>
@@ -9,7 +8,9 @@
                     <div class="row">
                         <div class="col-sm-9">
                             <h2>
-                                {{user?.name}} {{user?.surname}} <small><i *ngIf = "user.isOnline" class="fa fa-circle"></i></small>
+                                {{user?.name}} {{user?.surname}}
+                                <span class="time_online" *ngIf = "user.isOnline">Online</span>
+                                <span class="time_online" *ngIf = "!user.isOnline">Was online {{user.lastTimeOnline}}</span>
                             </h2>
                         </div>
                         <div class="col-sm-3">
@@ -87,5 +88,4 @@
             </div>
 
         </div>
-    </form>
 </div>

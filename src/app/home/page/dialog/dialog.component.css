@@ -4,7 +4,6 @@
     width: 80%;
     border-radius: 10px;
     margin: auto;
-    padding-top: 60px;
     padding-bottom: 10px;
 }
 .dialog{
@@ -49,29 +48,21 @@ textarea{
     height: 20px;
     border-radius: 50%
 }
-
-
-
-
-
-
-
-
-
-
-
-
+.dialog-header-img{
+    width: 50px;
+    margin:5px;
+    height: auto;
+    border-radius: 50%;
+}
 .incoming_msg_img {
 	display: inline-block;
 	width: 6%;
 }
-
 .incoming_msg_img img {
     width: 100%;
     height: auto;
     border-radius: 50%;
 }
-
 .received_msg {
 	display: inline-block;
 	padding: 0 0 0 10px;
@@ -79,7 +70,6 @@ textarea{
     width: 92%;
     margin: 26px 0 0;
 }
-
 .received_message{
 	background: #89c8e5 none repeat scroll 0 0;
 	border-radius: 0 15px 15px 15px;
@@ -89,7 +79,6 @@ textarea{
 	padding: 5px 10px 5px 12px;
 	width: 100%;
 }
-
 .time_date {
 	color: #747474;
 	display: block;
@@ -139,12 +128,6 @@ video{
     width: 100%;
     margin-top:10px
 }
-.col-sm-11{
-    padding: 0
-}
-.col-sm-1{
-    padding: 0
-}
 .btn-primary{
     width: 95%;
     height: 90%;
@@ -153,4 +136,13 @@ video{
 .custom-dropzone{
     height: 70px;
 }
-
+h3{
+    margin-top: 10px;
+    color: white;
+}
+.col{
+    padding: 0
+}
+.col-sm-6{
+    margin-left: 10px;
+}

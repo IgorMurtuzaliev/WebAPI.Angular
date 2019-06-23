@@ -24,8 +24,11 @@ export class ChatService {
     form.attachment.forEach(element => {
       formData.append('Attachment', element);
     });
-    // formData.append('Attachment', form.attachment);
     var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token') });
     return this.http.post('https://localhost:44331/api/chat/sendMessage', formData, { headers: tokenHeader });
+  }
+  deleteDialog(dialogId){
+    var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token') });
+    return this.http.get('https://localhost:44331/api/chat/delete/'+ dialogId, { headers: tokenHeader });
   }
 }

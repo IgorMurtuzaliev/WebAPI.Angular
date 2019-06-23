@@ -85,3 +85,9 @@ button{
 .fa-circle{
   color: rgb(113, 218, 9)
 }
+.time_online{
+	color: #747474;
+	display: block;
+	font-size: 12px;
+	margin: 8px 0 0;
+}

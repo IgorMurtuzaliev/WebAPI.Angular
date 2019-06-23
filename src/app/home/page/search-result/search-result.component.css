@@ -115,8 +115,8 @@
 }
 .image .online {
   position: absolute;
-  top: 10%;
-  left: 15%;
+  top: 5%;
+  left: 95%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);

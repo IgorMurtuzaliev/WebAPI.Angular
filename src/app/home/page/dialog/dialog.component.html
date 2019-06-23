@@ -1,4 +1,14 @@
 <div class="container">
+  <div *ngIf ="dialog" class="row">
+    <div class="col col-sm-1">
+    </div>
+    <div class="col col-sm-1 text-center">
+      <img class="dialog-header-img" src="https://localhost:44331//{{dialog.friendImage}}">
+    </div>
+    <div class="col col-sm-6">
+      <h3>{{dialog.friendName}} {{dialog.friendSurname}}</h3>
+    </div>
+  </div>
   <div class="dialog">
     <div class="messages-box">
       <div>
@@ -53,7 +63,6 @@
                   </div>
                 </ng-container>
               </div>
-
               <span class="time_date">You in {{message?.timeOfSending}}</span>
             </div>
           </div>
@@ -63,11 +72,12 @@
       <div>
         <div *ngFor="let messageNow of messages">
           <div class="incoming_msg" *ngIf="messageNow.user === 'user'">
+            <div class="incoming_msg_img"> <img src="https://localhost:44331//{{messageNow?.mess.userImage}}"> </div>
             <div class="received_msg">
               <div class="received_withd_msg">
                 <div class="received_message">
-                  <p>{{messageNow.mess}}</p>
-                  <ng-container *ngFor="let file of messageNow?.imagePath">
+                  <p>{{messageNow.mess.messageText}}</p>
+                  <ng-container *ngFor="let file of messageNow?.mess.filePaths">
                     <div [ngSwitch]="file.extension">
                       <div *ngSwitchCase="'.jpg'">
                         <img class="img-message" src="https://localhost:44331//{{file.filesPath}}">
@@ -85,15 +95,15 @@
                     </div>
                   </ng-container>
                 </div>
-                <span class="time_date">User in {{messageNow.date}}</span>
+                <span class="time_date">{{messageNow.mess.userName}} in {{messageNow.mess.timeOfSending}}</span>
               </div>
             </div>
           </div>
           <div class="outgoing_msg" *ngIf="messageNow.user === 'you'">
             <div class="sent_msg">
               <div class="outgoing_message">
-                <p>{{messageNow.mess}}</p>
-                <ng-container *ngFor="let file of messageNow?.imagePath">
+                <p>{{messageNow.mess.messageText}}</p>
+                <ng-container *ngFor="let file of messageNow?.mess.filePaths">
                   <div [ngSwitch]="file.extension">
                     <div *ngSwitchCase="'.jpg'">
                       <img class="img-message" src="https://localhost:44331//{{file.filesPath}}">
@@ -111,8 +121,7 @@
                   </div>
                 </ng-container>
               </div>
-
-              <span class="time_date">You in {{messageNow.date}}</span>
+              <span class="time_date">You in {{messageNow.mess.timeOfSending}}</span>
             </div>
           </div>
         </div>
@@ -121,13 +130,13 @@
   </div>
   <div class="message-input">
     <div class="wrap row">
-      <div class="col-sm-11">
-        <textarea name="message" [(ngModel)]="message"></textarea>
-      </div>
-      <div class="col-sm-1"><button class="btn btn-primary"(click)="echo()"><i class="fa fa-paper-plane fa-2x"aria-hidden="true"></i></button></div>
+      <div class="col col-sm-11">
+        <textarea name="message" [(ngModel)]="message" #textarea></textarea>
+      </div> 
+      <div class="col col-sm-1"><button class="btn btn-primary" (click)="echo()"><i class="fa fa-paper-plane fa-2x"
+            aria-hidden="true"></i></button></div>
     </div>
     <ngx-dropzone class="custom-dropzone" [showPreviews]="true" (filesAdded)="onFilesAdded($event)"
-      (filesRejected)="onFilesRejected($event)"></ngx-dropzone>
+      (filesRejected)="onFilesRejected($event)" #dropzone></ngx-dropzone>
   </div>
 </div>
-

@@ -13,7 +13,7 @@
                         <div class="col-sm-2">
                             <img *ngIf="dialog" src="https://localhost:44331//{{dialog?.friendImage}}">
                         </div>
-                        <div class="col sm-7">
+                        <div class="col-sm-9">
                             <h6><a [routerLink]="['/home/page/user', dialog.friendId]"
                                     class="to-profile">{{dialog.friendName}}
                                     {{dialog.friendSurname}}</a> </h6>
@@ -27,6 +27,11 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- <div class="col-sm-1">
+                                <button type="button" class="btn btn-danger" (click)="onDelete(dialog?.id)">
+                                        <i class="fa fa-ban"> </i>
+                                    </button>
+                        </div> -->
                         <!-- <button type="button" class="btn btn-danger" (click)="onBlock(contact.friendId)">
                             <i class="fa fa-ban"> </i>
                         </button>
