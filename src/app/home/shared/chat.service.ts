@@ -11,6 +11,8 @@ export class ChatService {
 
   private linkSource = new BehaviorSubject<string>("")
   currentLink = this.linkSource.asObservable(); 
+  private messageSource = new BehaviorSubject<string>("")
+  currentMessage = this.messageSource.asObservable(); 
   constructor(private http: HttpClient) { }
   getDialogs(): Observable<any> {
     var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token') });
@@ -24,11 +26,19 @@ export class ChatService {
     var formData = new FormData();
     formData.append('Text', form.text);
     formData.append('ReceiverId', form.receiverId);
+    formData.append('Link', form.userLink);
     form.attachment.forEach(element => {
       formData.append('Attachment', element);
     });
     var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token') });
     return this.http.post('https://localhost:44331/api/chat/sendMessage', formData, { headers: tokenHeader });
+  }
+  share(form:MessageModel){
+    var formData = new FormData();
+    formData.append('ReceiverId', form.receiverId);
+    formData.append('Link', form.userLink);
+    var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token') });
+    return this.http.post('https://localhost:44331/api/chat/shareUserLink', formData, { headers: tokenHeader });
   }
   deleteDialog(dialogId){
     var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token') });
@@ -36,5 +46,8 @@ export class ChatService {
   }
   shareLink(link:string){
     this.linkSource.next(link);
+  }
+  resendMessage(message:string){
+    this.messageSource.next(message);
   }
 }

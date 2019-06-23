@@ -17,8 +17,9 @@
                               [routerLink]="['/home/page/dialog/user?', user?.id]" class="btn btn-send send">
                               <i class="fa fa-envelope"> </i>
                         </button>
-                        <button type="button" *ngIf="user?.isBlocked"
-                        data-tooltip="First unlock this user" [routerLink]="['/home/page/dialog/user?', user?.id]" class="btn btn-send send dis" disabled>
+                        <button type="button" *ngIf="user?.isBlocked" data-tooltip="First unlock this user"
+                              [routerLink]="['/home/page/dialog/user?', user?.id]" class="btn btn-send send dis"
+                              disabled>
                               <i class="fa fa-envelope"> </i>
                         </button>
                         <button type="button" class="btn btn-primary delete-add" *ngIf="user?.isInContacts"
@@ -33,14 +34,19 @@
 
                   </div>
                   <div class="under">
-                        <a [routerLink]="['/home/page/user', user.id]" class="nav-link">
-                              <h5>{{user.name}} {{user.surname}}</h5>
-                        </a>
-                        <button type="button" class="btn btn-primary" 
-                              (click)="onShare(user.email)">
-                        </button>
-                        <span class="time_online" *ngIf = "!user.isOnline">Was online {{user.lastTimeOnline}}</span>
-                        <span class="time_online" *ngIf = "user.isOnline">Online</span>
+                        <div class="row user_search_name">
+                              <div class="col-sm-8">
+                                    <a [routerLink]="['/home/page/user', user.id]" class="nav-link">
+                                          <h5>{{user.name}} {{user.surname}}</h5>
+                                    </a>
+                              </div>
+                              <div class="col-sm-4">
+                                    <button type="button" class="btn btn-primary"
+                                          (click)="onShare(user.id )">Share</button>
+                              </div>
+                        </div>
+                        <span class="time_online" *ngIf="!user.isOnline">Was online {{user.lastTimeOnline}}</span>
+                        <span class="time_online" *ngIf="user.isOnline">Online</span>
                         <h6> <small><i class="fa fa-phone"></i> {{user.phone}}</small> </h6>
                         <h6> <small><i class="fa fa-envelope"></i> {{user.email}}</small> </h6>
                   </div>

@@ -19,6 +19,17 @@
               <div class="received_withd_msg">
                 <div class="received_message">
                   <p>{{message?.messageText}}</p>
+                  <div class="user_shared" *ngIf="message.sharedUserId">
+                    <div class="row">
+                      <div class="col-sm-7">
+                        {{message.sharedUserName}}
+                      </div>
+                      <div class="col-sm-5">
+                        <button class="btn btn-primary" [routerLink]="['/home/page/user', message.sharedUserId]">Go to
+                          profile</button>
+                      </div>
+                    </div>
+                  </div>
                   <ng-container *ngFor="let file of message.filePaths">
                     <div [ngSwitch]="file.extension">
                       <div *ngSwitchCase="'.jpg'">
@@ -45,6 +56,18 @@
             <div class="sent_msg">
               <div class="outgoing_message">
                 <p>{{message?.messageText}}</p>
+                <div class="user_shared" *ngIf="message.sharedUserId">
+                  <div class="row">
+                    <div class="col-sm-7">
+                      {{message.sharedUserName}}
+                    </div>
+                    <div class="col-sm-5">
+                      <button class="btn btn-primary" [routerLink]="['/home/page/user', message.sharedUserId]">Go to
+                        profile</button>
+                    </div>
+                  </div>
+                </div>
+
                 <ng-container *ngFor="let file of message.filePaths">
                   <div [ngSwitch]="file.extension">
                     <div *ngSwitchCase="'.jpg'">
@@ -77,6 +100,18 @@
               <div class="received_withd_msg">
                 <div class="received_message">
                   <p>{{messageNow.mess.messageText}}</p>
+                  <div class="user_shared" *ngIf="messageNow.mess.sharedUserId">
+                    <div class="row">
+                      <div class="col-sm-7">
+                        {{messageNow.mess.sharedUserName}}
+                      </div>
+                      <div class="col-sm-5">
+                        <button class="btn btn-primary"
+                          [routerLink]="['/home/page/user', messageNow.mess.sharedUserId]">Go to profile</button>
+                      </div>
+                    </div>
+                  </div>
+
                   <ng-container *ngFor="let file of messageNow?.mess.filePaths">
                     <div [ngSwitch]="file.extension">
                       <div *ngSwitchCase="'.jpg'">
@@ -103,6 +138,18 @@
             <div class="sent_msg">
               <div class="outgoing_message">
                 <p>{{messageNow.mess.messageText}}</p>
+                <div class="user_shared" *ngIf="messageNow.mess.sharedUserId">
+                  <div class="row">
+                    <div class="col-sm-7">
+                      {{messageNow.mess.sharedUserName}}
+                    </div>
+                    <div class="col-sm-5">
+                      <button class="btn btn-primary"
+                        [routerLink]="['/home/page/user', messageNow.mess.sharedUserId]">Go to profile</button>
+                    </div>
+                  </div>
+                </div>
+
                 <ng-container *ngFor="let file of messageNow?.mess.filePaths">
                   <div [ngSwitch]="file.extension">
                     <div *ngSwitchCase="'.jpg'">
@@ -128,17 +175,21 @@
       </div>
     </div>
   </div>
-  <div class="message-input">
+  <div class="message-input" *ngIf="dialog?.blockedClient">
+    <h4 class="blocked_under text-center">User has restricted your access to his/her messages.</h4>
+  </div>
+  <div class="message-input" *ngIf="!dialog?.blockedClient">
     <div class="wrap row">
-      <div class="col col-sm-11">
+        <div class="col col-sm-1">
+            <button class="btn btn-primary" (click)="share()">Share</button>
+          </div>
+      <div class="col col-sm-10">
         <textarea name="message" [(ngModel)]="message" #textarea></textarea>
       </div>
       <div class="col col-sm-1">
         <button class="btn btn-primary" (click)="echo()"><i class="fa fa-paper-plane fa-2x"
             aria-hidden="true"></i></button>
-            <button class="btn btn-primary" (click)="share()">share</button>
       </div>
-
     </div>
     <ngx-dropzone class="custom-dropzone" [showPreviews]="true" (filesAdded)="onFilesAdded($event)"
       (filesRejected)="onFilesRejected($event)" #dropzone></ngx-dropzone>

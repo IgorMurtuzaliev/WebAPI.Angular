@@ -64,17 +64,18 @@ link:string;
   share() {
     var form = new MessageModel();
     form.receiverId = this.id;
-    form.text = this.link;
-    form.attachment = this.images;
-    this.service.sendMessage(form).subscribe(
+    form.userLink =this.link;
+    this.service.share(form).subscribe(
       res => {
         console.log(res);
       },
       err => {
         console.log(err);
+        this.toastr.error(err.error, "Failed")
       },
     );
   }
+  
 
   onGetList(Id) {
     this.service.getDialog(Id).subscribe(
@@ -107,6 +108,4 @@ link:string;
       this.messages.push(messageInfo);
     });
   }
-
-  // this.toastr.error("Files must be only in jpg/jpeg, mp3, mp4","Incorrect file")
 }

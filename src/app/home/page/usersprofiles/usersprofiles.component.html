@@ -12,6 +12,7 @@
                                 <span class="time_online" *ngIf = "user.isOnline">Online</span>
                                 <span class="time_online" *ngIf = "!user.isOnline">Was online {{user.lastTimeOnline}}</span>
                             </h2>
+
                         </div>
                         <div class="col-sm-3">
                             <div class="row">
@@ -31,6 +32,8 @@
                                     (click)="onAdd(user?.id)">
                                     <i class="fa fa-plus contact"></i> Contact
                                 </button>
+                                <button type="button" class="btn btn-primary"
+                                (click)="onShare(user.id )">Share</button>
                             </div>
 
                         </div>

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { UserprofileService } from '../../shared/userprofile.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SearchService } from '../../shared/search.service';
 import { ContactService } from '../../shared/contact.service';
 import { ToastrService } from 'ngx-toastr';
+import { ChatService } from '../../shared/chat.service';
 
 @Component({
   selector: 'app-usersprofiles',
@@ -13,7 +14,9 @@ import { ToastrService } from 'ngx-toastr';
 export class UsersprofilesComponent implements OnInit {
 id:string;
 user;
-  constructor(private userProfile: UserprofileService,activeRoute: ActivatedRoute, private search:SearchService,private toastr:ToastrService,private contactsService:ContactService) {
+  constructor(private userProfile: UserprofileService,activeRoute: ActivatedRoute, private search:SearchService,
+    private toastr:ToastrService,private contactsService:ContactService, private chatService:ChatService,
+    private router:Router) {
     this.id = activeRoute.snapshot.params["id"];
    }
 
@@ -78,5 +81,9 @@ user;
         this.toastr.error(err.description, "Failed")
       },
     );
+  }
+  onShare(userLink: string) {
+    this.chatService.shareLink(userLink);
+    this.router.navigateByUrl('/home/page/dialogs');
   }
 }
