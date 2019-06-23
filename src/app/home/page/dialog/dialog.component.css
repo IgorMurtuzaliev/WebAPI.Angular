@@ -2,10 +2,10 @@
     background-color: #4c81b7;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     width: 80%;
-    height: 90%;
     border-radius: 10px;
     margin: auto;
     padding-top: 60px;
+    padding-bottom: 10px;
 }
 .dialog{
     overflow: auto;
@@ -128,5 +128,29 @@ textarea{
 }
 .img-message{
     width: 100%;
+    margin-top:10px
+}
+
+audio{
+    width: 100%;
+    margin-top:10px
+}
+video{
+    width: 100%;
+    margin-top:10px
+}
+.col-sm-11{
+    padding: 0
+}
+.col-sm-1{
+    padding: 0
+}
+.btn-primary{
+    width: 95%;
+    height: 90%;
+    margin: auto;
+}
+.custom-dropzone{
+    height: 70px;
 }
 

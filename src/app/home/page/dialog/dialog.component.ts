@@ -22,9 +22,6 @@ images: File[] = [];
   message: string = '';
   messages: any[] = [];
   
-  // onSelected(event) {
-  //   this.image = event.target.files[0];
-  // }
   onFilesAdded(files:File[]) {
     files.forEach(file => {
       const reader = new FileReader(); 
@@ -68,9 +65,6 @@ images: File[] = [];
       .catch(err => { console.error(err); });
   }
 
-  // echo() {
-  //   this.hubConnection.invoke("SendFaraway", this.message, this.id);
-  // }
   echo() {
     var form = new MessageModel();
     form.receiverId = this.id;
@@ -83,6 +77,7 @@ images: File[] = [];
         console.log(err);
       },
     );
+    
   }
   onGetList(Id) {
     this.service.getDialog(Id).subscribe(
