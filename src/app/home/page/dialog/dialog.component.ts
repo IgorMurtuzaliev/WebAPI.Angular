@@ -5,6 +5,7 @@ import { ChatService } from '../../shared/chat.service';
 import { MessageInfo } from '../../shared/MessageInfo';
 import { MessageModel } from '../../shared/MessageModel';
 import { ToastrService } from 'ngx-toastr';
+import {Popup} from 'ng2-opd-popup';
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
@@ -13,7 +14,8 @@ import { ToastrService } from 'ngx-toastr';
 
 export class DialogComponent implements OnInit {
   private hubConnection: HubConnection;
-  constructor(private activeRoute: ActivatedRoute, private service: ChatService, private toastr: ToastrService, private router:Router) { this.id = activeRoute.snapshot.params["id"]; }
+  constructor(private activeRoute: ActivatedRoute, private service: ChatService, private toastr: ToastrService, 
+    private router:Router, private popup:Popup) { this.id = activeRoute.snapshot.params["id"]; }
   message: string = '';
   messages: any[] = [];
   images: File[] = [];
@@ -46,7 +48,9 @@ export class DialogComponent implements OnInit {
     this.onSendListener();
     this.onSendMyselfListener();
   }
-
+//  ShowFile(){
+//  this.popup.show();
+//  }
   echo() {
     var form = new MessageModel();
     form.receiverId = this.id;

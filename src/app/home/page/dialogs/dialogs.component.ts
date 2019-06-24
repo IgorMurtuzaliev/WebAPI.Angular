@@ -24,7 +24,7 @@ dialogs;
   onDelete(Id) {
     this.service.deleteDialog(Id).subscribe(
       res=>{  
-        this.toastr.success("You delete dialog!","Success");  
+        this.toastr.success("You deleted dialog!","Success");  
         this.ngOnInit();   
       },
       err=>{

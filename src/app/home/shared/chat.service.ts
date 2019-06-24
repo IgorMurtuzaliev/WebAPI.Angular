@@ -47,7 +47,7 @@ export class ChatService {
   }
   deleteDialog(dialogId){
     var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token') });
-    return this.http.get('https://localhost:44331/api/chat/delete/'+ dialogId, { headers: tokenHeader });
+    return this.http.get('https://localhost:44331/api/chat/deleteDialog/'+ dialogId, { headers: tokenHeader });
   }
   shareLink(link:string){
     this.linkSource.next(link);
