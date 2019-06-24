@@ -12,19 +12,19 @@
   <div class="dialog">
     <div class="messages-box">
       <div>
+        <div *ngIf = "dialog">
         <div *ngFor="let message of dialog?.messages">
           <div class="incoming_msg" *ngIf="message.senderId == dialog.friendId">
             <div class="incoming_msg_img"> <img src="https://localhost:44331//{{message?.userImage}}"> </div>
             <div class="received_msg">
-              <button type="button" class="btn btn-primary" (click)="onResend(message.id)">Share</button>
               <div class="received_withd_msg">
                 <div class="received_message">
                   <div *ngIf="!message?.resendUserFrom">
-                    <p>{{message?.messageText}}</p>
+                    <p class="dark-msg">{{message?.messageText}}</p>
                     <div class="user_shared" *ngIf="message.sharedUserId">
                       <div class="row">
                         <div class="col-sm-7">
-                          {{message.sharedUserName}}
+                          <p>{{message.sharedUserName}}</p>
                         </div>
                         <div class="col-sm-5">
                           <button class="btn btn-primary" [routerLink]="['/home/page/user', message.sharedUserId]">Go to
@@ -52,43 +52,31 @@
                   </div>
                   <div *ngIf="message?.resendUserFrom">
                     <div class="resend">
-                      <p>{{message?.resendUserFrom}}</p>
+                      <p class="dark-msg border-bottom">{{message?.resendUserFrom}}</p>
                       <div class="resend-body border-left">
-                          <p>{{message?.messageText}}</p>
-                          <div class="user_shared" *ngIf="message.sharedUserId">
-                            <div class="row">
-                              <div class="col-sm-7">
-                                {{message.sharedUserName}}
-                              </div>
-                              <div class="col-sm-5">
-                                <button class="btn btn-primary"
-                                  [routerLink]="['/home/page/user', message.sharedUserId]">Go to
-                                  profile</button>
-                              </div>
+                        <p class="dark-msg">{{message?.messageText}}</p>
+                        <ng-container *ngFor="let file of message.filePaths">
+                          <div [ngSwitch]="file.extension">
+                            <div *ngSwitchCase="'.jpg'">
+                              <img class="img-message" src="https://localhost:44331//{{file.filesPath}}">
+                            </div>
+                            <div *ngSwitchCase="'.mp3'">
+                              <audio controls>
+                                <source src="https://localhost:44331//{{file.filesPath}}" type="audio/mpeg">
+                              </audio>
+                            </div>
+                            <div *ngSwitchCase="'.mp4'">
+                              <video controls>
+                                <source src="https://localhost:44331//{{file.filesPath}}" type="audio/mpeg">
+                              </video>
                             </div>
                           </div>
-                          <ng-container *ngFor="let file of message.filePaths">
-                            <div [ngSwitch]="file.extension">
-                              <div *ngSwitchCase="'.jpg'">
-                                <img class="img-message" src="https://localhost:44331//{{file.filesPath}}">
-                              </div>
-                              <div *ngSwitchCase="'.mp3'">
-                                <audio controls>
-                                  <source src="https://localhost:44331//{{file.filesPath}}" type="audio/mpeg">
-                                </audio>
-                              </div>
-                              <div *ngSwitchCase="'.mp4'">
-                                <video controls>
-                                  <source src="https://localhost:44331//{{file.filesPath}}" type="audio/mpeg">
-                                </video>
-                              </div>
-                            </div>
-                          </ng-container>
+                        </ng-container>
                       </div>
                     </div>
                   </div>
                 </div>
-                <span class="time_date">User in {{message?.timeOfSending}}</span>
+                <span class="time_date">{{message.userName}} in {{message.timeOfSending}}  <i class="fa fa-share" (click)="onResend(message.id)"></i></span>
               </div>
             </div>
           </div>
@@ -96,11 +84,11 @@
             <div class="sent_msg">
               <div class="outgoing_message">
                 <div *ngIf="!message?.resendUserFrom">
-                  <p>{{message?.messageText}}</p>
+                  <p class="light-msg">{{message?.messageText}}</p>
                   <div class="user_shared" *ngIf="message.sharedUserId">
                     <div class="row">
                       <div class="col-sm-7">
-                        {{message.sharedUserName}}
+                        <p>{{message.sharedUserName}}</p>
                       </div>
                       <div class="col-sm-5">
                         <button class="btn btn-primary" [routerLink]="['/home/page/user', message.sharedUserId]">Go to
@@ -128,46 +116,38 @@
                 </div>
                 <div *ngIf="message?.resendUserFrom">
                   <div class="resend">
-                    <p>{{message?.resendUserFrom}}</p>
+                    <p class="dark-msg border-bottom">{{message.resendUserFrom}}</p>
                     <div class="resend-body border-left">
-                        <p>{{message?.messageText}}</p>
-                        <div class="user_shared" *ngIf="message.sharedUserId">
-                          <div class="row">
-                            <div class="col-sm-7">
-                              {{message.sharedUserName}}
-                            </div>
-                            <div class="col-sm-5">
-                              <button class="btn btn-primary"
-                                [routerLink]="['/home/page/user', message.sharedUserId]">Go to
-                                profile</button>
-                            </div>
+                      <p class="dark-msg">{{message?.messageText}}</p>
+                      <ng-container *ngFor="let file of message.filePaths">
+                        <div [ngSwitch]="file.extension">
+                          <div *ngSwitchCase="'.jpg'">
+                            <img class="img-message" src="https://localhost:44331//{{file.filesPath}}">
+                          </div>
+                          <div *ngSwitchCase="'.mp3'">
+                            <audio controls>
+                              <source src="https://localhost:44331//{{file.filesPath}}" type="audio/mpeg">
+                            </audio>
+                          </div>
+                          <div *ngSwitchCase="'.mp4'">
+                            <video controls>
+                              <source src="https://localhost:44331//{{file.filesPath}}" type="audio/mpeg">
+                            </video>
                           </div>
                         </div>
-                        <ng-container *ngFor="let file of message.filePaths">
-                          <div [ngSwitch]="file.extension">
-                            <div *ngSwitchCase="'.jpg'">
-                              <img class="img-message" src="https://localhost:44331//{{file.filesPath}}">
-                            </div>
-                            <div *ngSwitchCase="'.mp3'">
-                              <audio controls>
-                                <source src="https://localhost:44331//{{file.filesPath}}" type="audio/mpeg">
-                              </audio>
-                            </div>
-                            <div *ngSwitchCase="'.mp4'">
-                              <video controls>
-                                <source src="https://localhost:44331//{{file.filesPath}}" type="audio/mpeg">
-                              </video>
-                            </div>
-                          </div>
-                        </ng-container>
+                      </ng-container>
                     </div>
                   </div>
                 </div>
               </div>
-              <span class="time_date">You in {{message?.timeOfSending}}</span>
+              <span class="time_date">You in {{message?.timeOfSending}} <i class="fa fa-share" (click)="onResend(message.id)"></i></span>
             </div>
           </div>
         </div>
+      </div>
+      <div *ngIf = "!dialog">
+         <p>Write first message to start dialog!</p>
+      </div>
       </div>
       <hr>
       <div>
@@ -178,7 +158,7 @@
               <div class="received_withd_msg">
                 <div class="received_message">
                   <div *ngIf="!messageNow.mess?.resendUserFrom">
-                    <p>{{messageNow.mess?.messageText}}</p>
+                    <p class="dark-msg">{{messageNow.mess?.messageText}}</p>
                     <div class="user_shared" *ngIf="message.sharedUserId">
                       <div class="row">
                         <div class="col-sm-7">
@@ -211,43 +191,31 @@
                   </div>
                   <div *ngIf="messageNow.mess?.resendUserFrom">
                     <div class="resend">
-                      <p>{{message?.resendUserFrom}}</p>
+                      <p class="dark-msg border-bottom">{{messageNow.mess?.resendUserFrom}}</p>
                       <div class="resend-body border-left">
-                          <p>{{messageNow.mess?.messageText}}</p>
-                          <div class="user_shared" *ngIf="messageNow.mess.sharedUserId">
-                            <div class="row">
-                              <div class="col-sm-7">
-                                {{messageNow.mess.sharedUserName}}
-                              </div>
-                              <div class="col-sm-5">
-                                <button class="btn btn-primary"
-                                  [routerLink]="['/home/page/user', messageNow.mess.sharedUserId]">Go to
-                                  profile</button>
-                              </div>
+                        <p class="dark-msg">{{messageNow.mess?.messageText}}</p>
+                        <ng-container *ngFor="let file of messageNow.mess.filePaths">
+                          <div [ngSwitch]="file.extension">
+                            <div *ngSwitchCase="'.jpg'">
+                              <img class="img-message" src="https://localhost:44331//{{file.filesPath}}">
+                            </div>
+                            <div *ngSwitchCase="'.mp3'">
+                              <audio controls>
+                                <source src="https://localhost:44331//{{file.filesPath}}" type="audio/mpeg">
+                              </audio>
+                            </div>
+                            <div *ngSwitchCase="'.mp4'">
+                              <video controls>
+                                <source src="https://localhost:44331//{{file.filesPath}}" type="audio/mpeg">
+                              </video>
                             </div>
                           </div>
-                          <ng-container *ngFor="let file of messageNow.mess.filePaths">
-                            <div [ngSwitch]="file.extension">
-                              <div *ngSwitchCase="'.jpg'">
-                                <img class="img-message" src="https://localhost:44331//{{file.filesPath}}">
-                              </div>
-                              <div *ngSwitchCase="'.mp3'">
-                                <audio controls>
-                                  <source src="https://localhost:44331//{{file.filesPath}}" type="audio/mpeg">
-                                </audio>
-                              </div>
-                              <div *ngSwitchCase="'.mp4'">
-                                <video controls>
-                                  <source src="https://localhost:44331//{{file.filesPath}}" type="audio/mpeg">
-                                </video>
-                              </div>
-                            </div>
-                          </ng-container>
+                        </ng-container>
                       </div>
                     </div>
                   </div>
                 </div>
-                <span class="time_date">{{messageNow.mess.userName}} in {{messageNow.mess.timeOfSending}}</span>
+                <span class="time_date">{{messageNow.mess.userName}} in {{messageNow.mess.timeOfSending}}  <i class="fa fa-share" (click)="onResend(messageNow.mess.id)"></i></span>
               </div>
             </div>
           </div>
@@ -255,7 +223,7 @@
             <div class="sent_msg">
               <div class="outgoing_message">
                 <div *ngIf="!messageNow.mess?.resendUserFrom">
-                  <p>{{messageNow.mess?.messageText}}</p>
+                  <p class="light-msg">{{messageNow.mess?.messageText}}</p>
                   <div class="user_shared" *ngIf="message.sharedUserId">
                     <div class="row">
                       <div class="col-sm-7">
@@ -288,43 +256,31 @@
                 </div>
                 <div *ngIf="messageNow.mess?.resendUserFrom">
                   <div class="resend">
-                    <p>{{message?.resendUserFrom}}</p>
+                    <p class="dark-msg border-bottom"> {{messageNow.mess?.resendUserFrom}}</p>
                     <div class="resend-body border-left">
-                        <p>{{messageNow.mess?.messageText}}</p>
-                        <div class="user_shared" *ngIf="messageNow.mess.sharedUserId">
-                          <div class="row">
-                            <div class="col-sm-7">
-                              {{messageNow.mess.sharedUserName}}
-                            </div>
-                            <div class="col-sm-5">
-                              <button class="btn btn-primary"
-                                [routerLink]="['/home/page/user', messageNow.mess.sharedUserId]">Go to
-                                profile</button>
-                            </div>
+                      <p class="dark-msg">{{messageNow.mess?.messageText}}</p>
+                      <ng-container *ngFor="let file of messageNow.mess.filePaths">
+                        <div [ngSwitch]="file.extension">
+                          <div *ngSwitchCase="'.jpg'">
+                            <img class="img-message" src="https://localhost:44331//{{file.filesPath}}">
+                          </div>
+                          <div *ngSwitchCase="'.mp3'">
+                            <audio controls>
+                              <source src="https://localhost:44331//{{file.filesPath}}" type="audio/mpeg">
+                            </audio>
+                          </div>
+                          <div *ngSwitchCase="'.mp4'">
+                            <video controls>
+                              <source src="https://localhost:44331//{{file.filesPath}}" type="audio/mpeg">
+                            </video>
                           </div>
                         </div>
-                        <ng-container *ngFor="let file of messageNow.mess.filePaths">
-                          <div [ngSwitch]="file.extension">
-                            <div *ngSwitchCase="'.jpg'">
-                              <img class="img-message" src="https://localhost:44331//{{file.filesPath}}">
-                            </div>
-                            <div *ngSwitchCase="'.mp3'">
-                              <audio controls>
-                                <source src="https://localhost:44331//{{file.filesPath}}" type="audio/mpeg">
-                              </audio>
-                            </div>
-                            <div *ngSwitchCase="'.mp4'">
-                              <video controls>
-                                <source src="https://localhost:44331//{{file.filesPath}}" type="audio/mpeg">
-                              </video>
-                            </div>
-                          </div>
-                        </ng-container>
+                      </ng-container>
                     </div>
                   </div>
                 </div>
               </div>
-              <span class="time_date">You in {{messageNow.mess.timeOfSending}}</span>
+              <span class="time_date">You in {{messageNow.mess.timeOfSending}} <i class="fa fa-share" (click)="onResend(messageNow.mess.id)"></i></span>
             </div>
           </div>
         </div>
@@ -344,7 +300,7 @@
         <textarea name="message" [(ngModel)]="message" #textarea></textarea>
       </div>
       <div class="col col-sm-1">
-        <button class="btn btn-primary" (click)="echo()"><i class="fa fa-paper-plane fa-2x"
+        <button class="btn btn-primary btn-send" (click)="echo(); dropzone.reset()"><i class="fa fa-paper-plane fa-2x"
             aria-hidden="true"></i></button>
       </div>
     </div>

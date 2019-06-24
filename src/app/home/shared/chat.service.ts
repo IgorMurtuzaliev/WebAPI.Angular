@@ -39,7 +39,6 @@ export class ChatService {
     return this.http.post('https://localhost:44331/api/chat/shareUserLink', formData, { headers: tokenHeader });
   }
   resend(form:MessageModel){
-    debugger
     var formData = new FormData();
     formData.append('ReceiverId', form.receiverId);
     formData.append('MessageId', form.messId);

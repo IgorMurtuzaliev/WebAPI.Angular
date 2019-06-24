@@ -81,7 +81,8 @@ textarea{
 	font-size: 14px;
 	margin: 0;
 	padding: 5px 10px 5px 12px;
-	width: 100%;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.72);
 }
 .time_date {
 	color: #747474;
@@ -107,7 +108,8 @@ textarea{
 	margin: 0;
 	color: #fff;
 	padding: 5px 10px 5px 12px;
-	width: 100%;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.72);
 }
 
 .outgoing_msg {
@@ -134,9 +136,11 @@ video{
 }
 .btn-primary{
     width: 95%;
-    height: 90%;
     margin: auto;
     padding: 0
+}
+.btn-send{
+    height: 90%
 }
 .custom-dropzone{
     height: 70px;
@@ -152,15 +156,19 @@ h3{
     margin-left: 20px;
 }
 .user_shared{
-    background: #c5d9e2;
+    background: #e9f9fd;
     color: #1b1a18;
-    padding-top: 5px;
+    padding: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.72);
 }
 .blocked_under{
     color: #fff;
 }
 .resend{
-    background-color: #fff;
+    background-color: #e9f9fd;
+    padding: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.72);
+    margin: 5px;
 }
 .resend-body{
     margin-left: 15%;
@@ -170,5 +178,19 @@ h3{
 }
 .border-left{
     border-left: 2px solid #a5afb9!important
+}
+.border-bottom{
+    border-bottom: 1px solid #96999c!important;
+    color: #3f407b;
+    font-size: 1.1rem;
+}
+.light-msg{
+    color: #fff
+}
+.dark-msg{
+    color: #1b1a18
+}
+.col-sm-7,.col-sm-5{
+    margin: auto;
 }
 

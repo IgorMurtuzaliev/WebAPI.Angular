@@ -35,14 +35,13 @@
                   </div>
                   <div class="under">
                         <div class="row user_search_name">
-                              <div class="col-sm-8">
+                              <div class="col-sm-9">
                                     <a [routerLink]="['/home/page/user', user.id]" class="nav-link">
                                           <h5>{{user.name}} {{user.surname}}</h5>
                                     </a>
                               </div>
-                              <div class="col-sm-4">
-                                    <button type="button" class="btn btn-primary"
-                                          (click)="onShare(user.id)">Share</button>
+                              <div class="col-sm-3">
+                                    <i class="fa fa-share-alt fa-2x" (click)="onShare(user.id)"></i>
                               </div>
                         </div>
                         <span class="time_online" *ngIf="!user.isOnline">Was online {{user.lastTimeOnline}}</span>
