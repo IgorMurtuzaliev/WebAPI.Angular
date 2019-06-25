@@ -148,9 +148,7 @@
       <div *ngIf = "!dialog">
          <p>Write first message to start dialog!</p>
       </div>
-      <!-- <popup>
-        hhh
-      </popup> -->
+
       </div>
       <hr>
       <div>
@@ -162,7 +160,7 @@
                 <div class="received_message">
                   <div *ngIf="!messageNow.mess?.resendUserFrom">
                     <p class="dark-msg">{{messageNow.mess?.messageText}}</p>
-                    <div class="user_shared" *ngIf="message.sharedUserId">
+                    <div class="user_shared" *ngIf="messageNow.mess.sharedUserId">
                       <div class="row">
                         <div class="col-sm-7">
                           {{messageNow.mess.sharedUserName}}
@@ -227,7 +225,7 @@
               <div class="outgoing_message">
                 <div *ngIf="!messageNow.mess?.resendUserFrom">
                   <p class="light-msg">{{messageNow.mess?.messageText}}</p>
-                  <div class="user_shared" *ngIf="message.sharedUserId">
+                  <div class="user_shared" *ngIf="messageNow.mess.sharedUserId">
                     <div class="row">
                       <div class="col-sm-7">
                         {{messageNow.mess.sharedUserName}}
@@ -300,10 +298,10 @@
         <button class="btn btn-primary" (click)="resend()">Resend</button>
       </div>
       <div class="col col-sm-10">
-        <textarea name="message" [(ngModel)]="message" #textarea></textarea>
+        <textarea id='output' name="message" [(ngModel)]="message" #textarea></textarea>
       </div>
       <div class="col col-sm-1">
-        <button class="btn btn-primary btn-send" (click)="echo(); dropzone.reset()"><i class="fa fa-paper-plane fa-2x"
+        <button class="btn btn-primary btn-send" (click)="echo(); dropzone.reset(); inputReset()"><i class="fa fa-paper-plane fa-2x"
             aria-hidden="true"></i></button>
       </div>
     </div>

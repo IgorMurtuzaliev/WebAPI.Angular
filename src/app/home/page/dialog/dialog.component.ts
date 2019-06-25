@@ -24,6 +24,7 @@ export class DialogComponent implements OnInit {
   dropzone: any;
   token = localStorage.getItem("token");
   link: string;
+
   onFilesAdded(files: File[]) {
     files.forEach(file => {
       const reader = new FileReader();
@@ -34,7 +35,9 @@ export class DialogComponent implements OnInit {
     });
     this.images = files;
   }
-
+  inputReset(){
+    this.message = '';
+  }
   ngOnInit() {
     this.onGetList(this.id);
     this.service.currentLink.subscribe(link => this.link = link);
@@ -48,9 +51,7 @@ export class DialogComponent implements OnInit {
     this.onSendListener();
     this.onSendMyselfListener();
   }
-//  ShowFile(){
-//  this.popup.show();
-//  }
+
   echo() {
     var form = new MessageModel();
     form.receiverId = this.id;

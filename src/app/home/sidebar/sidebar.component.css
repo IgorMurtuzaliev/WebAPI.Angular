@@ -52,4 +52,10 @@ a:hover{
 .sidebar-header{
   justify-content: center;
 }
+.footer{
+  background-color: #2a2b2b99;
+  height: 120px;
+  margin-top: 530px;
+  color: #ffffff87;
+}
 

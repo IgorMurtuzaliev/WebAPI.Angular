@@ -9,30 +9,34 @@
         <div class="tab-pane fade show active" id="nav-contacts" role="tabpanel" aria-labelledby="nav-contacts-tab">
             <div *ngFor="let dialog of dialogs" class="example-item">
 
-                    <div class="row contact" [routerLink]="['/home/page/dialog/user?', dialog.friendId]">
-                        <div class="col-sm-2">
-                            <img *ngIf="dialog" src="https://localhost:44331//{{dialog?.friendImage}}">
-                        </div>
-                        <div class="col-sm-9">
-                            <h6><a [routerLink]="['/home/page/user', dialog.friendId]"
-                                    class="to-profile">{{dialog.friendName}}
-                                    {{dialog.friendSurname}}</a> </h6>
-                            <div class="row">
-                                <div class="col-sm-9">
-                                    <h6>{{dialog.lastMessage}} </h6>
-                                </div>
-                                <div class="col-sm-3">
-                                    <img class="last-sender" *ngIf="dialog"
-                                        src="https://localhost:44331//{{dialog?.lastMessageSenderImage}}">
+                <div class="row contact">
+                    <div class="col-sm-11" [routerLink]="['/home/page/dialog/user?', dialog.friendId]">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <img *ngIf="dialog" src="https://localhost:44331//{{dialog?.friendImage}}">
+                            </div>
+                            <div class="col-sm-9">
+                                <h5><a [routerLink]="['/home/page/user', dialog.friendId]"
+                                        class="to-profile">{{dialog.friendName}}
+                                        {{dialog.friendSurname}}</a> </h5>
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <h6>{{dialog.lastMessage}} </h6>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="last-sender" *ngIf="dialog"
+                                            src="https://localhost:44331//{{dialog?.lastMessageSenderImage}}">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-1">
-                                <button type="button" class="btn btn-danger" (click)="onDelete(dialog?.id)">
-                                        <i class="fa fa-ban"> </i>
-                                    </button>
-                        </div>
+
                     </div>
+
+                    <div class="col-sm-1">
+                        <i class="fa fa-times fa-2x" (click)="onDelete(dialog?.id)"> </i>
+                    </div>
+                </div>
 
 
             </div>
