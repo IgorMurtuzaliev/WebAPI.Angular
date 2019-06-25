@@ -290,22 +290,29 @@
   </div>
   <div class="message-input" *ngIf="dialog?.blockedClient">
     <h4 class="blocked_under text-center">User has restricted your access to his/her messages.</h4>
-  </div>
+  </div> 
+  
+     
   <div class="message-input" *ngIf="!dialog?.blockedClient">
+    
     <div class="wrap row">
       <div class="col col-sm-1">
         <button class="btn btn-primary" (click)="share()">Share</button>
         <button class="btn btn-primary" (click)="resend()">Resend</button>
       </div>
       <div class="col col-sm-10">
-        <textarea id='output' name="message" [(ngModel)]="message" #textarea></textarea>
+        <textarea id='output' name="message" [(ngModel)]="message" #textarea></textarea>   
       </div>
       <div class="col col-sm-1">
         <button class="btn btn-primary btn-send" (click)="echo(); dropzone.reset(); inputReset()"><i class="fa fa-paper-plane fa-2x"
             aria-hidden="true"></i></button>
+            <button class="btn-primary"(click)="onVisible()">qwqwfqwfqwfqwfq</button>
       </div>
     </div>
     <ngx-dropzone class="custom-dropzone" [showPreviews]="true" (filesAdded)="onFilesAdded($event)"
       (filesRejected)="onFilesRejected($event)" #dropzone></ngx-dropzone>
+     <div *ngIf = "visible">
+ <emoji-mart title="Pick your emoji…" emoji="point_up" set="emojione" (emojiClick)="addEmoji($event)" [style]="{ position: 'absolute', bottom: '170px', right: '20px' }" [i18n]="{ search: 'Recherche', categories: { search: 'Résultats de recherche', recent: 'Récents' } }"></emoji-mart>
+      </div>
   </div>
 </div>

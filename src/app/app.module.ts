@@ -30,7 +30,8 @@ import { PasswordChangeComponent } from './home/page/profile/password-change/pas
 import { DialogsComponent } from './home/page/dialogs/dialogs.component';
 import { DialogComponent } from './home/page/dialog/dialog.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
-import {PopupModule} from 'ng2-opd-popup'
+import { PickerModule } from '@ctrl/ngx-emoji-mart'
+
 
 @NgModule({
   declarations: [
@@ -66,7 +67,7 @@ import {PopupModule} from 'ng2-opd-popup'
     BrowserAnimationsModule,
     ScrollDispatchModule,
     NgxDropzoneModule,
-    PopupModule.forRoot()
+    PickerModule
   ],
   providers: [RegisterService, ContactsComponent, ShoosenContactComponent],
   bootstrap: [AppComponent],

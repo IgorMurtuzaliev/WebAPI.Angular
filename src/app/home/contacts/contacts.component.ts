@@ -3,7 +3,7 @@ import{ContactService} from '../shared/contact.service'
 import { ShoosenContactComponent } from './shoosen-contact/shoosen-contact.component';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
-import{Popup} from 'ng2-opd-popup'
+
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
@@ -11,7 +11,7 @@ import{Popup} from 'ng2-opd-popup'
 })
 export class ContactsComponent implements OnInit {
   contacts;
-  constructor(private service:ContactService, private s:ShoosenContactComponent,private toastr:ToastrService,private popup:Popup) { }
+  constructor(private service:ContactService, private s:ShoosenContactComponent,private toastr:ToastrService) { }
   _contact:any;
    private contact: any;
   ngOnInit() {
@@ -25,9 +25,7 @@ export class ContactsComponent implements OnInit {
       },
     );
   }
-  onPopupDelete(){
-  this.popup.show();
-  }
+
   onDelete(Id:string){
     this.service.deleteContact(Id).subscribe(
       res=>{ 

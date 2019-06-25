@@ -5,7 +5,7 @@ import { ChatService } from '../../shared/chat.service';
 import { MessageInfo } from '../../shared/MessageInfo';
 import { MessageModel } from '../../shared/MessageModel';
 import { ToastrService } from 'ngx-toastr';
-import {Popup} from 'ng2-opd-popup';
+
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
@@ -15,7 +15,7 @@ import {Popup} from 'ng2-opd-popup';
 export class DialogComponent implements OnInit {
   private hubConnection: HubConnection;
   constructor(private activeRoute: ActivatedRoute, private service: ChatService, private toastr: ToastrService, 
-    private router:Router, private popup:Popup) { this.id = activeRoute.snapshot.params["id"]; }
+    private router:Router) { this.id = activeRoute.snapshot.params["id"]; }
   message: string = '';
   messages: any[] = [];
   images: File[] = [];
@@ -24,7 +24,7 @@ export class DialogComponent implements OnInit {
   dropzone: any;
   token = localStorage.getItem("token");
   link: string;
-
+ visible = false;
   onFilesAdded(files: File[]) {
     files.forEach(file => {
       const reader = new FileReader();
@@ -51,7 +51,9 @@ export class DialogComponent implements OnInit {
     this.onSendListener();
     this.onSendMyselfListener();
   }
-
+onVisible(){
+this.visible =!this.visible;
+}
   echo() {
     var form = new MessageModel();
     form.receiverId = this.id;
@@ -110,7 +112,11 @@ export class DialogComponent implements OnInit {
       },
     );
   }
-
+  addEmoji(event) {
+    const { message } = this;
+    const text = `${message}${event.emoji.native}`;
+    this.message = text;
+  }
   onSendListener() {
     this.hubConnection.on("Send", (msg) => {
       var messageInfo = new MessageInfo();
