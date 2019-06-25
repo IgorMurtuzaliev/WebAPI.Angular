@@ -17,13 +17,19 @@ export class HeaderComponent implements OnInit {
   private search:SearchResultComponent
   ngOnInit() {
     this.service.getProfile().subscribe(
-      res => {
+      res => {  
         this.userDetails = res;
       },
       err => {
         console.log(err);
       },
     );
+    this.headerService.currentName.subscribe(res=> {
+      this.userDetails = res
+    })
+    this.headerService.currentImg.subscribe(res=> {
+      this.userDetails = res
+    })
   }
   onLogout(){
     this.headerService.disconnect().subscribe(

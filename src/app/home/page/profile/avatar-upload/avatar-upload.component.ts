@@ -11,8 +11,8 @@ import { HeaderService } from 'src/app/home/shared/header.service';
 })
 export class AvatarUploadComponent implements OnInit {
   FileToUpload: File = null;
-  constructor(private service: ProfileService, private router: Router, private profile: ProfileComponent, private toastr:ToastrService, private ds:HeaderService) { }
-
+  constructor(private service: ProfileService, private router: Router, private profile: ProfileComponent, private toastr:ToastrService, private header:HeaderService) { }
+  newImg:any;
   ngOnInit() {
   }
   onSelected(event) {
@@ -21,6 +21,8 @@ export class AvatarUploadComponent implements OnInit {
   onImage(Image) {
     this.service.upload(this.FileToUpload).subscribe(
       res => {
+        this.newImg = res;
+        this.header.getImgData(res)
         this.profile.ngOnInit();
         this.router.navigateByUrl('/home/page/profile');
         this.toastr.success("New image was uploaded", "Success")

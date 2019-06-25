@@ -17,8 +17,8 @@ export class EditContactComponent implements OnInit {
   onEdit(Id) {
     this.service.editContactName(Id).subscribe(
       res => {
-     this.contacts.ngOnInit();
-     this.router.navigateByUrl('/home/page/contacts')
+    this.router.navigateByUrl('/home/page/contacts')
+    this.contacts.ngOnInit();
      this.toastr.success("You changed contact name!","Success");
       },
       err => {

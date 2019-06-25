@@ -24,7 +24,7 @@ export class ContactService {
   }
   getContact(id: number): Observable<any> {
     var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token') });
-    return this.http.get('https://localhost:44331/api/contact/icontact/' + id, { headers: tokenHeader });
+    return this.http.get('https://localhost:44331/api/contact/contact/' + id, { headers: tokenHeader });
   }
   deleteContact(id): Observable<any> {
     var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token') });

@@ -30,7 +30,8 @@ import { PasswordChangeComponent } from './home/page/profile/password-change/pas
 import { DialogsComponent } from './home/page/dialogs/dialogs.component';
 import { DialogComponent } from './home/page/dialog/dialog.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
-import { PickerModule } from '@ctrl/ngx-emoji-mart'
+import { PickerModule } from '@ctrl/ngx-emoji-mart';
+import { MainComponent } from './main/main.component'
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { PickerModule } from '@ctrl/ngx-emoji-mart'
     EditContactComponent,
     PasswordChangeComponent,
     DialogsComponent,
-    DialogComponent
+    DialogComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

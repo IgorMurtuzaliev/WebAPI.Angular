@@ -14,12 +14,12 @@ export class PasswordChangeComponent implements OnInit {
   ngOnInit() {
   }
   onSubmit() {
+    debugger
     this.service.editPassword().subscribe(
       (res: any) => {
         this.ngOnInit();
         this.router.navigateByUrl('/home/page/profile');
-        this.toastr.success("Password was edited", "Success")
-        console.log("wef");
+        this.toastr.success("Password was edited", "Success");
       },
       err => {
         console.log(err);

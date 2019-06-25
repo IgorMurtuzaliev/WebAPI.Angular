@@ -55,6 +55,6 @@
       </div>
     </div>
   </div>
-  <app-shoosen-contact *ngIf="contact" [contact]="contact"></app-shoosen-contact>
+  <app-shoosen-contact *ngIf="contact && !contact.blocked" [contact]="contact"></app-shoosen-contact>
 </div>
 <!-- <popup (confirmClick)="onDelete(contact?.id)">Are you sure you want to delete this contact?</popup> -->

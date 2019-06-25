@@ -23,6 +23,7 @@ export class ShoosenContactComponent implements OnInit {
       res=>{         
         this.toastr.success("Contact was deleted succesfully", "Deleting")
         this.contacts.ngOnInit();
+        this.ngOnInit();
       },
       err=>{
         console.log(err);
