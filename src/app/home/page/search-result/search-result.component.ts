@@ -71,8 +71,7 @@ export class SearchResultComponent implements OnInit {
   onAdd(Id) {
     this.contactsService.addToContacts(Id).subscribe(
       res => {
-        console.log(res);
-        this.contactsService.getContactsData(res)
+        this.contactsService.getContactsData(res);
         this.ngOnInit();
         this.toastr.success("User added to your contacts successfully", "Success");
       },
