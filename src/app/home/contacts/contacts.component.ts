@@ -29,6 +29,11 @@ export class ContactsComponent implements OnInit {
       console.log(res)
       this.contacts.push(res);
     })
+    this.service.currentContactsD.subscribe(res=> {
+      console.log(this.contacts)
+      console.log(res)
+      this.contacts.pop();
+    })
   }
 
   onDelete(Id:string){

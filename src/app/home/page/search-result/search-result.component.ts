@@ -85,6 +85,7 @@ export class SearchResultComponent implements OnInit {
   onDelete(Id: string) {
     this.contactsService.deleteContact(Id).subscribe(
       res => {
+        this.contactsService.getContactsDataForDeleting(res);
         this.ngOnInit();
         this.toastr.success("Contact was deleted succesfully", "Deleting")
       },

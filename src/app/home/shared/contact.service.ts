@@ -9,6 +9,8 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 export class ContactService {
   private contactsSource = new Subject<any>();
   currentContacts = this.contactsSource.asObservable();
+  private contactsSourceD = new Subject<any>();
+  currentContactsD = this.contactsSourceD.asObservable();
   constructor(private http: HttpClient, private fb: FormBuilder, ) { }
 
   formModel = this.fb.group({
@@ -44,6 +46,10 @@ export class ContactService {
     return this.http.put('https://localhost:44331/api/contact/'+id, body,{headers : tokenHeader});
   }
   getContactsData(data):any{
+    console.log(data)
+      this.contactsSource.next(data)
+  }
+  getContactsDataForDeleting(data):any{
     console.log(data)
       this.contactsSource.next(data)
   }
