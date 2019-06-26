@@ -5,6 +5,7 @@ import { ChatService } from '../../shared/chat.service';
 import { MessageInfo } from '../../shared/MessageInfo';
 import { MessageModel } from '../../shared/MessageModel';
 import { ToastrService } from 'ngx-toastr';
+import { HomeComponent } from '../../home.component';
 
 @Component({
   selector: 'app-dialog',
@@ -15,7 +16,7 @@ import { ToastrService } from 'ngx-toastr';
 export class DialogComponent implements OnInit {
   private hubConnection: HubConnection;
   constructor(private activeRoute: ActivatedRoute, private service: ChatService, private toastr: ToastrService, 
-    private router:Router) { this.id = activeRoute.snapshot.params["id"]; }
+    private router:Router, private home: HomeComponent) { this.id = activeRoute.snapshot.params["id"]; }
   message: string = '';
   messages: any[] = [];
   images: File[] = [];

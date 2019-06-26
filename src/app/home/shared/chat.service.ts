@@ -20,6 +20,7 @@ export class ChatService {
     var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token') });
     return this.http.get('https://localhost:44331/api/chat/dialog/'+Id, { headers: tokenHeader });
   }
+  
   sendMessage(form:MessageModel){
     var formData = new FormData();
     formData.append('Text', form.text);

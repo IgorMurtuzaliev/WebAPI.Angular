@@ -32,7 +32,7 @@ import { DialogComponent } from './home/page/dialog/dialog.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
 import { MainComponent } from './main/main.component'
-
+import {PopupModule} from 'ng2-opd-popup'
 
 @NgModule({
   declarations: [
@@ -69,7 +69,8 @@ import { MainComponent } from './main/main.component'
     BrowserAnimationsModule,
     ScrollDispatchModule,
     NgxDropzoneModule,
-    PickerModule
+    PickerModule,
+    PopupModule.forRoot()
   ],
   providers: [RegisterService, ContactsComponent, ShoosenContactComponent],
   bootstrap: [AppComponent],

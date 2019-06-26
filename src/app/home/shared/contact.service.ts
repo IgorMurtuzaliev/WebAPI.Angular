@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from "@angular/common/http";
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 @Injectable({
   providedIn: 'root'
 })
 export class ContactService {
-
+  private contactsSource = new Subject<any>();
+  currentContacts = this.contactsSource.asObservable();
   constructor(private http: HttpClient, private fb: FormBuilder, ) { }
 
   formModel = this.fb.group({
@@ -42,5 +43,8 @@ export class ContactService {
     };
     return this.http.put('https://localhost:44331/api/contact/'+id, body,{headers : tokenHeader});
   }
-
+  getContactsData(data):any{
+    console.log(data)
+      this.contactsSource.next(data)
+  }
 }

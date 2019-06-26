@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./contacts.component.css']
 })
 export class ContactsComponent implements OnInit {
-  contacts;
+  contacts:any[];
   constructor(private service:ContactService, private s:ShoosenContactComponent,private toastr:ToastrService) { }
   _contact:any;
    private contact: any;
@@ -24,6 +24,9 @@ export class ContactsComponent implements OnInit {
         console.log(err);
       },
     );
+    this.service.currentContacts.subscribe(res=> {
+      this.contacts.push(res);
+    })
   }
 
   onDelete(Id:string){

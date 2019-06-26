@@ -73,6 +73,52 @@
                             <hr />
                         </div>
                         <div class="tab-pane fade" id="edit" role="tabpanel" aria-labelledby="edit-tab">
+                            <popup (confirmClick)="onChangePassword()">
+                                <form [formGroup]="service.formModelPassword" autocomplete="off" (submit)="onSubmit()">
+                                    <div class="form-group required">
+                                        <label>Current password</label>
+                                        <input type="password" class="form-control" formControlName="CurrentPassword"
+                                            autocomplete="off">
+                                        <label class="text-danger"
+                                            *ngIf="service.formModelPassword.get('CurrentPassword').touched && service.formModelPassword.get('CurrentPassword').errors?.required">The
+                                            field is empty</label>
+                                    </div>
+                                    <div formGroupName="Passwords">
+                                        <div class="form-group required">
+                                            <label>Password</label>
+                                            <input type="password" class="form-control" formControlName="NewPassword"
+                                                autocomplete="off">
+                                            <label class="text-danger"
+                                                *ngIf="service.formModelPassword.get('Passwords.NewPassword').touched && service.formModelPassword.get('Passwords.NewPassword').errors?.required">The
+                                                field is empty</label>
+                                            <label class="text-danger"
+                                                *ngIf="service.formModelPassword.get('Passwords.NewPassword').touched && service.formModelPassword.get('Passwords.NewPassword').errors?.minlength">Too
+                                                little password</label>
+                                        </div>
+                                        <div class="form-group required">
+                                            <label>Confirm password</label>
+                                            <input type="password" class="form-control"
+                                                formControlName="NewPasswordConfirm" autocomplete="off">
+                                            <label class="text-danger"
+                                                *ngIf="service.formModelPassword.get('Passwords.NewPasswordConfirm').touched && service.formModelPassword.get('Passwords.NewPasswordConfirm').errors?.required">The
+                                                field is empty</label>
+                                            <label class="text-danger"
+                                                *ngIf="service.formModelPassword.get('Passwords.NewPasswordConfirm').touched && service.formModelPassword.get('Passwords.NewPasswordConfirm').errors?.passwordMismatch">Input
+                                                the same password</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-8 offset-md-2">
+                                            <button type="submit" class="btn btn-primary btn-lg btn-popup" [disabled]="!service.formModelPassword.valid">
+                                          Confirm
+                                        </button>
+                                        <button type="button" class="btn btn-primary btn-lg btn-popup" (click) ="omClosePopup()">
+                                            Back
+                                          </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </popup>
                             <div class="container" style="max-width: 100%;">
                                 <form class="form-horizontal" role="form" [formGroup]="service.formModel"
                                     autocomplete="off" (submit)="onSubmit()">
@@ -81,7 +127,9 @@
                                         <div class="col-sm-10">
                                             <input class="form-control" formControlName="Name"
                                                 value="{{userDetails?.name}}">
-                                                <label class="text-danger" *ngIf="service.formModel.get('Name').touched && service.formModel.get('Name').errors?.required">Input new name</label>
+                                            <label class="text-danger"
+                                                *ngIf="service.formModel.get('Name').touched && service.formModel.get('Name').errors?.required">Input
+                                                new name</label>
                                         </div>
                                     </div>
                                     <div class="form-group row required">
@@ -89,18 +137,23 @@
                                         <div class="col-sm-10">
                                             <input class="form-control" formControlName="Surname"
                                                 value="{{userDetails?.surname}}">
-                                                <label class="text-danger" *ngIf="service.formModel.get('Surname').touched && service.formModel.get('Surname').errors?.required">Input new surname</label> 
+                                            <label class="text-danger"
+                                                *ngIf="service.formModel.get('Surname').touched && service.formModel.get('Surname').errors?.required">Input
+                                                new surname</label>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary" [disabled]="!service.formModel.valid">
+                                        <button type="submit" class="btn btn-primary"
+                                            [disabled]="!service.formModel.valid">
                                             Save
                                         </button>
                                     </div>
-                                    
+
                                 </form>
-                                <button [routerLink]="['/home/page/profile/passwordChange']" class="btn btn-primary" style="margin: 0">
-                                        Edit password</button>
+                                <!-- <button [routerLink]="['/home/page/profile/passwordChange']" class="btn btn-primary" style="margin: 0">
+                                        Edit password</button> -->
+                                <button (click)="onChangePaswordForm()" class="btn btn-primary" style="margin: 0">
+                                    Edit password</button>
                             </div>
                         </div>
                     </div>
